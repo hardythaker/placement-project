@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PlacementCell
 {
-    public partial class placement : System.Web.UI.Page
+    public partial class admin : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
