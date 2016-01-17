@@ -10,7 +10,7 @@
 namespace PlacementCell {
     
     
-    public partial class admin {
+    public partial class adminReg {
         
         /// <summary>
         /// adminloginform control.
@@ -22,13 +22,13 @@ namespace PlacementCell {
         protected global::System.Web.UI.HtmlControls.HtmlForm adminloginform;
         
         /// <summary>
-        /// adminusername control.
+        /// adminRegUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox adminusername;
+        protected global::System.Web.UI.WebControls.TextBox adminRegUsername;
         
         /// <summary>
         /// adminusername_tb_validator control.
@@ -40,13 +40,13 @@ namespace PlacementCell {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator adminusername_tb_validator;
         
         /// <summary>
-        /// adminpassword control.
+        /// adminRegPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox adminpassword;
+        protected global::System.Web.UI.WebControls.TextBox adminRegPassword;
         
         /// <summary>
         /// adminpassword_tb_validator control.
@@ -58,13 +58,13 @@ namespace PlacementCell {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator adminpassword_tb_validator;
         
         /// <summary>
-        /// btnAdminLogin control.
+        /// btnAdminReg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdminLogin;
+        protected global::System.Web.UI.WebControls.Button btnAdminReg;
         
         /// <summary>
         /// Label1 control.
