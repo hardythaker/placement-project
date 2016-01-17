@@ -40,6 +40,15 @@ namespace PlacementCell {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator adminusername_tb_validator;
         
         /// <summary>
+        /// adminusername_tb_regex_validator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator adminusername_tb_regex_validator;
+        
+        /// <summary>
         /// adminRegPassword control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace PlacementCell {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator adminpassword_tb_validator;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// btnAdminReg control.
