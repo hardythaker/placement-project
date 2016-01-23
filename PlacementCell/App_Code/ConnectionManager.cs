@@ -11,7 +11,7 @@ namespace PlacementCell
             {
                 try {
                     dbcon.Open();
-                }catch(Exception ex){
+                }catch(Exception){
                     throw;
                 }
                 return dbcon;

@@ -7,20 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace PlacementCell
 {
-    public partial class home : System.Web.UI.Page
+    public partial class student : System.Web.UI.MasterPage
     {
-        protected override void OnPreInit(EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["student_username"] != null)
             {
-                this.MasterPageFile = "student.Master";
+                Label1.Text = Session["student_username"].ToString();
+            }
+            else {
+                Response.Redirect("studentLogin.aspx");
             }
         }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }

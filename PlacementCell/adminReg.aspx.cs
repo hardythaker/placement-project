@@ -16,7 +16,7 @@ namespace PlacementCell
 
         protected void btnAdminReg_Click(object sender, EventArgs e)
         {
-            if (Register.registerMember(adminRegUsername.Text, adminRegUsername.Text))
+            if (Register.registerMember(adminRegUsername.Text, adminRegPassword.Text))
             {
                 ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Succesfully Registered...!\\n Click Ok to Login');window.location.replace('admin.aspx');</script>");
             }

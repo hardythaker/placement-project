@@ -33,27 +33,26 @@ namespace PlacementCell
         }
         public static bool isMemberExits(string un,string encPass)
         {
-            DataSet dSet = new DataSet();
+            //DataSet dSet = new DataSet();
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
             {
                 try
                 {
                     MySqlCommand command = new MySqlCommand("sp_isMemberExits", connection);
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add("@un", MySqlDbType.VarChar).Value = un;
+                    command.Parameters.Add("@u", MySqlDbType.VarChar).Value = un;
                     command.Parameters.Add("@p", MySqlDbType.VarChar).Value = encPass;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     adapter.SelectCommand = command;
                     //connection.Close();
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
-                    if (dt.Rows.Count == 1)
+                    if (dt.Rows.Count > 0)
                     {
                         return true;
                     }
-                    else {
-                        return false;
-                    }
+                    else return false;
+                    
                 }
                 catch (Exception)
                 {

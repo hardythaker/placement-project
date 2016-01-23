@@ -16,22 +16,20 @@ namespace PlacementCell
 
         protected void btnAdminLogin_Click(object sender, EventArgs e)
         {
-            string hashval = HashGenerator.getHash(adminusername.Text,adminpassword.Text);
+            string hashval = HashGenerator.getHash(adminusername.Text, adminpassword.Text);
 
-            if (DataAccessLayer.isMemberExits(adminusername.Text, hashval) == true)
+            if (DataAccessLayer.isMemberExits(adminusername.Text, hashval))
             {
 
                 Session["username"] = adminusername.Text;
                 Response.Redirect("adminHome.aspx");
-                //Label1.Text = "Successfull";
-
-
             }
             else
             {
-                Label1.Text = "Wrong user id or Password";
-                Label1.Text = " Not A member ? Click <a href=MemberReg.aspx>Here</a> To Register ";
+
+                Label1.Text = "Wrong user id or Password <br/> Not A member ? Click <a href=MemberReg.aspx>Here</a> To Register ";
             }
+            //Label1.Text = hashval;
         }
     }
 }

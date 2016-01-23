@@ -16,7 +16,7 @@
                 </div>
                 <div class="mdl-card__supporting-text">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                        <asp:TextBox class="mdl-textfield__input" type="text" ID="adminRegUsername" runat="server" TextMode="Email" />
+                        <asp:TextBox class="mdl-textfield__input" type="text" ID="adminRegUsername" runat="server" TextMode="Email"/>
                         <label class="mdl-textfield__label" for="adminRegUsername"><b>Enter SVV mail ID...</b></label>
                     </div>
                     <asp:RequiredFieldValidator ID="adminusername_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="adminRegUsername" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -36,6 +36,5 @@
             </div>
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         </form>
-
     </div>
 </asp:Content>

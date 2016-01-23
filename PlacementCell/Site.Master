@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PlacementCell.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="False" CodeBehind="Site.master.cs" Inherits="PlacementCell.Site" ViewStateMode="Enabled" %>
 
 <!DOCTYPE html>
 
@@ -7,11 +7,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="scripts/jquery-2.2.0.min.js"></script>'>
 
     <%-- For Drop Down Login Form --%>
 
-    <script type="text/javascript">
+ <%--   <script type="text/javascript">
         $(function () {
             var button = $('#loginButton');
             var box = $('#loginBox');
@@ -19,6 +19,7 @@
             button.removeAttr('href');
             button.mouseup(function (login) {
                 box.toggle();
+                login.stopPropagation();
                 button.toggleClass('active');
             });
             form.mouseup(function () {
@@ -31,8 +32,7 @@
                 }
             });
         });
-    </script>
-    <%--  --%>
+    </script>--%>
 
     <title>TPC SKS</title>
 
@@ -45,11 +45,11 @@
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
+
     </asp:ContentPlaceHolder>
 
 </head>
 <body>
-<%-- Fixed Header --%>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--cyan  mdl-shadow--4dp">
             <div class="mdl-layout__header-row">
@@ -64,39 +64,40 @@
                     </div>
                 </div>
                 &nbsp;
-<%-- Dropdown Login Form Starts here --%>
-                <div id="loginContainer">
+<%-- Dropdown Login Form Starts here --%>     
+                <%--<div id="loginContainer">
                     <button id="loginButton" class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="material-icons" style="font-size: 30px">account_circle</i>
+                        <span class="material-icons" style="font-size: 30px">account_circle</span>
                     </button>
                     <div style="clear: both"></div>
+                    
                     <div id="loginBox">
-                        <form id="loginForm" action="#" method="post">
                             <div class="mdl-card mdl-shadow--6dp">
                                 <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
                                     <h2 class="mdl-card__title-text">Student Login</h2>
                                 </div>
                                 <div class="mdl-card__supporting-text">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                                        <input class="mdl-textfield__input" type="text" id="username" />
+                                        <asp:TextBox class="mdl-textfield__input" type="text" id="adminusername" runat="server" TextMode="Email"/>
                                         <label class="mdl-textfield__label" for="sample3"><b>Email..</b></label>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                                        <input class="mdl-textfield__input" type="password" id="password" />
+                                        <asp:TextBox class="mdl-textfield__input" type="text" id="adminpassword" runat="server" TextMode="Password" />
                                         <label class="mdl-textfield__label" for="sample3"><b>Password..</b></label>
                                     </div>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
-                                    <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-color--primary">Login
-                                    </a>
+                                     
+                                    
+                                    <Button Class="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnAdminLogin" OnClick="btnAdminLogin_Click">Login</Button>
                                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Signup
                                     </a>
                                 </div>
+                                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                                 <span>&nbsp;&nbsp;&nbsp;<a href="#" class="mdl-color-text--cyan" style="font-size: 14px">Forgot your password?</a></span>
                             </div>
-                        </form>
-                    </div>
-                </div>
+                    </div>       
+                </div>--%>        
 <%-- Dropdown Login Form End here --%>
             </div>
         </header>
@@ -106,11 +107,11 @@
             <span class="mdl-layout-title">Hi..</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Student Detail Form</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Notices</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="studentLogin.aspx">Student Login</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Contact</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">About</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
             </nav>
         </div>
 <%-- Side Drawer Ends Here --%>

@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="student.master.cs" Inherits="PlacementCell.student" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
+    <script src="scripts/jquery-2.2.0.min.js"></script>
+    <link rel="shortcut icon" href="images/favicon.png">
+    <script src="style/material.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="style/StyleSheet.css" rel="stylesheet" />
+    <link href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.cyan-pink.min.css" rel="stylesheet" />
+    <title>Placement Cell</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--cyan  mdl-shadow--4dp">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Placement Cell</span>
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                        <i class="material-icons" style="margin-top: 4.5px; font-size: 30px">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" placeholder="I can Help You...">
+                    </div>
+                </div>
+                &nbsp;
+                <button class="android-more-button mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+                    <i class="material-icons">account_circle</i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+                    <li class="mdl-menu__item">coming soon</li>
+                    <li class="mdl-menu__item"><a href="logout.aspx"><u>LogOut</u></a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer  mdl-color--cyan mdl-color-text--grey-100">
+            <span class="mdl-layout-title">Hi <asp:Label ID="Label1" runat="server" Text=""></asp:Label></span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Student Detail Form</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">My Profile</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Notices</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Contact</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">About</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content">
+            <center>
+              <div class="page-content" style="width:60%; border:2px;">
+                   <asp:ContentPlaceHolder ID="main_content" runat="server">
+                    </asp:ContentPlaceHolder>
+              </div>
+             </center>
+        </main>
+    </div>
+</body>
+</html>
