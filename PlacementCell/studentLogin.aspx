@@ -7,7 +7,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
-    <div class="mdl-card mdl-shadow--6dp" style="margin-top: auto ; width:auto;">
+    <div class="mdl-card mdl-shadow--6dp" style="margin-top:15% ; width:auto;">
        <form id="studentLoginForm" method="post" runat="server">
             <div class="mdl-card mdl-shadow--6dp" style="width:100%">
                 <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
@@ -16,7 +16,7 @@
                 <div class="mdl-card__supporting-text">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">     
                         <asp:TextBox class="mdl-textfield__input" type="text" id="username" runat="server" TextMode="Email"/>
-                        <label class="mdl-textfield__label" for="username"><b>Enter Your Svv ID..</b></label>
+                        <label class="mdl-textfield__label" for="username"><b>Enter Your Svv Mail ID..</b></label>
                     </div>
                     <asp:RequiredFieldValidator ID="username_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="username" Display="Dynamic"></asp:RequiredFieldValidator>
                     <br />

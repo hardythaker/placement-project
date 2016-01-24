@@ -21,8 +21,8 @@ namespace PlacementCell
                     command.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     adapter.SelectCommand = command;
-                    connection.Close();
                     adapter.Fill(dSet);
+                    connection.Close();
                 }
                 catch (Exception)
                 {
@@ -44,9 +44,9 @@ namespace PlacementCell
                     command.Parameters.Add("@p", MySqlDbType.VarChar).Value = encPass;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     adapter.SelectCommand = command;
-                    //connection.Close();
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
+                    connection.Close();
                     if (dt.Rows.Count > 0)
                     {
                         return true;
@@ -90,6 +90,84 @@ namespace PlacementCell
                 {
                     connection.Close();
                     return false;
+                }
+            }
+        }
+
+        public static bool isStudentRegSuccessful(string fname, string lname, string stream, string gender, string email, string hashval)
+        {
+            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+            {
+                try
+                {
+                    MySqlCommand command = new MySqlCommand("sp_regStudents", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@f", MySqlDbType.VarChar).Value = fname;
+                    command.Parameters.Add("@l", MySqlDbType.VarChar).Value = lname;
+                    command.Parameters.Add("@s", MySqlDbType.VarChar).Value = stream;
+                    command.Parameters.Add("@g", MySqlDbType.Text).Value = gender;
+                    command.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
+                    command.Parameters.Add("@p", MySqlDbType.VarChar).Value = hashval;
+                    int affectedrows = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (affectedrows == 1)
+                    {
+                        return true;
+                    }
+                    else return false;
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    return false;
+                }
+            }
+        }
+
+        public static bool isStudentExits(string email, string hashval)
+        {
+            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+            {
+                try
+                {
+                    MySqlCommand command = new MySqlCommand("sp_isStudentExits", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
+                    command.Parameters.Add("@p", MySqlDbType.VarChar).Value = hashval;
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+                    adapter.SelectCommand = command;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    connection.Close();
+                    if (dt.Rows.Count > 0)
+                    {
+                        return true;
+                    }
+                    else return false;
+
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    return false;
+                }
+
+            }
+        }
+
+        public static string fetchFname(string email) {
+            using (MySqlConnection con = ConnectionManager.GetDatabaseConnection()) {
+                using (MySqlCommand cmd = new MySqlCommand("sp_fetchFname", con)) {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+                    string fname = reader.GetString("fname");
+                    //MySqlDataAdapter adapter = new MySqlDataAdapter();
+                    //adapter.SelectCommand = cmd;
+                    //string fname;
+                    //adapter.Fill(fname);
+                    return fname;
                 }
             }
         }

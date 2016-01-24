@@ -104,14 +104,14 @@
 <%-- Fixed Header Ends --%>
 <%-- Side Drawer Starts Here --%>
         <div class="mdl-layout__drawer  mdl-color--cyan mdl-color-text--grey-100">
-            <span class="mdl-layout-title">Hi..</span>
+            <span class="mdl-layout-title">Welcome</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Notices</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Notices</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="studentLogin.aspx">Student Login</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Contact</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">About</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Contact</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">About</a>
             </nav>
         </div>
 <%-- Side Drawer Ends Here --%>

@@ -11,12 +11,15 @@ namespace PlacementCell
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //this is for if a student is already logged in or session is created then he should not get the login page
+            if (Session["student_username"] != null) {
+                Response.Redirect("studentHome.aspx");
+            }
         }
         protected void btnStudentLogin_Click(object sender, EventArgs e)
         {
             string hashval = HashGenerator.getHash(username.Text, password.Text);
-            if (DataAccessLayer.isMemberExits(username.Text, hashval))
+            if (DataAccessLayer.isStudentExits(username.Text, hashval))
             {
                 Session["student_username"] = username.Text;
                 Response.Redirect("studentHome.aspx");

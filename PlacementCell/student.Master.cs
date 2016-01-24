@@ -13,7 +13,8 @@ namespace PlacementCell
         {
             if (Session["student_username"] != null)
             {
-                Label1.Text = Session["student_username"].ToString();
+                string email = Session["student_username"].ToString();
+                Label1.Text = DataAccessLayer.fetchFname(email).ToUpper();//Session["student_username"].ToString();
             }
             else {
                 Response.Redirect("studentLogin.aspx");
