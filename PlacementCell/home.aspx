@@ -3,12 +3,20 @@
     <style>
        body {
            height:100%;
+           margin:0;
        }
+       iframe {
+    display: block;       /* iframes are inline by default */
+    background: #000;
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
+    width: 100vw;
+}
    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <h3> <img src="images/somaiya_logo.jpg" /> S K Somaiya Degree College Of Arts, Science And Commerce </h3>
-    <asp:Panel ID="Panel1" runat="server" Height="100%">
-        <iframe style="" src="newpages/Untitleddocument.html" draggable="false" height="1000px"></iframe>
-    </asp:Panel>
+
+        <iframe style="" src="newpages/Untitleddocument.html" draggable="false"></iframe>
+    <br /><br /><br />
 </asp:Content>
