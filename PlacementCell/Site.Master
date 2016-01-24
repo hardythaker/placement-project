@@ -52,7 +52,7 @@
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--cyan  mdl-shadow--4dp">
-            <div class="mdl-layout__header-row">
+            <div class="mdl-layout__header-row">  
                 <span class="mdl-layout-title">Placement Cell</span>
                 <div class="mdl-layout-spacer"></div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
@@ -116,12 +116,12 @@
         </div>
 <%-- Side Drawer Ends Here --%>
         <main class="mdl-layout__content">
-            <center>
-              <div class="page-content" style="width:60%; border:2px">
+            
+              <div class="page-content" style="width:100%; text-align:center; border:2px">
                    <asp:ContentPlaceHolder ID="main_content" runat="server">
                     </asp:ContentPlaceHolder>
               </div>
-             </center>
+             
         </main>
     </div>
 </body>

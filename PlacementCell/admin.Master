@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="student.master.cs" Inherits="PlacementCell.student" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="PlacementCell.admin1" %>
 
 <!DOCTYPE html>
 
@@ -43,25 +43,25 @@
             </div>
         </header>
         <div class="mdl-layout__drawer  mdl-color--cyan mdl-color-text--grey-100">
-            <span class="mdl-layout-title">Hi <asp:Label ID="Label1" runat="server" Text=""></asp:Label></span>
+            <span class="mdl-layout-title">Welcome Admin</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Student Detail Form</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">My Profile</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="addNewPage.aspx">Add new Page</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Student Data</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Notices</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Contact</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">About</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Change Password</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href=""></a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx"></a>
             </nav>
         </div>
 
         <main class="mdl-layout__content">
-            <center>
-              <div class="page-content" style="width:60%; border:2px;">
+            
+              <div class="page-content" style="width:100%; text-align:center;">
                    <asp:ContentPlaceHolder ID="main_content" runat="server">
-                    </asp:ContentPlaceHolder>
+                   </asp:ContentPlaceHolder>
               </div>
-             </center>
+             
         </main>
     </div>
 </body>

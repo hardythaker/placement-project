@@ -21,7 +21,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
-    <div class="mdl-card mdl-shadow--6dp" style="margin-top: 15%; width: auto;">
+    <div class="mdl-card mdl-shadow--6dp" style="width: auto;">
         <form id="adminloginform" method="post" runat="server">
             <div class="mdl-card mdl-shadow--6dp" style="width: 100%">
                 <div class="mdl-card__title mdl-color--primary mdl-color-text--white">

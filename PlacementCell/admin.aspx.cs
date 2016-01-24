@@ -21,7 +21,7 @@ namespace PlacementCell
             if (DataAccessLayer.isMemberExits(adminusername.Text, hashval))
             {
 
-                Session["username"] = adminusername.Text;
+                Session["admin_username"] = adminusername.Text;
                 Response.Redirect("adminHome.aspx");
             }
             else

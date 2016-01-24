@@ -15,6 +15,10 @@ namespace PlacementCell
             {
                 this.MasterPageFile = "student.Master";
             }
+            if (Session["admin_username"] != null)
+            {
+                this.MasterPageFile = "admin.Master";
+            }
         }
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -116,10 +116,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addNewPage.aspx" />
     <Content Include="admin.aspx" />
     <Content Include="adminHome.aspx" />
     <Content Include="adminReg.aspx" />
     <Content Include="home.aspx" />
+    <Resource Include="images\small_logo.jpg" />
     <Content Include="logout.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -135,6 +137,7 @@
     <Content Include="style\material.min.js.map" />
     <Content Include="style\package.json" />
     <Content Include="Site.Master" />
+    <Content Include="admin.Master" />
     <None Include="Properties\PublishProfiles\placement cell.pubxml" />
     <Content Include="student.Master" />
     <None Include="Web.Debug.config">
@@ -143,6 +146,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Resource Include="images\somaiya_logo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\ai.0.15.0-build58334.js" />
@@ -155,12 +159,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addNewPage.aspx.cs">
+      <DependentUpon>addNewPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addNewPage.aspx.designer.cs">
+      <DependentUpon>addNewPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin.aspx.designer.cs">
       <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
     </Compile>
     <Compile Include="adminHome.aspx.cs">
       <DependentUpon>adminHome.aspx</DependentUpon>
@@ -232,7 +250,9 @@
       <DependentUpon>studentReg.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="newpages\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
