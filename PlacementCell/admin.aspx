@@ -29,8 +29,6 @@
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
                     <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnAdminLogin" runat="server" Text="Login" OnClick="btnAdminLogin_Click" />
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="adminReg.aspx">Signup
-                    </a>
                 </div>
                 <span>&nbsp;&nbsp;&nbsp;<a href="#" class="mdl-color-text--cyan" style="font-size: 14px">Forgot your password?</a></span>
                 <br /><br /><br />

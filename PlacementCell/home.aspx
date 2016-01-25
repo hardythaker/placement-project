@@ -5,7 +5,7 @@
            height:100%;
            margin:0;
        }
-       iframe {
+iframe {
     display: block;       /* iframes are inline by default */
     background: #000;
     border: none;         /* Reset default border */
@@ -16,7 +16,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <h3> <img src="images/somaiya_logo.jpg" /> S K Somaiya Degree College Of Arts, Science And Commerce </h3>
-
         <iframe style="" src="newpages/Untitleddocument.html" draggable="false"></iframe>
     <br /><br /><br />
 </asp:Content>

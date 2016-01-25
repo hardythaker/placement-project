@@ -23,7 +23,7 @@ namespace PlacementCell
             string stream = DropDownList1.SelectedItem.Text;
             string gender = Request.Form["options"];
             string email = signup_emailid.Text;
-            string pass = signup_Password.Text;
+            string pass = signup_password.Text;
             //End collecting data
 
             string hashval = HashGenerator.getHash(email , pass); //generating sha1
@@ -33,7 +33,7 @@ namespace PlacementCell
                 ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Succesfully Registered...!\\n Click Ok to Login');window.location.replace('studentLogin.aspx');</script>");
             }
             else {
-                Label1.Text = "Cannot create your account";
+                Label1.Text = "Some Error Occured. Make Sure You had Filled all the Fields";
             }
             //Label1.Text = fname +"<br>" +lname + "<br>" + stream + "<br>" + gender + "<br>" + email + "<br>" + pass; //for testing
             

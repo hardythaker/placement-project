@@ -17,24 +17,35 @@
                 <div class="mdl-card__supporting-text">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
                         <asp:TextBox class="mdl-textfield__input" type="text" ID="adminRegUsername" runat="server" TextMode="Email"/>
-                        <label class="mdl-textfield__label" for="adminRegUsername"><b>Enter SVV mail ID...</b></label>
+                        <label class="mdl-textfield__label" for="adminRegUsername"><b>Enter New Mail ID...</b></label>
                     </div>
-                    <asp:RequiredFieldValidator ID="adminusername_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="adminRegUsername" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="adminusername_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="adminRegUsername" Display="Dynamic" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="adminusername_tb_regex_validator" ForeColor="Red" runat="server" ErrorMessage='&lt;br/&gt;Invalid Email Id' ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="adminRegUsername" Display="Dynamic"></asp:RegularExpressionValidator>
                     <br />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
                         <asp:TextBox class="mdl-textfield__input" type="text" ID="adminRegPassword" runat="server" TextMode="Password" />
-                        <label class="mdl-textfield__label" for="adminRegPassword"><b>Enter Your Password...</b></label>
+                        <label class="mdl-textfield__label" for="adminRegPassword"><b>Enter New Password...</b></label>
                     </div>
-                    <asp:RequiredFieldValidator ID="adminpassword_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="adminRegPassword" Display="Dynamic" ValidateRequestMode="Inherit"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="adminpassword_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="adminRegPassword" Display="Dynamic" ValidateRequestMode="Inherit" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                        <asp:TextBox class="mdl-textfield__input" type="text" ID="re_adminRegPassword" runat="server" TextMode="Password" />
+                        <label class="mdl-textfield__label" for="re_adminRegPassword"><b>Re-Enter New Password...</b></label>
+                    </div>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="re_adminRegPassword" Display="Dynamic" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="Red" runat="server" ErrorMessage='&lt;br/&gt;Password Must be 6-12 Characters Long &lt;br/&gt; With at Least One Numeric, &lt;br/&gt; One Alphabet and One Special Character.' ValidationExpression="(?=^.{6,12}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+}{&quot;:;'?/>.<,])(?!.*\s).*$" ControlToValidate="adminRegPassword" Display="Dynamic"></asp:RegularExpressionValidator>
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                    <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnAdminReg" runat="server" Text="Sign Up" OnClick="btnAdminReg_Click" />
-                </div>
-                <span>&nbsp;&nbsp;&nbsp;<a href="#" class="mdl-color-text--cyan" style="font-size: 14px">Forgot your password?</a></span>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ForeColor="Red"  ErrorMessage='&lt;br/&gt;Passwords did not Matched...' ControlToCompare="adminRegPassword" ControlToValidate="re_adminRegPassword" Type="String" Display="Dynamic"></asp:CompareValidator>
+                    <br />
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                        <asp:TextBox class="mdl-textfield__input" type="text" ID="conformAdminPassword" runat="server" TextMode="Password" />
+                        <label class="mdl-textfield__label" for="re_adminRegPassword"><b>Enter Your Admin Password...</b></label>
+                    </div>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="conformAdminPassword" Display="Dynamic" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnAdminReg" runat="server" Text="Sign Up" OnClick="btnAdminReg_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+                    </div>
+                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
             </div>
-            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                
         </form>
     </div>
 </asp:Content>
