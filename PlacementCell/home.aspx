@@ -16,6 +16,6 @@ iframe {
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <h3> <img src="images/somaiya_logo.jpg" /> S K Somaiya Degree College Of Arts, Science And Commerce </h3>
-        <iframe style="" src="newpages/Untitleddocument.html" draggable="false"></iframe>
+        <iframe style="" runat="server" id="iFrame_home" draggable="false" oninit="iFrame_home_Init"></iframe>
     <br /><br /><br />
 </asp:Content>

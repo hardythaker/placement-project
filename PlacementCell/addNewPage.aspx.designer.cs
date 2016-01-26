@@ -13,13 +13,22 @@ namespace PlacementCell {
     public partial class addNewPage {
         
         /// <summary>
-        /// TextBox1 control.
+        /// fileTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox fileTitle;
+        
+        /// <summary>
+        /// ddl_whereToUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_whereToUpload;
         
         /// <summary>
         /// FileUpload1 control.
@@ -40,13 +49,13 @@ namespace PlacementCell {
         protected global::System.Web.UI.WebControls.Button saveUploadedFile;
         
         /// <summary>
-        /// Button2 control.
+        /// btnCreateNewPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button btnCreateNewPage;
         
         /// <summary>
         /// Label1 control.

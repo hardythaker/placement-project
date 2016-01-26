@@ -7,8 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace PlacementCell
 {
+   
     public partial class home : System.Web.UI.Page
     {
+        public string setHomePage;
         protected override void OnPreInit(EventArgs e)
         {
             if (Session["student_username"] != null)
@@ -25,6 +27,10 @@ namespace PlacementCell
 
         }
 
-
+        protected void iFrame_home_Init(object sender, EventArgs e)
+        {
+            //string 
+            iFrame_home.Src = "~/newpages/Untitleddocument.html";
+        }
     }
 }

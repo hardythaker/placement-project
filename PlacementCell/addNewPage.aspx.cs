@@ -24,20 +24,31 @@ namespace PlacementCell
                     if (FileUpload1.PostedFile.ContentType == "text/html")
                     {
                         string filename = Path.GetFileName(FileUpload1.FileName);
-                        FileUpload1.SaveAs(Server.MapPath("~/newpages/") + filename);
+                        FileUpload1.SaveAs(Server.MapPath("~/newpages/") + filename);                      
                         Label1.Text = "Upload status: File uploaded...!";
                     }
                     else {
-                        Label1.Text = "Upload status: Only Html files are accepted!";
+                        Label1.ForeColor = System.Drawing.Color.Red;
+                       Label1.Text = "Upload status: Only Html files are accepted!";
                     }
                 }
                 catch(Exception ex)
                 {
+                    Label1.ForeColor = System.Drawing.Color.Red;
                     Label1.Text = "Upload status: The file could not be uploaded. The following error occured: " + ex.Message;
                 }
             }
             else {
+                Label1.ForeColor = System.Drawing.Color.Red;
                 Label1.Text = "Select a File First";
+            }
+        }
+
+        protected void btnCreateNewPage_Click(object sender, EventArgs e)
+        {
+            if (ddl_whereToUpload.SelectedValue.ToString() == "1")
+            {
+                
             }
         }
     }

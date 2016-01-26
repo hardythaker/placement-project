@@ -27,13 +27,14 @@
                     </div>
                     <asp:RequiredFieldValidator ID="adminpassword_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="adminpassword" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
-                <div class="mdl-card__actions mdl-card--border">
+                <div class="mdl-card__actions mdl-card--border" style="padding-right:6em">
                     <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnAdminLogin" runat="server" Text="Login" OnClick="btnAdminLogin_Click" />
                 </div>
-                <span>&nbsp;&nbsp;&nbsp;<a href="#" class="mdl-color-text--cyan" style="font-size: 14px">Forgot your password?</a></span>
+                <span style="padding-right:6em"><a href="#" class="mdl-color-text--cyan" style="font-size: 14px">Forgot your password?</a>
                 <br />
-                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-                <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>               
+                    </span>
+                <br />
             </div>           
         </form>
     </div>

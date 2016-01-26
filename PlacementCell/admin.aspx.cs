@@ -31,7 +31,6 @@ namespace PlacementCell
 
                 Label1.ForeColor = System.Drawing.Color.Red;
                 Label1.Text = "Wrong user id or Password";
-                Label2.Text = "Not A member ? Click <a href=MemberReg.aspx>Here</a> To Register";
             }
             //Label1.Text = hashval;
         }
