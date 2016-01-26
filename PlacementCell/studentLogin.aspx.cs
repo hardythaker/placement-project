@@ -26,7 +26,7 @@ namespace PlacementCell
             }
             else
             {
-                Label1.Text = "Wrong Username Name or Password";
+                Label1.Text = "Wrong Email ID or Password";
                 Label2.Text = "Not a Member ? Click <a href=studentReg.aspx>Here</a> To Register First";
             }
         }

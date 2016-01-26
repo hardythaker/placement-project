@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.Script;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,22 @@ namespace PlacementCell
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session.Abandon();
-            Session.Clear();
-            Response.Redirect("home.aspx");
+            if (Session["student _username"] != null || Session["admin_username"] != null)// for preventing direct opening of this page
+            {
+                Session.Abandon();
+                Session.Clear();
+                if (Request.UrlReferrer.ToString().Contains("adminReg.aspx"))//because after creating new admin if i wants to login again then redirect him to admin login page
+                {
+                    Response.Redirect("admin.aspx");
+                }
+                else
+                {
+                    Response.Redirect("home.aspx");
+                }
+            }
+            else {
+                Response.Redirect("home.aspx");
+            }
         }
     }
 }

@@ -31,8 +31,9 @@
                     <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnAdminLogin" runat="server" Text="Login" OnClick="btnAdminLogin_Click" />
                 </div>
                 <span>&nbsp;&nbsp;&nbsp;<a href="#" class="mdl-color-text--cyan" style="font-size: 14px">Forgot your password?</a></span>
-                <br /><br /><br />
+                <br />
                 <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
             </div>           
         </form>
     </div>

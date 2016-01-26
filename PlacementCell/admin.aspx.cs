@@ -11,7 +11,9 @@ namespace PlacementCell
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["admin_username"] != null) {
+                Response.Redirect("home.aspx");
+            }
         }
 
         protected void btnAdminLogin_Click(object sender, EventArgs e)
@@ -27,7 +29,9 @@ namespace PlacementCell
             else
             {
 
-                Label1.Text = "Wrong user id or Password <br/> Not A member ? Click <a href=MemberReg.aspx>Here</a> To Register ";
+                Label1.ForeColor = System.Drawing.Color.Red;
+                Label1.Text = "Wrong user id or Password";
+                Label2.Text = "Not A member ? Click <a href=MemberReg.aspx>Here</a> To Register";
             }
             //Label1.Text = hashval;
         }
