@@ -10,7 +10,6 @@ namespace PlacementCell
    
     public partial class home : System.Web.UI.Page
     {
-        public string setHomePage;
         protected override void OnPreInit(EventArgs e)
         {
             if (Session["student_username"] != null)
