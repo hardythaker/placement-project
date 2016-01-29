@@ -26,6 +26,7 @@ namespace PlacementCell
                         string filename = Path.GetFileName(FileUpload1.FileName);
                         FileUpload1.SaveAs(Server.MapPath("~/newpages/") + filename);                      
                         Label1.Text = "Upload status: File uploaded...!";
+                        isFileSelected = true;
                     }
                     else {
                         Label1.ForeColor = System.Drawing.Color.Red;
@@ -44,11 +45,24 @@ namespace PlacementCell
             }
         }
 
+        string filename;
+        bool isFileSelected = false;
+
         protected void btnCreateNewPage_Click(object sender, EventArgs e)
         {
-            if (ddl_whereToUpload.SelectedValue.ToString() == "1")
+            if (isFileSelected == true)
             {
-                
+                if (ddl_whereToUpload.SelectedValue.ToString() == "1")
+                {
+                    if (DataAccessLayer.isPageUploaded(fileTitle.Text, filename, ddl_whereToUpload.Text))
+                    {
+                        Label1.Text = "Successfully Created New Page...";
+                    }
+                }
+            }
+            else {
+                Label1.Text = "First Select the File and Upload <br/> Then Click Create Page..";
+
             }
         }
     }

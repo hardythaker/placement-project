@@ -122,6 +122,10 @@
     <Content Include="adminReg.aspx" />
     <Content Include="home.aspx" />
     <Resource Include="images\small_logo.jpg" />
+    <Content Include="images\placement-main-photo.png" />
+    <Content Include="images\placements-banner.jpg" />
+    <Content Include="images\placements.gif" />
+    <Content Include="images\Thumbnails.jpg" />
     <Content Include="logout.aspx" />
     <Content Include="newpages\Untitleddocument.html" />
     <Content Include="packages.config" />

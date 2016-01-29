@@ -155,6 +155,26 @@ namespace PlacementCell
             }
         }
 
+        public static bool isPageUploaded(string title, string pagename, string place)
+        {
+            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+            {
+                using (MySqlCommand command = new MySqlCommand("sp_addNewPage", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@t", MySqlDbType.VarChar).Value = title;
+                    command.Parameters.Add("@pn", MySqlDbType.VarChar).Value = pagename;
+                    command.Parameters.Add("@pl", MySqlDbType.VarChar).Value = place;
+                    int affectedRows = command.ExecuteNonQuery();
+                    if (affectedRows == 1)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        }
+
         public static string fetchFname(string email) {
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection()) {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchFname", con)) {

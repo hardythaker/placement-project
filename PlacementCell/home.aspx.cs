@@ -26,10 +26,10 @@ namespace PlacementCell
 
         }
 
-        protected void iFrame_home_Init(object sender, EventArgs e)
-        {
-            //string 
-            iFrame_home.Src = "~/newpages/Untitleddocument.html";
-        }
+        //protected void iFrame_home_Init(object sender, EventArgs e)
+        //{
+        //    //string 
+        //    iFrame_home.Src = "~/newpages/Untitleddocument.html";
+        //}
     }
 }
