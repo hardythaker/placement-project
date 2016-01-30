@@ -155,17 +155,18 @@ namespace PlacementCell
             }
         }
 
-        public static bool isPageUploaded(string title, string pagename, string place)
+        public static bool isPageUploaded(string noticeCardTitle, string noticeCardDesc, string noticeCardLink)
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
             {
-                using (MySqlCommand command = new MySqlCommand("sp_addNewPage", connection))
+                using (MySqlCommand command = new MySqlCommand("sp_addNewNotice", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add("@t", MySqlDbType.VarChar).Value = title;
-                    command.Parameters.Add("@pn", MySqlDbType.VarChar).Value = pagename;
-                    command.Parameters.Add("@pl", MySqlDbType.VarChar).Value = place;
+                    command.Parameters.Add("@t", MySqlDbType.VarChar).Value = noticeCardTitle;
+                    command.Parameters.Add("@d", MySqlDbType.VarChar).Value = noticeCardDesc;
+                    command.Parameters.Add("@l", MySqlDbType.VarChar).Value = noticeCardLink;
                     int affectedRows = command.ExecuteNonQuery();
+                    connection.Close();
                     if (affectedRows == 1)
                     {
                         return true;
@@ -175,14 +176,35 @@ namespace PlacementCell
             }
         }
 
-        public static string fetchFname(string email) {
+        public static DataTable fetchNotices()
+        {
+            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection()) {
+                using (MySqlCommand command = new MySqlCommand("sp_fetchNotices", connection)) {
+                    command.CommandType = CommandType.StoredProcedure;
+                    //MySqlDataReader reader = command.ExecuteReader();
+                    //DataSet ds = new DataSet();
+                    //reader.
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+                    adapter.SelectCommand = command;
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    DataTable dt = ds.Tables[0];
+                    connection.Close();
+                    return dt;
+                }
+            }
+        }
+
+        public static string fetchFname(string session_email) {
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection()) {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchFname", con)) {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
+                    cmd.Parameters.Add("@e", MySqlDbType.VarChar).Value = session_email;
                     MySqlDataReader reader = cmd.ExecuteReader();
                     reader.Read();
                     string fname = reader.GetString("fname");
+                    reader.Close();
+                    con.Close();
                     //MySqlDataAdapter adapter = new MySqlDataAdapter();
                     //adapter.SelectCommand = cmd;
                     //string fname;

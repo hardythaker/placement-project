@@ -107,7 +107,7 @@
             <span class="mdl-layout-title">Welcome</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Notices</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="notices.aspx">Notices</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="studentLogin.aspx">Student Login</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Contact</a>

@@ -4,7 +4,6 @@
     <style>
         body {
             height: 100%;
-            margin: 0;
             /*background-image: url('http://localhost:50312/images/Thumbnails.jpg');*/
         }
 

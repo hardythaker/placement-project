@@ -12,7 +12,7 @@ namespace PlacementCell
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["student _username"] != null || Session["admin_username"] != null)// for preventing direct opening of this page
+            if (Session["student_username"] != null || Session["admin_username"] != null)// for preventing direct opening of this page
             {
                 Session.Abandon();
                 Session.Clear();

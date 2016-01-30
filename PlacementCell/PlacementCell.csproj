@@ -128,6 +128,7 @@
     <Content Include="images\Thumbnails.jpg" />
     <Content Include="logout.aspx" />
     <Content Include="newpages\Untitleddocument.html" />
+    <Content Include="notices.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -136,6 +137,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="scripts\jquery-2.2.0.min.js" />
+    <Content Include="showFullEvent.aspx" />
     <Content Include="studentHome.aspx" />
     <Content Include="studentLogin.aspx" />
     <Content Include="studentReg.aspx" />
@@ -220,9 +222,23 @@
     <Compile Include="logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="notices.aspx.cs">
+      <DependentUpon>notices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notices.aspx.designer.cs">
+      <DependentUpon>notices.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Code\pwdEncManager.cs" />
     <Compile Include="App_Code\Register.cs" />
+    <Compile Include="showFullEvent.aspx.cs">
+      <DependentUpon>showFullEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showFullEvent.aspx.designer.cs">
+      <DependentUpon>showFullEvent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

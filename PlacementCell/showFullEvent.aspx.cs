@@ -7,8 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PlacementCell
 {
-   
-    public partial class home : System.Web.UI.Page
+    public partial class showFullEvent : System.Web.UI.Page
     {
         protected override void OnPreInit(EventArgs e)
         {
@@ -23,13 +22,13 @@ namespace PlacementCell
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string link = Request.QueryString["viewmore"];
         }
 
-        protected void iFrame_home_Init(object sender, EventArgs e)
+        protected void iFrame_showFullEvent_Init(object sender, EventArgs e)
         {
-             
-            //iFrame_home.Src = "~/newpages/Untitleddocument.html";
+            string link ="~/newpages/"+Request.QueryString["viewmore"];
+            iFrame_showFullEvent.Src = link;
         }
     }
 }
