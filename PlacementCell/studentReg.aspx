@@ -86,7 +86,7 @@
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="Red" runat="server" ErrorMessage='&lt;br/&gt;Password Must be 6-12 Characters Long &lt;br/&gt; With at Least One Numeric, &lt;br/&gt; One Alphabet and One Special Character.' ValidationExpression="(?=^.{6,12}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+}{&quot;:;'?/>.<,])(?!.*\s).*$" ControlToValidate="signup_Password" Display="Dynamic"></asp:RegularExpressionValidator>
                     <asp:CompareValidator ID="CompareValidator1" runat="server"  ForeColor="Red" ErrorMessage='&lt;br/&gt;Passwords did not Matched...' ControlToCompare="signup_password" ControlToValidate="re_signup_password" Display="Dynamic"></asp:CompareValidator>
                     <!--Tooltip -->
-                    <div id="tt2" class="icon material-icons mdl-color-text--accent">help_outline</div> <%--info icon will fetch from google server--%>
+                        <div id="tt2" class="icon material-icons mdl-color-text--accent">help_outline</div> <%--info icon will fetch from google server--%>
                         <div class="mdl-tooltip" style="font-size:9px" for="tt2">
                                 It Must be 6-12 Characters Long. 
                                 With at Least One Numeric.

@@ -93,7 +93,6 @@ namespace PlacementCell
                 }
             }
         }
-
         public static bool isStudentRegSuccessful(string fname, string lname, string stream, string gender, string email, string hashval)
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
@@ -123,7 +122,6 @@ namespace PlacementCell
                 }
             }
         }
-
         public static bool isStudentExits(string email, string hashval)
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
@@ -154,8 +152,7 @@ namespace PlacementCell
 
             }
         }
-
-        public static bool isPageUploaded(string noticeCardTitle, string noticeCardDesc, string noticeCardLink)
+        public static bool isPageUploaded(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType)
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
             {
@@ -165,6 +162,7 @@ namespace PlacementCell
                     command.Parameters.Add("@t", MySqlDbType.VarChar).Value = noticeCardTitle;
                     command.Parameters.Add("@d", MySqlDbType.VarChar).Value = noticeCardDesc;
                     command.Parameters.Add("@l", MySqlDbType.VarChar).Value = noticeCardLink;
+                    command.Parameters.Add("@ty", MySqlDbType.VarChar).Value = noticeCardType;
                     int affectedRows = command.ExecuteNonQuery();
                     connection.Close();
                     if (affectedRows == 1)
@@ -175,7 +173,6 @@ namespace PlacementCell
                 }
             }
         }
-
         public static DataTable fetchNotices()
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection()) {
@@ -194,7 +191,6 @@ namespace PlacementCell
                 }
             }
         }
-
         public static string fetchFname(string session_email) {
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection()) {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchFname", con)) {
@@ -227,7 +223,6 @@ namespace PlacementCell
                 }
             }
         }
-
         public static DataTable fetchDivision()
         {
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection())
@@ -245,7 +240,6 @@ namespace PlacementCell
                 }
             }
         }
-
         public static DataTable fetchSemester()
         {
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection())

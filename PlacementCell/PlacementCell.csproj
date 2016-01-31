@@ -127,7 +127,13 @@
     <Content Include="images\placements.gif" />
     <Content Include="images\Thumbnails.jpg" />
     <Content Include="logout.aspx" />
+    <Content Include="newpages\Book1.html" />
+    <Content Include="newpages\index.html" />
+    <Content Include="newpages\New Text Document.html" />
+    <Content Include="newpages\Page.html" />
+    <Content Include="newpages\Roll_no.html" />
     <Content Include="newpages\Untitleddocument.html" />
+    <Content Include="newpages\Welcome_To_S.html" />
     <Content Include="notices.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -275,7 +281,10 @@
       <DependentUpon>studentReg.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="newdownloads\" />
+    <Folder Include="newimages\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
