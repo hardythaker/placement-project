@@ -120,6 +120,7 @@
     <Content Include="admin.aspx" />
     <Content Include="adminHome.aspx" />
     <Content Include="adminReg.aspx" />
+    <Content Include="deleteEvent.aspx" />
     <Content Include="home.aspx" />
     <Resource Include="images\small_logo.jpg" />
     <Content Include="images\placement-main-photo.png" />
@@ -215,6 +216,13 @@
     <Compile Include="App_Code\ConnectionManager.cs" />
     <Compile Include="App_Code\DataAccessLayer.cs" />
     <Compile Include="App_Code\HashGenerator.cs" />
+    <Compile Include="deleteEvent.aspx.cs">
+      <DependentUpon>deleteEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="deleteEvent.aspx.designer.cs">
+      <DependentUpon>deleteEvent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

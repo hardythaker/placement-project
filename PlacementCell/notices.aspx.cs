@@ -31,12 +31,18 @@ namespace PlacementCell
             {
                 foreach (DataRow row in dt.Rows)
                 {
-
+                    string noticeID = row.ItemArray[0].ToString();
                     string title = row.ItemArray[1].ToString();
                     string desc = row.ItemArray[2].ToString();
                     string link = row.ItemArray[3].ToString();
-                
-                    string html = "<div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'><div class='mdl-card__title'><h1 class='mdl-typography--display-2 mdl-color-text--primary'>" + title + "</h1></div><div class='mdl-card__supporting-text mdl-typography--body-1-force-preferred-font-color-contrast' style='text-align:left; font-size:15px'><b>" + desc + "</b></div><div class='mdl-card__actions mdl-card--border'><div style ='text-align:left'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formmethod='get' formaction='showFullEvent.aspx' name='viewmore' value=" + link+"> View More</button></div></div></div><br/>";
+                    string html;
+                    if (Session["admin_username"] != null)
+                    {
+                        html = "<div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'><div class='mdl-card__title'><h1 class='mdl-typography--display-2 mdl-color-text--primary'>" + title + "</h1></div><div class='mdl-card__supporting-text mdl-typography--body-1-force-preferred-font-color-contrast' style='text-align:left; font-size:15px'><b>" + desc + "</b></div><div class='mdl-card__actions mdl-card--border'><div style ='text-align:left'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formmethod='post' formaction='showFullEvent.aspx' name='viewmore' value=" + link + "> View More</button>&nbsp;&nbsp;<button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formmethod='post' formaction='deleteEvent.aspx' name='delete' value=" + noticeID + "> Delete </button></div></div></div><br/>";
+                    }
+                    else {
+                        html = "<div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'><div class='mdl-card__title'><h1 class='mdl-typography--display-2 mdl-color-text--primary'>" + title + "</h1></div><div class='mdl-card__supporting-text mdl-typography--body-1-force-preferred-font-color-contrast' style='text-align:left; font-size:15px'><b>" + desc + "</b></div><div class='mdl-card__actions mdl-card--border'><div style ='text-align:left'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formmethod='post' formaction='showFullEvent.aspx' name='viewmore' value=" + link + "> View More</button></div></div></div><br/>";
+                    }
                     Panel1.Controls.Add(new LiteralControl(html));
                 }
             }

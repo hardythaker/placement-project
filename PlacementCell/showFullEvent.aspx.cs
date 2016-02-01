@@ -22,12 +22,12 @@ namespace PlacementCell
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            string link = Request.QueryString["viewmore"];
+            //string link = Request.QueryString["viewmore"];
         }
 
         protected void iFrame_showFullEvent_Init(object sender, EventArgs e)
         {
-            string link ="~/newpages/"+Request.QueryString["viewmore"];
+            string link ="~/newpages/"+Request.Form["viewmore"];
             iFrame_showFullEvent.Src = link;
         }
     }
