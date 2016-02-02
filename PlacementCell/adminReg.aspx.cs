@@ -21,13 +21,13 @@ namespace PlacementCell
         {
             string hashval_for_current_pass = HashGenerator.getHash(Session["admin_username"].ToString(), conformAdminPassword.Text);//hashing of logedin admin and his conformation pass
 
-            if (DataAccessLayer.isMemberExits(Session["admin_username"].ToString(),hashval_for_current_pass))//checking current logedin admin and His hasval
-            {               
+            if (DataAccessLayer.isMemberExits(Session["admin_username"].ToString(), hashval_for_current_pass))//checking current logedin admin and His hasval
+            {
                 string hashedVal = HashGenerator.getHash(adminRegUsername.Text, adminRegPassword.Text);//generate hash value form new admin
                 if (DataAccessLayer.isMemRegSuccessful(adminRegUsername.Text, hashedVal))//Register the new admin with username and hashval
                 {
-                   // ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Succesfully Registered...!');window.history.back();</script>");//notofy the updation
-                   //Label1.Text = "Successfully Created New Admin Click \'&lt;a herf=admin.aspx&gt;\' Here \'&lt;/a&gt;\' to Login \'&lt;/a&t;&lt;br/&gt;\' or \'&lt;a href=javascript:history.back()&gt;\' Go Back \'&lt;/a&gt;\'";
+                    // ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Succesfully Registered...!');window.history.back();</script>");//notofy the updation
+                    //Label1.Text = "Successfully Created New Admin Click \'&lt;a herf=admin.aspx&gt;\' Here \'&lt;/a&gt;\' to Login \'&lt;/a&t;&lt;br/&gt;\' or \'&lt;a href=javascript:history.back()&gt;\' Go Back \'&lt;/a&gt;\'";
                     string msg = "<p>Successfully Created New Admin Click <a href=logout.aspx> Here </a> to Login <br /> or <a href=javascript:history.go(-2)> Go back </a></p>";
                     Label1.Controls.Add(new LiteralControl(msg));
                 }
@@ -37,7 +37,8 @@ namespace PlacementCell
                     Label1.Text = "Admin Creation failed Try Again Later...";
                 }
             }
-            else {
+            else
+            {
                 Label1.Text = "Your Current Admin Password is Wrong...";
             }
         }

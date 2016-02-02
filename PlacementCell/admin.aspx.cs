@@ -9,9 +9,11 @@ namespace PlacementCell
 {
     public partial class admin : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["admin_username"] != null) {
+            if (Session["admin_username"] != null)
+            {
                 Response.Redirect("home.aspx");
             }
         }
@@ -36,4 +38,3 @@ namespace PlacementCell
         }
     }
 }
- 
