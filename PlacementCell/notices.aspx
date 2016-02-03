@@ -15,7 +15,9 @@
         <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">--%>  
             <%--<ContentTemplate>--%>
                <asp:Panel ID="Panel1" runat="server">
-                   <%--<button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' onserverclick="deleteEvent()" formmethod='post' formaction='self' name='delete' value=" + noticeID + "> Delete </button>--%>
+                 <%-- <button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' onserverclick="deleteEvent()" formmethod='post' formaction='self' name='delete' value=" + noticeID + "> Delete </button>
+<asp:Label ID='Label2' runat='server' Text='Label'></asp:Label>--%>
+                   
                </asp:Panel>
             <%--</ContentTemplate>--%>
          <%--</asp:UpdatePanel>--%>

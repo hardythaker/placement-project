@@ -27,7 +27,19 @@ namespace PlacementCell
 
         protected void iFrame_showFullEvent_Init(object sender, EventArgs e)
         {
-            string link ="~/newpages/"+Request.Form["viewmore"];
+            string folderName = null;
+            string fileType = Request.Form["fileType"];
+            if (fileType == "htmlPage")
+            {
+                folderName = "newpages";
+            }
+            else if (fileType == "image") {
+                folderName = "newimages";
+            }
+            else if(fileType == "downloadLink"){
+                folderName = "newdownloads";
+            }
+            string link ="~/"+folderName+"/"+Request.Form["viewmore"];
             iFrame_showFullEvent.Src = link;
         }
     }

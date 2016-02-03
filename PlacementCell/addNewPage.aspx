@@ -49,7 +49,7 @@
                 <div style="display:inline">
                     <label for="options" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size:15px">Notice Type :  </label>
                         <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option1">
-                            <input enableviewstate="true" type="radio" id="option1" Class="mdl-radio__button" name="options" checked value="html">
+                            <input enableviewstate="true" type="radio" id="option1" Class="mdl-radio__button" name="options" checked value="htmlPage">
                             <span class="mdl-radio__label">Html Page</span>
                         </label>
                                 <div id="tt1" class="icon material-icons mdl-color-text--accent" style="margin-top:8px">help_outline</div> <%--info icon will fetch from google server--%>
@@ -58,7 +58,7 @@
                                     A web Page will get open After Clickng View More
                                 </div>
                         <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option2">
-                            <input enableviewstate="true"  type="radio" id="option2" class="mdl-radio__button" name="options" value="img">
+                            <input enableviewstate="true"  type="radio" id="option2" class="mdl-radio__button" name="options" value="image">
                             <span class="mdl-radio__label">Image</span>
                         </label>
                                 <div id="tt2" class="icon material-icons mdl-color-text--accent" style="margin-top:8px">help_outline</div> <%--info icon will fetch from google server--%>
@@ -67,7 +67,7 @@
                                     A Image that will Open after clicking View More.
                                 </div>
                         <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option3">
-                            <input enableviewstate="true" type="radio" id="option3" class="mdl-radio__button" name="options" value="link">
+                            <input enableviewstate="true" type="radio" id="option3" class="mdl-radio__button" name="options" value="downloadLink">
                             <span class="mdl-radio__label">Download Link</span>
                         </label>
                                 <div id="tt3" class="icon material-icons mdl-color-text--accent" style="margin-top:8px">help_outline</div> <%--info icon will fetch from google server--%>

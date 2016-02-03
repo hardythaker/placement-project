@@ -145,7 +145,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="scripts\jquery-2.2.0.min.js" />
-    <Content Include="showFullEvent.aspx" />
+    <Content Include="showFullEventHtml.aspx" />
     <Content Include="studentHome.aspx" />
     <Content Include="studentLogin.aspx" />
     <Content Include="studentReg.aspx" />
@@ -256,12 +256,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App_Code\pwdEncManager.cs" />
     <Compile Include="App_Code\Register.cs" />
-    <Compile Include="showFullEvent.aspx.cs">
-      <DependentUpon>showFullEvent.aspx</DependentUpon>
+    <Compile Include="showFullEventHtml.aspx.cs">
+      <DependentUpon>showFullEventHtml.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="showFullEvent.aspx.designer.cs">
-      <DependentUpon>showFullEvent.aspx</DependentUpon>
+    <Compile Include="showFullEventHtml.aspx.designer.cs">
+      <DependentUpon>showFullEventHtml.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

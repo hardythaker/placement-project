@@ -22,7 +22,7 @@ namespace PlacementCell
 
             if (DataAccessLayer.isPageUploaded(fileTitle.Text, fileDesc.Text, link.Replace(' ', '_').Trim(), selectedType))
             {
-                Label1.Text = "Successfully Created New Page...";
+                Label1.Text = "Successfully Created New Page...<br/>Do you want to <a href='notices.aspx'>Delete</a> ?";
             }
             else
             {
@@ -36,24 +36,23 @@ namespace PlacementCell
 
             selectedType = Request.Form["options"];
 
-            if (selectedType == "html" || selectedType == "img" || selectedType == "link")
+            if (selectedType == "htmlPage" || selectedType == "image" || selectedType == "downloadLink")
             {
                 if (FileUpload1.HasFile)
                 {
-                    if (selectedType == "html")
+                    if (selectedType == "htmlPage")
                     {
 
                         if (FileUpload1.PostedFile.ContentType == "text/html")
                         {
                             try
                             {
-                                link = Path.GetFileName(FileUpload1.FileName).Replace(' ', '_').Trim();
+                                link = Path.GetFileName(FileUpload1.FileName).Trim();
                                 if (!link.Contains(".html"))
                                 {
                                     link += "l";
                                 }
                                 FileUpload1.SaveAs(Server.MapPath("~/newpages/") + link);
-                                //Label1.Text = "<br />File <b><u>" + link + "</b></u> is Uploaded...!" + "<br/>Do you want to <a href=deleteFile>Delete</a> ?";
                                 saveUploadedFile(link, selectedType);
                             }
                             catch (Exception ex)
@@ -67,7 +66,7 @@ namespace PlacementCell
                             Label1.Text = " Only Html Files are Allowed if Html is Selected";
                         }
                     }
-                    else if (selectedType == "img")
+                    else if (selectedType == "image")
                     {
 
                         if (FileUpload1.PostedFile.ContentType == "image/jpeg")
@@ -76,7 +75,6 @@ namespace PlacementCell
                             {
                                 link = Path.GetFileName(FileUpload1.FileName).Replace(' ', '_').Trim();
                                 FileUpload1.SaveAs(Server.MapPath("~/newimages/") + link);
-                                //Label1.Text = "<br />File <b><u>" + link + "</b></u> is Uploaded...!" + "<br/>Do you want to <a href=deleteFile>Delete</a> ?";
                                 saveUploadedFile(link, selectedType);
                             }
                             catch (Exception ex)
@@ -97,7 +95,6 @@ namespace PlacementCell
                         {
                             link = Path.GetFileName(FileUpload1.FileName);
                             FileUpload1.SaveAs(Server.MapPath("~/newdownloads/") + link);
-                            //Label1.Text = "<br />File <b><u>" + link + "</b></u> is Uploaded...!" + "<br/>Do you want to <a href=deleteFile>Delete</a> ?";
                             saveUploadedFile(link, selectedType);
                         }
                         catch (Exception ex)
@@ -118,27 +115,6 @@ namespace PlacementCell
                 Label1.ForeColor = System.Drawing.Color.Red;
                 Label1.Text = "Please Select Notice Type HTML or IMG or Download Link.";
             }
-
-
-
-
-            //if (isFileSelected_uploaded == true)
-            //{
-            //    if (DataAccessLayer.isPageUploaded(fileTitle.Text, fileDesc.Text, link.Replace(' ', '_').Trim(), selectedType))
-            //    {
-            //        Label1.Text = "Successfully Created New Page...";
-            //    }
-            //    else
-            //    {
-            //        Label1.Text = "Page Not Uploaded..Some Error Occured";
-            //    }
-            //}
-            //else
-            //{
-            //    Label1.ForeColor = System.Drawing.Color.Red;
-            //    Label1.Text = "First Select the File and Click on Upload Button <br/> Then Click Create Page..";
-            //}
-
         }
     }
 }
