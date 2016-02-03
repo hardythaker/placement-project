@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PlacementCell.addNewPage" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAFCAAAFAAAAAAAAAABAAAAAAAAAQAAAIAAgA=</HashCode>
+      <FileName>addNewPage.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.admin" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAGAAGAAAAAAAAAEAAEAAAAAAAAAAAACIgAAA=</HashCode>
+      <FileName>admin.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.admin1" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIAAAA=</HashCode>
+      <FileName>admin.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.adminHome" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>adminHome.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.adminReg" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgQGEACAEAAAAAAgAAAQAAAAAAAEAAQAAIgAgA=</HashCode>
+      <FileName>adminReg.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.ConnectionManager" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>App_Code\ConnectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.DataAccessLayer" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAQAACAAACAAAAAAgAAAAAAAAAAwAQAAQACAAA=</HashCode>
+      <FileName>App_Code\DataAccessLayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.HashGenerator" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\HashGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.Register" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\Register.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.deleteEvent" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>deleteEvent.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.home" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAgIAAAA=</HashCode>
+      <FileName>home.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.logout">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>logout.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.notices" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABAAAAAgIAAAA=</HashCode>
+      <FileName>notices.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.showFullEvent" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgICAAA=</HashCode>
+      <FileName>showFullEvent.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.Site">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAoAAAAAAAIAAAA=</HashCode>
+      <FileName>Site.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.student">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAkAAAAAAAAAAAAAAAAAAAAAgAAAAAAAIAAAA=</HashCode>
+      <FileName>student.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.studentHome">
+    <Position X="4" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>studentHome.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.studentLogin">
+    <Position X="5.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAEAIAAAAAAAAAAAEAAAQAQAAAAQAAAgIAAAA=</HashCode>
+      <FileName>studentLogin.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlacementCell.studentReg">
+    <Position X="7.5" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAGAA6AEAAAAAAwBAEACAAAQAAEAAAAAMgAgA=</HashCode>
+      <FileName>studentReg.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SksTimeTable.pwdEncManager" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\pwdEncManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

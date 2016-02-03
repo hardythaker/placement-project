@@ -155,6 +155,7 @@
     <Content Include="style\package.json" />
     <Content Include="Site.Master" />
     <Content Include="admin.Master" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\Default Settings %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\PublishProfiles\placement cell.pubxml" />
