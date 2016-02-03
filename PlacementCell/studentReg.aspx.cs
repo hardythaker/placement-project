@@ -9,10 +9,10 @@ namespace PlacementCell
 {
     public partial class studentReg : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void btnStudentReg_Click(object sender, EventArgs e)
@@ -26,17 +26,18 @@ namespace PlacementCell
             string pass = signup_password.Text;
             //End collecting data
 
-            string hashval = HashGenerator.getHash(email , pass); //generating sha1
+            string hashval = HashGenerator.getHash(email, pass); //generating sha1
 
             if (DataAccessLayer.isStudentRegSuccessful(fname, lname, stream, gender, email, hashval))//passing to method for updating
             {
                 ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Succesfully Registered...!\\n Click Ok to Login');window.location.replace('studentLogin.aspx');</script>");
             }
-            else {
+            else
+            {
                 Label1.Text = "Some Error Occured. Make Sure You had Filled all the Fields";
             }
             //Label1.Text = fname +"<br>" +lname + "<br>" + stream + "<br>" + gender + "<br>" + email + "<br>" + pass; //for testing
-            
+
         }
     }
 }

@@ -191,6 +191,36 @@ namespace PlacementCell
                 }
             }
         }
+        public static bool deleteNotices(int id , out string error) {
+            try
+            {
+                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_deleteEvent", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@i", MySqlDbType.Int32).Value = id;
+                        // MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else
+                        {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                error = ex.Message;
+                return true; 
+            }
+        }
         public static string fetchFname(string session_email) {
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection()) {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchFname", con)) {

@@ -46,18 +46,18 @@
             <span class="mdl-layout-title">Hi <asp:Label ID="Label1" runat="server" Text=""></asp:Label></span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Student Detail Form</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Student Detail Form</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">My Profile</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Notices</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">Contact</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="">About</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="notices.aspx">Notices</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Contact</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">About</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
             </nav>
         </div>
 
         <main class="mdl-layout__content">
             <center>
-              <div class="page-content" style="width:60%; border:2px;">
+              <div class="page-content" style="width:100%; text-align:center;">
                    <asp:ContentPlaceHolder ID="main_content" runat="server">
                     </asp:ContentPlaceHolder>
               </div>

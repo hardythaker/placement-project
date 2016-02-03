@@ -12,7 +12,8 @@ namespace PlacementCell
         protected void Page_Load(object sender, EventArgs e)
         {
             //this is for if a student is already logged in or session is created then he should not get the login page
-            if (Session["student_username"] != null) {
+            if (Session["student_username"] != null)
+            {
                 Response.Redirect("studentHome.aspx");
             }
         }
