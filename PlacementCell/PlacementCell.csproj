@@ -141,9 +141,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="PlacementCell.publish.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="showFullEventHtml.aspx" />
     <Content Include="studentHome.aspx" />
