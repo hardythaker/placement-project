@@ -26,7 +26,7 @@ namespace PlacementCell
                 // Label2.Text = id +" "+ title +" "+ desc +" "+ fileLink +" "+ fileType;
                 fileTitle.Text = title;
                 fileDesc.Text = desc;
-                var s = (HtmlInputRadioButton)HtmlGenericControl;
+              //  var s = (HtmlInputRadioButton)HtmlGenericControl;
             }
         }
         protected void saveUploadedFile(string link, string selectedType)t
