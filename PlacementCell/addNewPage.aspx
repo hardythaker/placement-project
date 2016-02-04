@@ -27,7 +27,7 @@
     <form runat="server" id="addnewPage" method="post">
         <center>
             <div class="mdl-card mdl-shadow--6dp" style="width:75vw">
-            <br />
+            <br /><asp:Label ID="Label2" runat="server" Text=""></asp:Label>
                 <p style="color:red">Note : Carefully make changes to ths section.</p>
                 <div style="display:inline">
                     <label for="fileTitle" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size:15px">Title :  </label>

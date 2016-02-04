@@ -16,8 +16,20 @@ namespace PlacementCell
             if (Session["admin_username"] == null) {
                 Response.Redirect("admin.aspx");
             }
+            if (Request.Form["edit"] != null) {
+                string id, title, desc, fileLink, fileType;
+                id = Request.Form["noticeID"];
+                title = Request.Form["title"];
+                desc = Request.Form["desc"];
+                fileLink = Request.Form["fileLink"];
+                fileType = Request.Form["fileType"];
+                // Label2.Text = id +" "+ title +" "+ desc +" "+ fileLink +" "+ fileType;
+                fileTitle.Text = title;
+                fileDesc.Text = desc;
+                var s = (HtmlInputRadioButton)HtmlGenericControl;
+            }
         }
-        protected void saveUploadedFile(string link, string selectedType)
+        protected void saveUploadedFile(string link, string selectedType)t
         {
 
             if (DataAccessLayer.isPageUploaded(fileTitle.Text, fileDesc.Text, link.Replace(' ', '_').Trim(), selectedType))
