@@ -31,13 +31,10 @@ namespace PlacementCell
                     string error;
                     if (DataAccessLayer.deleteNotices(eventID, out error))
                     {
-                        if (error == null)
-                        {
-                           // Label1.Text = "The event is deleted";
-                        }
-                        else
+                        if (error != null)
                         {
                             Label1.Text = error;
+                            // Label1.Text = "The event is deleted";
                         }
                     }
                     // Label1.Text = eventID.ToString();
@@ -52,6 +49,7 @@ namespace PlacementCell
             {
                 foreach (DataRow row in dt.Rows)
                 {
+                    
                     string noticeID = row.ItemArray[0].ToString();
                     string title = row.ItemArray[1].ToString();
                     string desc = row.ItemArray[2].ToString();
@@ -61,26 +59,11 @@ namespace PlacementCell
                     string html;
                     if (Session["admin_username"] != null)
                     {
-                        //if (fileType == "htmlPage")
-                        //{
-                        //    viewMoreURL = "showFullEventHtml.aspx";
-                        //}
-                        //else if (fileType == "image")
-                        //{
-                        //    viewMoreURL = "showFullEventHtml.aspx";
-
-                        //}
-                        //else if (fileType == "downloadLink")
-                        //{
-                        //    viewMoreURL = "showFullEventDonload.aspx";
-                        //}
-
-                        html = "<div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'><div class='mdl-card__title'><h1 class='mdl-typography--display-2 mdl-color-text--primary'>" + title + "</h1></div><div class='mdl-card__supporting-text mdl-typography--body-1-force-preferred-font-color-contrast' style='text-align:left; font-size:15px'><b>" + desc + "</b></div><div class='mdl-card__actions mdl-card--border'><div style ='text-align:left;'><form method='post'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formaction='showFullEventHtml.aspx' name='viewmore' value=" + fileLink + "> View More</button><input type='hidden' value=" + fileType + " name='fileType'><input type='hidden' value=" + title + " name='title'><input type='hidden' value=" + desc + " name='desc'><input type='hidden' value=" + noticeID + " name='noticeID'><input type='hidden' value=" + fileLink + " name='fileLink'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formmethod='post' formaction='notices.aspx' onclick='__doPostBack()' name='delete' value=" + noticeID + "> Delete </button><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formaction='addNewPage.aspx' name='edit' value=" + noticeID + "> Edit </button></form></div></div></div><br/>";
+                        html = "<div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'><div class='mdl-card__title'><h1 class='mdl-typography--display-2 mdl-color-text--primary'>" + title + "</h1></div><div class='mdl-card__supporting-text mdl-typography--body-1-force-preferred-font-color-contrast' style='text-align:left; font-size:15px'><b>" + desc + "</b></div><div class='mdl-card__actions mdl-card--border'><div style ='text-align:left;display:flex;'><form method='post'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formaction='showFullEventHtml.aspx' name='viewmore' value=" + fileLink + "> View More</button><input type='hidden' runat='server' value=" + fileType + " name='fileType'><input type='hidden' runat='server' value=" +title.Replace(' ','_') + " name='title'><input type='hidden' value=" + desc.Replace(' ','_') + " name='desc'><input type='hidden' value=" + noticeID + " name='noticeID'><input type='hidden' value=" +fileLink+ " name='fileLink'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formaction='addNewPage.aspx' name='edit' value=" + noticeID + "> Edit </button></form><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formmethod='post' formaction='notices.aspx' onclick='__doPostBack()' name='delete' value=" + noticeID + "> Delete </button></div></div></div><br/>";
+                        //< input type = 'hidden' runat = 'server' value = " + Server.UrlEncode(fileType) + " name = 'fileType' >< input type = 'hidden' runat = 'server' value = " + Server.UrlEncode(title) + " name = 'title' >< input type = 'hidden' value = " + Server.UrlEncode(desc) + " name = 'desc' >< input type = 'hidden' value = " + Server.UrlEncode(noticeID) + " name = 'noticeID' >< input type = 'hidden' value = " + Server.UrlEncode(fileLink) + " name = 'fileLink' >
                     }
                     else
                     {
-                   
-                  
                         html = "<div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'><div class='mdl-card__title'><h1 class='mdl-typography--display-2 mdl-color-text--primary'>" + title + "</h1></div><div class='mdl-card__supporting-text mdl-typography--body-1-force-preferred-font-color-contrast' style='text-align:left; font-size:15px'><b>" + desc + "</b></div><div class='mdl-card__actions mdl-card--border'><div style ='text-align:left'><form method='post'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server'  formaction='showFullEventHtml.aspx' name='viewmore' value=" + fileLink + "> View More</button><input type='hidden' value="+fileType +" name='fileType'></form></div></div></div><br/>";
                     }
                     Panel1.Controls.Add(new LiteralControl(html));

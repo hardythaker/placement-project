@@ -152,7 +152,7 @@ namespace PlacementCell
 
             }
         }
-        public static bool isPageUploaded(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType)
+        public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType)
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
             {
@@ -219,6 +219,35 @@ namespace PlacementCell
             catch (Exception ex) {
                 error = ex.Message;
                 return true; 
+            }
+        }
+
+        public static bool isNoticeEdited(string id, string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, out string error) {
+            try {
+                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection()) {
+                    using (MySqlCommand command = new MySqlCommand("sp_editNotice", connection)) {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@i", MySqlDbType.Int32).Value = Convert.ToInt32(id);
+                        command.Parameters.Add("@t", MySqlDbType.VarChar).Value = noticeCardTitle;
+                        command.Parameters.Add("@d", MySqlDbType.VarChar).Value = noticeCardDesc;
+                        command.Parameters.Add("@l", MySqlDbType.VarChar).Value = noticeCardLink;
+                        command.Parameters.Add("@ty", MySqlDbType.VarChar).Value = noticeCardType;
+                        int afftectedRows = command.ExecuteNonQuery();
+                        if (afftectedRows == 1) {
+                            error = null;
+                            return true;
+                        }
+                        else
+                        {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                error = ex.Message;
+                return true;
             }
         }
         public static string fetchFname(string session_email) {

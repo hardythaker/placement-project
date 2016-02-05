@@ -121,7 +121,7 @@
     <Content Include="adminHome.aspx" />
     <Content Include="adminReg.aspx" />
     <Content Include="contact.aspx" />
-    <Content Include="deleteEvent.aspx" />
+    <Content Include="editNotice.aspx" />
     <Content Include="home.aspx" />
     <Resource Include="images\small_logo.jpg" />
     <Content Include="images\placement-main-photo.png" />
@@ -222,12 +222,12 @@
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="deleteEvent.aspx.cs">
-      <DependentUpon>deleteEvent.aspx</DependentUpon>
+    <Compile Include="editNotice.aspx.cs">
+      <DependentUpon>editNotice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="deleteEvent.aspx.designer.cs">
-      <DependentUpon>deleteEvent.aspx</DependentUpon>
+    <Compile Include="editNotice.aspx.designer.cs">
+      <DependentUpon>editNotice.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
