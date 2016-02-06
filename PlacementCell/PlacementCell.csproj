@@ -141,6 +141,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="PlacementCell.publish.xml" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="showFullEventHtml.aspx" />
     <Content Include="studentHome.aspx" />
@@ -154,8 +155,8 @@
     <Content Include="Site.Master" />
     <Content Include="admin.Master" />
     <Content Include="ClassDiagram1.cd" />
-    <None Include="Properties\PublishProfiles\Default Settings %282%29.pubxml" />
-    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\myasp ftp.pubxml" />
     <None Include="Properties\PublishProfiles\placement cell.pubxml" />
     <Content Include="student.Master" />
     <None Include="Web.Debug.config">
