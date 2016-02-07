@@ -4,7 +4,7 @@ using System.Configuration;
 
 namespace PlacementCell
 {
-        public class ConnectionManager
+        internal class ConnectionManager
         {
             private static MySqlConnection dbcon = new MySqlConnection(Convert.ToString(ConfigurationManager.ConnectionStrings["dbConnectionString"]));
 
