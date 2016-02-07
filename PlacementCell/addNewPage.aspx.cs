@@ -31,7 +31,7 @@ namespace PlacementCell
                 CheckBox1.Visible = true;
                 chkBox_Label.Visible = true;
                 string title, desc;
-                hideIT.Style.Add("display", "none");
+               
                 id_Of_Editnotice = Request.Form["noticeID"];
                 title = Request.Form["title"].Replace('_', ' ');
                 desc = Request.Form["desc"].Replace('_', ' ');
@@ -39,9 +39,7 @@ namespace PlacementCell
                 fileTypeInDB = Request.Form["fileType"];
                 fileTitle.Text = title;
                 fileDesc.Text = desc;
-
-                this.selectRadioButton = fileTypeInDB;
-
+                hideIT.Style.Add("display", "none");
                 fileHistory.Text = "<br />Selected file was " + fileLinkInDB;
                /// Label2.Text = id_Of_Editnotice + "<br/> " + title + "<br/> " + desc + "<br/> " + fileLinkInDB + "<br/>" + fileTypeInDB;
             }
@@ -177,7 +175,6 @@ namespace PlacementCell
 
         protected void saveNotice(string link, string selectedType)
         {
-
             if (DataAccessLayer.isNoticeCreated(fileTitle.Text, fileDesc.Text, link.Replace(' ', '_').Trim(), selectedType))
             {
                 Label1.CssClass = "mdl-color-text--primary";
@@ -209,10 +206,14 @@ namespace PlacementCell
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
+            
+      
             if (CheckBox1.Checked)
             {
                 hideIT.Style.Clear();
                 hideIT.Style.Add("display", "normal");
+                string st = fileTypeInDB;
+                this.selectRadioButton = st;
             }
             else {
                 hideIT.Style.Clear();

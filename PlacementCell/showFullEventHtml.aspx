@@ -14,5 +14,6 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
+    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
     <iframe style="" runat="server" id="iFrame_showFullEvent" draggable="false" oninit="iFrame_showFullEvent_Init"></iframe>
 </asp:Content>

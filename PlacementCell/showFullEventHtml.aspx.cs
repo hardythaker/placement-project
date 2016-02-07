@@ -28,19 +28,52 @@ namespace PlacementCell
         protected void iFrame_showFullEvent_Init(object sender, EventArgs e)
         {
             string folderName = null;
-            string fileType = Request.Form["fileType"];
-            if (fileType == "htmlPage")
+            if (Request.Form["fileType"] != null)
             {
-                folderName = "newpages";
+                string fileType = Request.Form["fileType"];
+                if (fileType != "downloadLink")
+                {
+                    if (fileType == "htmlPage")
+                    {
+                        folderName = "newpages";
+                    }
+                    else if (fileType == "image")
+                    {
+                        folderName = "newimages";
+                    }
+                    string link = "~/" + folderName + "/" + Request.Form["viewmore"];
+                    iFrame_showFullEvent.Src = link;
+                }
+                else if (fileType == "downloadLink")
+                {
+                    folderName = "newdownloads";
+                    try
+                    {
+                        string filename = Request.Form["viewmore"];
+
+                        // set the http content type to "APPLICATION/OCTET-STREAM
+                        Response.ContentType = "APPLICATION/OCTET-STREAM";
+
+
+                        string disHeader = "Attachment; Filename=\"" + filename + "\"";
+                        Response.AppendHeader("Content-Disposition", disHeader);
+
+                        // transfer the file byte-by-byte to the response object
+                        //System.IO.FileInfo fileToDownload = new System.IO.FileInfo("~/" + folderName + "/" + filename);
+                        Response.TransmitFile(Server.MapPath("~/"+folderName+"/"+filename));
+                        Response.Flush();
+                        Response.End();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Label1.Text = ex.Message;
+                    }
+                }
             }
-            else if (fileType == "image") {
-                folderName = "newimages";
+            else {
+                Response.Redirect("home.aspx");
             }
-            else if(fileType == "downloadLink"){
-                folderName = "newdownloads";
-            }
-            string link ="~/"+folderName+"/"+Request.Form["viewmore"];
-            iFrame_showFullEvent.Src = link;
         }
     }
 }
