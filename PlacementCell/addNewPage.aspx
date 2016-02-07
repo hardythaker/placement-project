@@ -25,7 +25,7 @@
             <br /><asp:Label ID="Label2" runat="server" Text=""></asp:Label>
                 <p style="color:red" class="mdl-typography--body-2-force-preferred-font-color-contrast">Note : Carefully make changes to ths section.</p>
                 
-                <div style="display:inline">
+                <div style="display:inline; padding-left:5vw; padding-right:5vw;">
                     <label for="fileTitle" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size:15px">Title :  </label>
                     <div class="mdl-textfield mdl-js-textfield">   
                         <asp:TextBox Class="mdl-textfield__input" ID="fileTitle" placeholder="Enter Notice Card Title" runat="server"></asp:TextBox>
@@ -34,7 +34,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" Display="Dynamic" Font-Bold="True" Font-Size="Large" ControlToValidate="fileTitle"></asp:RequiredFieldValidator>
                 </div>
                 
-                <div style="display:inline">
+                <div style="display:inline; padding-left:5vw; padding-right:5vw;">
                     <label for="fileTitle" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size:15px">Description :  </label>
                     <div class="mdl-textfield mdl-js-textfield">   
                         <asp:TextBox Class="mdl-textfield__input" ID="fileDesc" placeholder="Enter Notice Card Description" runat="server"></asp:TextBox>
@@ -42,13 +42,13 @@
                     </div>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ForeColor="Red" Display="Dynamic" Font-Bold="True" Font-Size="Large" ControlToValidate="fileDesc"></asp:RequiredFieldValidator>
                 </div>
-                <div style="display:inline">
+                <div style="display:inline; padding-left:5vw; padding-right:5vw;">
                     <asp:CheckBox ID="CheckBox1" runat="server" Visible="false" OnCheckedChanged="CheckBox1_CheckedChanged" AutoPostBack="True"></asp:CheckBox>
                     <asp:Label ID="chkBox_Label" runat="server" Text="Check This Box, If you Want to Chage the Uploaded File." ForeColor="Red" Visible="false"></asp:Label>
                 </div>  
                
                 <div id="hideIT" runat="server">                             
-                <div style="display:inline">
+                <div style="display:inline; padding-left:5vw; padding-right:5vw;">
                     <label for="options" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size:15px">Notice Type :  </label>
                         
                         <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option1">
@@ -83,7 +83,7 @@
                 </div>
                 <br />
 
-                <div style="display:inline-block">
+                <div style="display:inline-block; padding-left:5vw; padding-right:5vw;">
                     <asp:FileUpload ID="FileUpload1" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" runat="server" AllowMultiple="True" ViewStateMode="Enabled" EnableViewState="True" />
                     <br />
                     <asp:Label CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" ID="fileHistory" runat="server" Text="" ForeColor="Red"></asp:Label>

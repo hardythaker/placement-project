@@ -14,26 +14,26 @@
             <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
                  <h2 class="mdl-card__title-text" style="text-align: center">Change Password</h2>
             </div>
-            <div style="display: inline">
+            <div style="display: inline; padding-left:5vw; padding-right:5vw;">
                 <label for="lbl_currentPass" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size: 15px">Password :  </label>
                 <div class="mdl-textfield mdl-js-textfield">
-                    <asp:TextBox Class="mdl-textfield__input" ID="tb_currentPass" placeholder="Old Password" runat="server"></asp:TextBox>
+                    <asp:TextBox Class="mdl-textfield__input" ID="tb_currentPass" placeholder="Old Password" runat="server" TextMode="Password"></asp:TextBox>
                     <label class="mdl-textfield__label" for="sample1"></label>
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" Display="Dynamic" Font-Bold="True" Font-Size="Large" ControlToValidate="tb_currentPass"></asp:RequiredFieldValidator>
             </div>
-            <div style="display: inline">
+            <div style="display: inline; padding-left:5vw; padding-right:5vw;">
                 <label for="lbl_newPass" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size: 15px">New Password :  </label>
                 <div class="mdl-textfield mdl-js-textfield">
-                    <asp:TextBox Class="mdl-textfield__input" ID="tb_newPass" placeholder="Enter New Password" runat="server"></asp:TextBox>
+                    <asp:TextBox Class="mdl-textfield__input" ID="tb_newPass" placeholder="Enter New Password" runat="server" TextMode="Password"></asp:TextBox>
                     <label class="mdl-textfield__label" for="sample1"></label>
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ForeColor="Red" Display="Dynamic" Font-Bold="True" Font-Size="Large" ControlToValidate="tb_newPass"></asp:RequiredFieldValidator>
             </div>
-            <div style="display: inline">
+            <div style="display: inline; padding-left:5vw; padding-right:5vw;">
                 <label for="lbl_reNewPass" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size: 15px">Re-Enter New Password :  </label>
                 <div class="mdl-textfield mdl-js-textfield">
-                    <asp:TextBox Class="mdl-textfield__input" ID="tb_reNewPass" placeholder="Confirm New Password" runat="server"></asp:TextBox>
+                    <asp:TextBox Class="mdl-textfield__input" ID="tb_reNewPass" placeholder="Confirm New Password" runat="server" TextMode="Password"></asp:TextBox>
                     <label class="mdl-textfield__label" for="sample1"></label>
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ForeColor="Red" Display="Dynamic" Font-Bold="True" Font-Size="Large" ControlToValidate="tb_reNewPass"></asp:RequiredFieldValidator>
@@ -43,9 +43,11 @@
             </div>
             <div>
                 <asp:Button ID="btn_changePass" runat="server" Text="Change It" CssClass="mdl-button mdl-button--accent mdl-button--raised mdl-shadow--6dp" OnClick="btn_changePass_Click" />
-                <br />
-                <asp:Label ID="lbl_changePassStatus" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" runat="server" Text="" Font-Bold="True" ForeColor="Red"></asp:Label>                
+                
+                <asp:Label ID="lbl_changePassStatus" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" runat="server" Text="" Font-Bold="True" ForeColor="Red"></asp:Label>
+                <br />            
             </div>
+            <br />
         </div>
             </center>
     </form>
