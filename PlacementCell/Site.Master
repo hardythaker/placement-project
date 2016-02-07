@@ -33,7 +33,6 @@
             });
         });
     </script>--%>
-
     <title>TPC SKS</title>
 
     <link rel="shortcut icon" href="images/favicon.png">
@@ -52,7 +51,7 @@
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--cyan  mdl-shadow--4dp">
-            <div class="mdl-layout__header-row">  
+            <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">Placement Cell</span>
                 <div class="mdl-layout-spacer"></div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
@@ -103,11 +102,11 @@
         </header>
 <%-- Fixed Header Ends --%>
 <%-- Side Drawer Starts Here --%>
-        <div class="mdl-layout__drawer  mdl-color--cyan mdl-color-text--grey-100">
+        <div class="demo-navigation mdl-layout__drawer  mdl-color--cyan mdl-color-text--grey-100">
             <span class="mdl-layout-title">Welcome</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="notices.aspx"><span class="mdl-badge" data-badge="new">Notices</span></a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="notices.aspx"><span class="mdl-badge" data-badge=" new ">Notices</span></a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="studentLogin.aspx">Student Login</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Contact</a>
