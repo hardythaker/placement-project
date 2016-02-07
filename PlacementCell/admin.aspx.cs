@@ -21,10 +21,8 @@ namespace PlacementCell
         protected void btnAdminLogin_Click(object sender, EventArgs e)
         {
             string hashval = HashGenerator.getHash(adminusername.Text, adminpassword.Text);
-
             if (DataAccessLayer.isMemberExits(adminusername.Text, hashval))
             {
-
                 Session["admin_username"] = adminusername.Text;
                 Response.Redirect("adminHome.aspx");
             }

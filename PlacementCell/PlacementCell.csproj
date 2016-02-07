@@ -123,6 +123,7 @@
     <Content Include="contact.aspx" />
     <Content Include="editNotice.aspx" />
     <Content Include="home.aspx" />
+    <Content Include="changePass.aspx" />
     <Resource Include="images\small_logo.jpg" />
     <Content Include="images\placement-main-photo.png" />
     <Content Include="images\placements-banner.jpg" />
@@ -295,6 +296,13 @@
     </Compile>
     <Compile Include="studentReg.aspx.designer.cs">
       <DependentUpon>studentReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="changePass.aspx.cs">
+      <DependentUpon>changePass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="changePass.aspx.designer.cs">
+      <DependentUpon>changePass.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

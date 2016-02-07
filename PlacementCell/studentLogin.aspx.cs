@@ -20,6 +20,7 @@ namespace PlacementCell
         protected void btnStudentLogin_Click(object sender, EventArgs e)
         {
             string hashval = HashGenerator.getHash(username.Text, password.Text);
+
             if (DataAccessLayer.isStudentExits(username.Text, hashval))
             {
                 Session["student_username"] = username.Text;

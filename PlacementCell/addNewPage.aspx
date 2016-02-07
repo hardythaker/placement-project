@@ -23,7 +23,7 @@
         <center>
             <div class="mdl-card mdl-shadow--6dp" style="width:75vw">
             <br /><asp:Label ID="Label2" runat="server" Text=""></asp:Label>
-                <p style="color:red">Note : Carefully make changes to ths section.</p>
+                <p style="color:red" class="mdl-typography--body-2-force-preferred-font-color-contrast">Note : Carefully make changes to ths section.</p>
                 
                 <div style="display:inline">
                     <label for="fileTitle" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size:15px">Title :  </label>
@@ -86,16 +86,15 @@
                 <div style="display:inline-block">
                     <asp:FileUpload ID="FileUpload1" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" runat="server" AllowMultiple="True" ViewStateMode="Enabled" EnableViewState="True" />
                     <br />
-                    <asp:Label ID="fileHistory" runat="server" Text="" Font-Bold="True" ForeColor="Red"></asp:Label>
+                    <asp:Label CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" ID="fileHistory" runat="server" Text="" ForeColor="Red"></asp:Label>
                 </div>
                 </div>
                 <br />
                 <div>
                     <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnCreateNewPage" runat="server" Text="Create Notice" OnClick="btnCreateNewPage_Click" />
-                    <%--<asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnEditNewPage" runat="server" Text="Save Changes" OnClick="btnEditNewPage_Click" Visible="false"/>--%>
                 </div>
                 <br />
-                <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Label1" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" runat="server" Text="" ForeColor="Red"></asp:Label>
                 <br />
             </div>
             </center>

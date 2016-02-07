@@ -20,7 +20,6 @@ namespace PlacementCell
         protected void btnAdminReg_Click(object sender, EventArgs e)
         {
             string hashval_for_current_pass = HashGenerator.getHash(Session["admin_username"].ToString(), conformAdminPassword.Text);//hashing of logedin admin and his conformation pass
-
             if (DataAccessLayer.isMemberExits(Session["admin_username"].ToString(), hashval_for_current_pass))//checking current logedin admin and His hasval
             {
                 string hashedVal = HashGenerator.getHash(adminRegUsername.Text, adminRegPassword.Text);//generate hash value form new admin

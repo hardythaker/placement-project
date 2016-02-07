@@ -7,7 +7,8 @@ namespace PlacementCell
         public class ConnectionManager
         {
             private static MySqlConnection dbcon = new MySqlConnection(Convert.ToString(ConfigurationManager.ConnectionStrings["dbConnectionString"]));
-            public static MySqlConnection GetDatabaseConnection()
+
+        public static MySqlConnection GetDatabaseConnection()
             {
                 try {
                     dbcon.Open();

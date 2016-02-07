@@ -27,10 +27,16 @@ namespace PlacementCell
             //End collecting data
 
             string hashval = HashGenerator.getHash(email, pass); //generating sha1
-
-            if (DataAccessLayer.isStudentRegSuccessful(fname, lname, stream, gender, email, hashval))//passing to method for updating
+            string error;
+            if (DataAccessLayer.isStudentRegSuccessful(fname, lname, stream, gender, email, hashval,out error))//passing to method for updating
             {
-                ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Succesfully Registered...!\\n Click Ok to Login');window.location.replace('studentLogin.aspx');</script>");
+                if (error != null)
+                {
+                    Label1.Text = error;
+                }
+                else {
+                    ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Succesfully Registered...!\\n Click Ok to Login');window.location.replace('studentLogin.aspx');</script>");
+                }
             }
             else
             {

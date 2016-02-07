@@ -180,6 +180,7 @@ namespace PlacementCell
 
             if (DataAccessLayer.isNoticeCreated(fileTitle.Text, fileDesc.Text, link.Replace(' ', '_').Trim(), selectedType))
             {
+                Label1.CssClass = "mdl-color-text--primary";
                 Label1.Text = "Successfully Created New Page...<br/>Do you want to <a href='notices.aspx'>Delete</a> ?";
             }
             else
@@ -197,6 +198,7 @@ namespace PlacementCell
 
                 if (error == null)
                 {
+                    Label1.CssClass = "mdl-color-text--primary";
                     Label1.Text = "Successfully Made Changes To notice";
                 }
                 else {

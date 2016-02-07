@@ -13,7 +13,9 @@ namespace PlacementCell
         public static DataSet DisplayAllUsers()
         {
             DataSet dSet = new DataSet();
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+#pragma warning restore CS0436 // Type conflicts with imported type
             {
                 try
                 {
@@ -31,10 +33,13 @@ namespace PlacementCell
                 return dSet;
             }
         }
+
         public static bool isMemberExits(string un,string encPass)
         {
             //DataSet dSet = new DataSet();
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+#pragma warning restore CS0436 // Type conflicts with imported type
             {
                 try
                 {
@@ -51,7 +56,9 @@ namespace PlacementCell
                     {
                         return true;
                     }
-                    else return false;
+                    else {
+                        return false;
+                    } 
                     
                 }
                 catch (Exception)
@@ -64,7 +71,9 @@ namespace PlacementCell
         }
         public static bool isMemRegSuccessful(string un, string encPwd)
         {
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+#pragma warning restore CS0436 // Type conflicts with imported type
             {
                 try
                 {
@@ -93,9 +102,12 @@ namespace PlacementCell
                 }
             }
         }
-        public static bool isStudentRegSuccessful(string fname, string lname, string stream, string gender, string email, string hashval)
+
+        public static bool isStudentRegSuccessful(string fname, string lname, string stream, string gender, string email, string hashval,out string error)
         {
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+#pragma warning restore CS0436 // Type conflicts with imported type
             {
                 try
                 {
@@ -111,20 +123,27 @@ namespace PlacementCell
                     connection.Close();
                     if (affectedrows == 1)
                     {
+                        error = null;
                         return true;
                     }
-                    else return false;
+                    else {
+                        error = null;
+                        return false;
+                    }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     connection.Close();
-                    return false;
+                    error = ex.Message;
+                    return true;
                 }
             }
         }
         public static bool isStudentExits(string email, string hashval)
         {
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+#pragma warning restore CS0436 // Type conflicts with imported type
             {
                 try
                 {
@@ -137,11 +156,13 @@ namespace PlacementCell
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     connection.Close();
-                    if (dt.Rows.Count > 0)
+                    if (dt.Rows.Count == 1)
                     {
                         return true;
                     }
-                    else return false;
+                    else {
+                        return false;
+                    }
 
                 }
                 catch (Exception)
@@ -152,9 +173,12 @@ namespace PlacementCell
 
             }
         }
+
         public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType)
         {
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+#pragma warning restore CS0436 // Type conflicts with imported type
             {
                 using (MySqlCommand command = new MySqlCommand("sp_addNewNotice", connection))
                 {
@@ -175,7 +199,9 @@ namespace PlacementCell
         }
         public static DataTable fetchNotices()
         {
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection()) {
+#pragma warning restore CS0436 // Type conflicts with imported type
                 using (MySqlCommand command = new MySqlCommand("sp_fetchNotices", connection)) {
                     command.CommandType = CommandType.StoredProcedure;
                     //MySqlDataReader reader = command.ExecuteReader();
@@ -194,7 +220,9 @@ namespace PlacementCell
         public static bool deleteNotices(int id , out string error) {
             try
             {
+#pragma warning disable CS0436 // Type conflicts with imported type
                 using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+#pragma warning restore CS0436 // Type conflicts with imported type
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_deleteEvent", connection))
                     {
@@ -221,11 +249,12 @@ namespace PlacementCell
                 return true; 
             }
         }
-
         public static bool isNoticeEdited(string id, string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, out string error) {
             try {
+#pragma warning disable CS0436 // Type conflicts with imported type
                 using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection()) {
-                    using (MySqlCommand command = new MySqlCommand("sp_editNotice", connection)) {
+#pragma warning restore CS0436 // Type conflicts with imported type
+                    using (MySqlCommand command = new MySqlCommand("sp_isEditNotice", connection)) {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@i", MySqlDbType.Int32).Value = Convert.ToInt32(id);
                         command.Parameters.Add("@t", MySqlDbType.VarChar).Value = noticeCardTitle;
@@ -250,8 +279,12 @@ namespace PlacementCell
                 return true;
             }
         }
+
         public static string fetchFname(string session_email) {
-            using (MySqlConnection con = ConnectionManager.GetDatabaseConnection()) {
+#pragma warning disable CS0436 // Type conflicts with imported type
+            using (MySqlConnection con = ConnectionManager.GetDatabaseConnection())
+            {
+#pragma warning restore CS0436 // Type conflicts with imported type
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchFname", con)) {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@e", MySqlDbType.VarChar).Value = session_email;
@@ -268,8 +301,37 @@ namespace PlacementCell
                 }
             }
         }
+        public static bool isPassChanged(string sessionUsername, string newPass,string sp_name, out string error) {
+            try {
+                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand(sp_name, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@np", MySqlDbType.VarChar).Value = newPass;
+                        command.Parameters.Add("@sun", MySqlDbType.VarChar).Value = sessionUsername;
+                        int affectedRows = command.ExecuteNonQuery();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                error = ex.Message;
+                return true;
+            }
+        }
         public static DataTable fetchClass() {
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection()) {
+#pragma warning restore CS0436 // Type conflicts with imported type
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchClassName",con)) {
                     cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -284,7 +346,9 @@ namespace PlacementCell
         }
         public static DataTable fetchDivision()
         {
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection())
+#pragma warning restore CS0436 // Type conflicts with imported type
             {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchDivision", con))
                 {
@@ -301,7 +365,9 @@ namespace PlacementCell
         }
         public static DataTable fetchSemester()
         {
+#pragma warning disable CS0436 // Type conflicts with imported type
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection())
+#pragma warning restore CS0436 // Type conflicts with imported type
             {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchSemester", con))
                 {
