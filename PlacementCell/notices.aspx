@@ -6,6 +6,15 @@
             height: 100%;
         }
     </style>
+    <script type="text/javascript" language="javascript">
+     function confirmation() {
+           if (confirm('Are you sure you want to delete this Notice ?')) {
+            __doPostBack();
+           }else{
+               return false;
+           }
+       }
+   </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <center>
@@ -13,7 +22,7 @@
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>       
                <asp:Panel ID="Panel1" runat="server">
                
-<%--                   <div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'>
+                  <%-- <div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'>
                        <div class='mdl-card__title'>
                            <h1 class='mdl-typography--display-2 mdl-color-text--primary'>" + title + "</h1>
                        </div>
