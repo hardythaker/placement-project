@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="style/StyleSheet.css" rel="stylesheet" />
     <link href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.cyan-pink.min.css" rel="stylesheet" />
-
+    <link rel="icon" href="favicon.ico">
 
     <asp:ContentPlaceHolder ID="head" runat="server">
 
