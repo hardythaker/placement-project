@@ -70,7 +70,7 @@
                         <label class="mdl-textfield__label" for="signup_emailid"><b>Enter SVV Mail ID...</b></label>
                     </div>
                     <asp:RequiredFieldValidator ID="adminusername_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="signup_emailid" Display="Dynamic" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="adminusername_tb_regex_validator" ForeColor="Red" runat="server" ErrorMessage='&lt;br/&gt;Invalid Email Id' ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="signup_emailid" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="adminusername_tb_regex_validator" ForeColor="Red" runat="server" ErrorMessage='&lt;br/&gt;Invalid Email Id' ValidationExpression="^[a-z0-9](\.?[a-z0-9_-]){0,}@somaiya\.edu" ControlToValidate="signup_emailid" Display="Dynamic"></asp:RegularExpressionValidator>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">

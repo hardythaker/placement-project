@@ -122,6 +122,7 @@
     <Content Include="adminReg.aspx" />
     <Content Include="contact.aspx" />
     <Content Include="editNotice.aspx" />
+    <Content Include="forgotpass.aspx" />
     <Content Include="home.aspx" />
     <Content Include="changePass.aspx" />
     <Content Include="images\favicon.ico" />
@@ -231,6 +232,13 @@
     </Compile>
     <Compile Include="editNotice.aspx.designer.cs">
       <DependentUpon>editNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forgotpass.aspx.cs">
+      <DependentUpon>forgotpass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forgotpass.aspx.designer.cs">
+      <DependentUpon>forgotpass.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>

@@ -190,6 +190,7 @@ namespace PlacementCell
                     adapter.SelectCommand = command;
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
+                    connection.Close();
                     DataTable dt = ds.Tables[0];
                     connection.Close();
                     return dt;
@@ -237,6 +238,7 @@ namespace PlacementCell
                         command.Parameters.Add("@l", MySqlDbType.VarChar).Value = noticeCardLink;
                         command.Parameters.Add("@ty", MySqlDbType.VarChar).Value = noticeCardType;
                         int afftectedRows = command.ExecuteNonQuery();
+                        connection.Close();
                         if (afftectedRows == 1) {
                             error = null;
                             return true;
@@ -284,7 +286,38 @@ namespace PlacementCell
                         command.Parameters.Add("@np", MySqlDbType.VarChar).Value = newPass;
                         command.Parameters.Add("@sun", MySqlDbType.VarChar).Value = sessionUsername;
                         int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
                         if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+                error = ex.Message;
+                return true;
+            }
+        }
+        public static bool isEmailIDExist(string emailID,out string error) {
+            try{
+                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_isStdEmailIDExist", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@e", MySqlDbType.VarChar).Value = emailID;
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        connection.Close();
+                        if (dt.Rows.Count == 1)
                         {
                             error = null;
                             return true;

@@ -50,5 +50,19 @@ namespace PlacementCell
             }
             return result;
         }
+
+        public static string getUniqueID() {
+            //RNGCryptoServiceProvider obj = new RNGCryptoServiceProvider();
+            //byte[] uid = new byte[128];
+            //obj.GetBytes(uid);
+            //string Unique = uid.ToString();
+            //return Unique;
+            string s = null;
+            RNGCryptoServiceProvider obj = new RNGCryptoServiceProvider();
+            byte[] uid = new byte[64];
+            obj.GetNonZeroBytes(uid);
+            return Convert.ToBase64String(uid);
+
+        }
     }
 }
