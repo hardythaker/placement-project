@@ -10,6 +10,20 @@
     <form runat="server" method="post">
         <center>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <script type="text/javascript">
+                var pbControl = null;
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+                prm.add_beginRequest(BeginRequestHandler);
+                prm.add_endRequest(EndRequestHandler);
+                function BeginRequestHandler(sender, args) {
+                    pbControl = args.get_postBackElement();  //the control causing the postback 
+                    pbControl.disabled = true;
+                }
+                function EndRequestHandler(sender, args) {
+                    pbControl.disabled = false;
+                    pbControl = null;
+                }
+            </script>
          <div runat="server" id="ResetDiv" class="mdl-card mdl-shadow--6dp" style="width:75vw">
             <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
                  <h2 class="mdl-card__title-text" style="text-align: center">Reset Password</h2>
@@ -54,7 +68,7 @@
                 </asp:UpdatePanel>
                 <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel_reset">
                     <ProgressTemplate>
-                        <div class="mdl-spinner mdl-js-spinner is-active" Id="spinner" runat="server"></div>
+                        <div class="mdl-spinner mdl-js-spinner is-active"></div>
                     </ProgressTemplate>
                 </asp:UpdateProgress>
             <br />

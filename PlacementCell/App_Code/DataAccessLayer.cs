@@ -346,7 +346,7 @@ namespace PlacementCell
                         command.Parameters.Add("@e", MySqlDbType.VarChar).Value = emailID;
                         command.Parameters.Add("@uc", MySqlDbType.VarChar).Value = uCode;
                         int affectedRows = command.ExecuteNonQuery();
-                        if (affectedRows == 1)
+                        if(affectedRows == 1)
                         {
                             error = null;
                             return true;

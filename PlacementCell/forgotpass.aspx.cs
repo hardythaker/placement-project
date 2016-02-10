@@ -38,7 +38,7 @@ namespace PlacementCell
                         {
                             try
                             {
-                                string url = "http://localhost:50312/resetPass.aspx/?token=" + uid;
+                                string url = "http://localhost:50312/resetPass.aspx?token=" + uid;
                                 //lbl_forgotPassStatus.Text = url;
                                 MailMessage msg = new MailMessage();
                                 msg.From = new MailAddress("skstpc.edu@gmail.com");
