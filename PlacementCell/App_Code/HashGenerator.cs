@@ -16,12 +16,6 @@ namespace PlacementCell
         {
             SHA1CryptoServiceProvider sha = new SHA1CryptoServiceProvider();
             var hash =  sha.ComputeHash(System.Text.Encoding.ASCII.GetBytes(user + pass));
-
-
-            
-            //var inputBytes = Encoding.ASCII.GetBytes(user+pass);
-            //var hash = sha.ComputeHash(inputBytes);
-
             var strPassHash = new StringBuilder();
             for (var i = 0; i < hash.Length; i++)
             {
@@ -52,17 +46,11 @@ namespace PlacementCell
         }
 
         public static string getUniqueID() {
-            //RNGCryptoServiceProvider obj = new RNGCryptoServiceProvider();
-            //byte[] uid = new byte[128];
-            //obj.GetBytes(uid);
-            //string Unique = uid.ToString();
-            //return Unique;
-            string s = null;
-            RNGCryptoServiceProvider obj = new RNGCryptoServiceProvider();
-            byte[] uid = new byte[64];
-            obj.GetNonZeroBytes(uid);
-            return Convert.ToBase64String(uid);
-
+            var random = new RNGCryptoServiceProvider();
+            var randomBytes = new byte[95];
+            random.GetBytes(randomBytes); // fills randomBytes with random bytes
+            var token = HttpServerUtility.UrlTokenEncode(randomBytes); // unlike straight-up Base64, safe in URLs
+            return token;
         }
     }
 }

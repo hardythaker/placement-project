@@ -44,13 +44,15 @@
                     <div style="width:auto">
                         <asp:DropDownList ID="DropDownList1" CssClass="ddstyle mdl-typography--font-light" runat="server">
                         <asp:ListItem Value="0" Selected="True">--Stream--</asp:ListItem>
-                        <asp:ListItem Value="B.Com">B.Com</asp:ListItem>
-                        <asp:ListItem Value="BMM">BMM</asp:ListItem>
-                        <asp:ListItem Value="BAF">BAF</asp:ListItem>
-                        <asp:ListItem Value="BSc.IT">BSc.IT</asp:ListItem>
-                        <asp:ListItem Value="BSc.CS">BSc.CS</asp:ListItem>
-                        <asp:ListItem Value="B.A">B.A</asp:ListItem>
-                        <asp:ListItem Value="BMS">BMS</asp:ListItem>
+                        <asp:ListItem Value="1">B.Com</asp:ListItem>
+                        <asp:ListItem Value="2">BMM</asp:ListItem>
+                        <asp:ListItem Value="3">BAF</asp:ListItem>
+                        <asp:ListItem Value="4">BSc.IT</asp:ListItem>
+                        <asp:ListItem Value="5">BSc.CS</asp:ListItem>
+                        <asp:ListItem Value="6">B.A</asp:ListItem>
+                        <asp:ListItem Value="7">BMS</asp:ListItem>
+                        <asp:ListItem Value="8">BBI</asp:ListItem>
+                        <asp:ListItem Value="9">BFM</asp:ListItem>
                     </asp:DropDownList>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   
                         <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option-1">

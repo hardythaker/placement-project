@@ -32,7 +32,7 @@
                     </a>
                 </div>
                 
-                <span style="padding-right:6em"><a href="#" class="mdl-color-text--cyan" style="font-size: 14px">Forgot your password?</a>
+                <span style="padding-right:6em"><a href="forgotpass.aspx" class="mdl-color-text--cyan" style="font-size: 14px">Forgot your password?</a>
                     <br /><br />
                 <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label><br />
                 <asp:Label ID="Label2" runat="server" Text=""></asp:Label>

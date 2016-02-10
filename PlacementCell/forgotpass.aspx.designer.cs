@@ -13,6 +13,24 @@ namespace PlacementCell {
     public partial class forgotpass {
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// tb_forgotEmailID control.
         /// </summary>
         /// <remarks>
@@ -31,13 +49,13 @@ namespace PlacementCell {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// adminusername_tb_regex_validator control.
+        /// forgotPassEmail_tb_regex_validator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator adminusername_tb_regex_validator;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator forgotPassEmail_tb_regex_validator;
         
         /// <summary>
         /// btn_forgotPass control.
@@ -56,5 +74,14 @@ namespace PlacementCell {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_forgotPassStatus;
+        
+        /// <summary>
+        /// UpdateProgress2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress UpdateProgress2;
     }
 }

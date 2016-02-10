@@ -78,10 +78,12 @@
         </div>
         <%-- Side Drawer Ends Here --%>
         <main class="mdl-layout__content">
-                    <div class="page-content" style="width: 100%; text-align: center; border: 2px">
+            <center>
+                    <div class="page-content" style="width:100%; text-align: center;">
                         <asp:ContentPlaceHolder ID="main_content" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
+                </center>
         </main>
 
     </div>

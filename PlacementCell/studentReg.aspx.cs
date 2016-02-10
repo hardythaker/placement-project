@@ -20,7 +20,7 @@ namespace PlacementCell
             //collecting data from form
             string fname = signup_fname.Text;
             string lname = signup_lname.Text;
-            string stream = DropDownList1.SelectedItem.Text;
+            string stream = DropDownList1.SelectedItem.Value;
             string gender = Request.Form["options"];
             string email = signup_emailid.Text;
             string pass = signup_password.Text;
