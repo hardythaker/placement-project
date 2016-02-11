@@ -39,7 +39,7 @@ namespace PlacementCell
                         {
                             try
                             {
-                                string url = "http://hardikt-001-site1.ctempurl.com/resetPass.aspx?token=" + uid+"?id="+student_id;
+                                string url = "http://hardikt-001-site1.ctempurl.com/resetPass.aspx?token=" + uid+"&id="+student_id;
                                 //lbl_forgotPassStatus.Text = url;
                                 MailMessage msg = new MailMessage();
                                 msg.From = new MailAddress("skstpc.edu@gmail.com");
