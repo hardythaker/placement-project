@@ -20,8 +20,14 @@
                     pbControl.disabled = true;
                 }
                 function EndRequestHandler(sender, args) {
+                    $("#spinner").hide();
+                    showMessage();
                     pbControl.disabled = false;
                     pbControl = null;
+                }
+                function showMessage() {
+                    alert('Your Password Succesfully Reset...!\n Click Ok to Login');
+                    window.location.replace('studentLogin.aspx');
                 }
             </script>
          <div runat="server" id="ResetDiv" class="mdl-card mdl-shadow--6dp" style="width:75vw">
@@ -30,7 +36,7 @@
             </div>
                 <asp:UpdatePanel ID="UpdatePanel_reset" runat="server">
                     <ContentTemplate>
-                        <div style="display: inline; padding-left:5vw; padding-right:5vw;">
+<%--                        <div style="display: inline; padding-left:5vw; padding-right:5vw;">
                             <label for="Reset_Email" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size: 15px">Svv Mail ID :</label>
                             <div class="mdl-textfield mdl-js-textfield">
                                 <asp:TextBox Class="mdl-textfield__input" ID="tb_Reset_Email" placeholder="Enter New Password" runat="server" TextMode="Email"></asp:TextBox>
@@ -38,8 +44,8 @@
                             </div>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ForeColor="Red" Display="Dynamic" Font-Bold="True" Font-Size="Large" ControlToValidate="tb_Reset_newPass"></asp:RequiredFieldValidator>
                         </div>
-                        <asp:RegularExpressionValidator ID="forgotPassEmail_tb_regex_validator" ForeColor="Red" runat="server" ErrorMessage='&lt;br/&gt;Invalid Email Id&lt;br/&gt;' ValidationExpression="^[a-z0-9](\.?[a-z0-9_-]){0,}@somaiya\.edu" ControlToValidate="tb_Reset_Email" Display="Dynamic"></asp:RegularExpressionValidator>
-                        <br />
+                        <asp:RegularExpressionValidator ID="forgotPassEmail_tb_regex_validator" ForeColor="Red" runat="server" ErrorMessage='&lt;br/&gt;Invalid Email Id&lt;br/&gt;' ValidationExpression="^[a-z0-9](\.?[a-z0-9_-]){0,}@somaiya\.edu" ControlToValidate="tb_Reset_Email" Display="Dynamic"></asp:RegularExpressionValidator>--%>
+                        <%--<br />--%>
                         <div style="display: inline; padding-left:5vw; padding-right:5vw;">
                             <label for="Reset_newPass" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size: 15px">New Password :</label>
                             <div class="mdl-textfield mdl-js-textfield">
@@ -68,7 +74,7 @@
                 </asp:UpdatePanel>
                 <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel_reset">
                     <ProgressTemplate>
-                        <div class="mdl-spinner mdl-js-spinner is-active"></div>
+                        <div id="spinner" class="mdl-spinner mdl-js-spinner is-active"></div>
                     </ProgressTemplate>
                 </asp:UpdateProgress>
             <br />

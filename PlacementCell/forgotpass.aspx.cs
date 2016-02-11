@@ -24,10 +24,11 @@ namespace PlacementCell
             //RequiredFieldValidator1.Dispose();
             //btn_forgotPass.Visible = false;
             string error_isEmailIDExist;
-            if (DataAccessLayer.isEmailIDExist(tb_forgotEmailID.Text, out error_isEmailIDExist))
+            string student_id;
+            if (DataAccessLayer.isEmailIDExist_getItsID(tb_forgotEmailID.Text, out error_isEmailIDExist, out student_id))
             {
                 //lbl_forgotPassStatus.Text = tb_forgotEmailID.Text;
-                if (error_isEmailIDExist == null)
+                if (error_isEmailIDExist == null && student_id !=null)
                 {
                     string uid = HashGenerator.getUniqueID();
                     string error_isUniqueCodeUpdated;
@@ -38,7 +39,7 @@ namespace PlacementCell
                         {
                             try
                             {
-                                string url = "http://hardikt-001-site1.ctempurl.com/resetPass.aspx?token=" + uid;
+                                string url = "http://hardikt-001-site1.ctempurl.com/resetPass.aspx?token=" + uid+"?id="+student_id;
                                 //lbl_forgotPassStatus.Text = url;
                                 MailMessage msg = new MailMessage();
                                 msg.From = new MailAddress("skstpc.edu@gmail.com");
@@ -77,7 +78,7 @@ namespace PlacementCell
                 else
                 {
                     btn_forgotPass.Visible = true;
-                    lbl_forgotPassStatus.Text = error_isEmailIDExist;
+                    lbl_forgotPassStatus.Text = error_isEmailIDExist + "student id";
                 }
             }
             else

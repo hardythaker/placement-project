@@ -40,33 +40,6 @@ namespace PlacementCell {
         protected global::System.Web.UI.UpdatePanel UpdatePanel_reset;
         
         /// <summary>
-        /// tb_Reset_Email control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_Reset_Email;
-        
-        /// <summary>
-        /// RequiredFieldValidator3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
-        /// forgotPassEmail_tb_regex_validator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator forgotPassEmail_tb_regex_validator;
-        
-        /// <summary>
         /// tb_Reset_newPass control.
         /// </summary>
         /// <remarks>

@@ -304,7 +304,7 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static bool isEmailIDExist(string emailID,out string error) {
+        public static bool isEmailIDExist_getItsID(string emailID,out string error,out string student_id) {
             try{
                 using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
                 {
@@ -321,10 +321,12 @@ namespace PlacementCell
                         if (dt.Rows.Count == 1)
                         {
                             error = null;
+                            student_id = dt.Rows[0].ItemArray[0].ToString();
                             return true;
                         }
                         else {
                             error = null;
+                            student_id = null;
                             return false;
                         }
                     }
@@ -332,6 +334,7 @@ namespace PlacementCell
             }
             catch (Exception ex) {
                 error = ex.Message;
+                student_id = null;
                 return true;
             }
         }
@@ -397,8 +400,42 @@ namespace PlacementCell
                 return true;
             }
         }
+        public static string getSvvmailOfstdID(string id,out string error) {
+            try
+            {
+                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_getSvvMailIDofStdID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        adapter.SelectCommand = command;
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        connection.Close();
+                        adapter.Dispose();
+                        if (dt.Rows.Count > 0) // this is set to > 0 because in case the same token are generated then ==1 will not work. chances of same token generation is 0.001%.
+                        {
+                            error = null;
+                            string svvmailid = dt.Rows[0].ItemArray[0].ToString();
+                            return svvmailid;
+                        }
+                        else {
+                            error = null;
+                            return null;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return null;
+            }
+        }
 
-        public static bool isPassResetSuccessfully(string email,string newPass,string token,out string error)
+        public static bool isPassResetSuccessfully(string id,string newPass,out string error)
         {
             try
             {
@@ -407,13 +444,8 @@ namespace PlacementCell
                     using (MySqlCommand command = new MySqlCommand("sp_isPassResetSuccessfully", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;// for reseting pass am also asking for the Email because in case the same token is generated for two or more password reset request.(which have chances of 0.001%)
-                                                                                        //then if one of them changes the password by clicking in the url which is send to the mail id
-                                                                                        //the password of both the user will change if they have the same token. thats why a email id which is unique can distinguish between then and reset the pass only one of them.
-
-                                                                                        //the other reason for asking the email for resetin the password is we have a mechanism for creating the password is by hashing the (emailid + password) by sha1 thats why.
+                        command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
                         command.Parameters.Add("@np", MySqlDbType.VarChar).Value = newPass;
-                        command.Parameters.Add("@t", MySqlDbType.VarChar).Value = token;
                         int affectedRows = command.ExecuteNonQuery();
                         connection.Close();
                         if (affectedRows == 1) 
