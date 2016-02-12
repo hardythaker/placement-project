@@ -70,7 +70,7 @@ namespace PlacementCell
                                     {
                                         link += "l";
                                     }
-                                    FileUpload1.SaveAs(Server.MapPath("~/newpages/") + link);
+                                    FileUpload1.SaveAs(Server.MapPath("~/newpages/") + link.Replace(' ','_'));
                                     if (CheckBox1.Checked == true && btnCreateNewPage.Text == "Save Changes")
                                     {
                                         editNotice(link, selectedType);
@@ -98,7 +98,7 @@ namespace PlacementCell
                                 try
                                 {
                                     link = Path.GetFileName(FileUpload1.FileName).Trim();
-                                    FileUpload1.SaveAs(Server.MapPath("~/newimages/") + link);
+                                    FileUpload1.SaveAs(Server.MapPath("~/newimages/") + link.Replace(' ', '_'));
                                     if (CheckBox1.Checked == true && btnCreateNewPage.Text == "Save Changes")
                                     {
                                         editNotice(link, selectedType);
@@ -124,7 +124,7 @@ namespace PlacementCell
                             try
                             {
                                 link = Path.GetFileName(FileUpload1.FileName).Trim();
-                                FileUpload1.SaveAs(Server.MapPath("~/newdownloads/") + link);
+                                FileUpload1.SaveAs(Server.MapPath("~/newdownloads/") + link.Replace(' ', '_'));
                                 if (CheckBox1.Checked == true && btnCreateNewPage.Text == "Save Changes")
                                 {
                                     editNotice(link, selectedType);
@@ -190,7 +190,7 @@ namespace PlacementCell
         {
             string error;
             // Label1.Text = id_Of_Editnotice +"<br/> "+ fileTitle.Text + " <br/>" + fileDesc.Text + "<br/> " + newlink + "<br/> " + newselectedType;
-            if (DataAccessLayer.isNoticeEdited(id_Of_Editnotice, fileTitle.Text, fileDesc.Text, newlink, newselectedType, out error))
+            if (DataAccessLayer.isNoticeEdited(id_Of_Editnotice, fileTitle.Text, fileDesc.Text, newlink.Replace(' ','_').Trim(), newselectedType, out error))
             {
 
                 if (error == null)
