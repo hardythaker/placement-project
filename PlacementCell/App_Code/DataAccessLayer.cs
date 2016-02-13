@@ -304,11 +304,11 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static bool isEmailIDExist_getItsID(string emailID,out string error,out string student_id) {
+        public static bool isEmailIDExist_getItsID(string emailID,string sp_name,out string error,out string id) {
             try{
                 using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
                 {
-                    using (MySqlCommand command = new MySqlCommand("sp_isStdEmailIDExist", connection))
+                    using (MySqlCommand command = new MySqlCommand(sp_name, connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@e", MySqlDbType.VarChar).Value = emailID;
@@ -321,12 +321,12 @@ namespace PlacementCell
                         if (dt.Rows.Count == 1)
                         {
                             error = null;
-                            student_id = dt.Rows[0].ItemArray[0].ToString();
+                            id = dt.Rows[0].ItemArray[0].ToString();
                             return true;
                         }
                         else {
                             error = null;
-                            student_id = null;
+                            id = null;
                             return false;
                         }
                     }
@@ -334,7 +334,7 @@ namespace PlacementCell
             }
             catch (Exception ex) {
                 error = ex.Message;
-                student_id = null;
+                id = null;
                 return true;
             }
         }

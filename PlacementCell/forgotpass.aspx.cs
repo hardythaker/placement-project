@@ -25,7 +25,8 @@ namespace PlacementCell
             //btn_forgotPass.Visible = false;
             string error_isEmailIDExist;
             string student_id;
-            if (DataAccessLayer.isEmailIDExist_getItsID(tb_forgotEmailID.Text, out error_isEmailIDExist, out student_id))
+            string sp_name = "sp_isStdEmailIDExist";// for wich store procedure has to be called, cause only one method is there for finding universal svv mail id
+            if (DataAccessLayer.isEmailIDExist_getItsID(tb_forgotEmailID.Text,sp_name, out error_isEmailIDExist, out student_id))
             {
                 //lbl_forgotPassStatus.Text = tb_forgotEmailID.Text;
                 if (error_isEmailIDExist == null && student_id !=null)

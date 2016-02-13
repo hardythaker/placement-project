@@ -41,5 +41,21 @@ namespace PlacementCell
                 Label1.Text = "Your Current Admin Password is Wrong...";
             }
         }
+
+        protected void adminRegUsername_TextChanged(object sender, EventArgs e)
+        {
+            string error;
+            string id;
+            string sp_name = "sp_isAdminEmailIdExist";
+            if (DataAccessLayer.isEmailIDExist_getItsID(adminRegUsername.Text,sp_name,out error,out id)) {
+                if (error == null)
+                {
+                    adminusername_tb_regex_validator.ErrorMessage = "Email ID already Exist";
+                }
+                else {
+                    Label1.Text = error;
+                }
+            }
+        }
     }
 }
