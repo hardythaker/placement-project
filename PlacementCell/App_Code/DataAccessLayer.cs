@@ -32,7 +32,7 @@ namespace PlacementCell
             }
         }
 
-        public static bool isMemberExits(string un,string encPass)
+        public static bool isMemberExits(string un,string encPass,out string error)
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
             {
@@ -43,23 +43,30 @@ namespace PlacementCell
                     command.Parameters.Add("@u", MySqlDbType.VarChar).Value = un;
                     command.Parameters.Add("@p", MySqlDbType.VarChar).Value = encPass;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    adapter.SelectCommand = command;
                     DataTable dt = new DataTable();
+                    connection.Open();
+                    adapter.SelectCommand = command;
                     adapter.Fill(dt);
                     connection.Close();
                     if (dt.Rows.Count > 0)
                     {
+                        error = null;
                         return true;
                     }
                     else {
+                        error = null;
                         return false;
-                    } 
-                    
+                    }
+
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    connection.Close();
+                    //connection.Close();
+                    error = ex.Message;
                     return false;
+                }
+                finally {
+                    connection.Close();
                 }
                 
             }
@@ -74,6 +81,7 @@ namespace PlacementCell
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("@un", MySqlDbType.VarChar).Value = un;
                     command.Parameters.Add("@p", MySqlDbType.VarChar).Value = encPwd;
+                    connection.Open();
                     int affectedrows = command.ExecuteNonQuery();
                     connection.Close();
                     if (affectedrows == 1)
@@ -104,6 +112,7 @@ namespace PlacementCell
                     command.Parameters.Add("@g", MySqlDbType.Text).Value = gender;
                     command.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
                     command.Parameters.Add("@p", MySqlDbType.VarChar).Value = hashval;
+                    connection.Open();
                     int affectedrows = command.ExecuteNonQuery();
                     connection.Close();
                     if (affectedrows == 1)
@@ -135,8 +144,9 @@ namespace PlacementCell
                     command.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
                     command.Parameters.Add("@p", MySqlDbType.VarChar).Value = hashval;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    adapter.SelectCommand = command;
                     DataTable dt = new DataTable();
+                    connection.Open();
+                    adapter.SelectCommand = command;
                     adapter.Fill(dt);
                     connection.Close();
                     if (dt.Rows.Count == 1)
@@ -168,6 +178,7 @@ namespace PlacementCell
                     command.Parameters.Add("@d", MySqlDbType.VarChar).Value = noticeCardDesc;
                     command.Parameters.Add("@l", MySqlDbType.VarChar).Value = noticeCardLink;
                     command.Parameters.Add("@ty", MySqlDbType.VarChar).Value = noticeCardType;
+                    connection.Open();
                     int affectedRows = command.ExecuteNonQuery();
                     connection.Close();
                     if (affectedRows == 1)
@@ -187,8 +198,9 @@ namespace PlacementCell
                     //DataSet ds = new DataSet();
                     //reader.
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    adapter.SelectCommand = command;
                     DataSet ds = new DataSet();
+                        connection.Open();
+                    adapter.SelectCommand = command;
                     adapter.Fill(ds);
                     connection.Close();
                     DataTable dt = ds.Tables[0];
@@ -207,6 +219,7 @@ namespace PlacementCell
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@i", MySqlDbType.Int32).Value = id;
                         // MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        connection.Open();
                         int affectedRows = command.ExecuteNonQuery();
                         connection.Close();
                         if (affectedRows == 1)
@@ -263,6 +276,7 @@ namespace PlacementCell
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchFname", con)) {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@e", MySqlDbType.VarChar).Value = session_email;
+                    con.Open();
                     MySqlDataReader reader = cmd.ExecuteReader();
                     reader.Read();
                     string fname = reader.GetString("fname");
@@ -285,6 +299,7 @@ namespace PlacementCell
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@np", MySqlDbType.VarChar).Value = newPass;
                         command.Parameters.Add("@sun", MySqlDbType.VarChar).Value = sessionUsername;
+                        connection.Open();
                         int affectedRows = command.ExecuteNonQuery();
                         connection.Close();
                         if (affectedRows == 1)
@@ -313,8 +328,9 @@ namespace PlacementCell
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@e", MySqlDbType.VarChar).Value = emailID;
                         MySqlDataAdapter adapter = new MySqlDataAdapter();
-                        adapter.SelectCommand = command;
                         DataTable dt = new DataTable();
+                        connection.Open();
+                        adapter.SelectCommand = command;
                         adapter.Fill(dt);
                         connection.Close();
                         adapter.Dispose();
@@ -348,8 +364,10 @@ namespace PlacementCell
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@e", MySqlDbType.VarChar).Value = emailID;
                         command.Parameters.Add("@uc", MySqlDbType.VarChar).Value = uCode;
+                        connection.Open();
                         int affectedRows = command.ExecuteNonQuery();
-                        if(affectedRows == 1)
+                        connection.Close();
+                        if (affectedRows == 1)
                         {
                             error = null;
                             return true;
@@ -378,11 +396,11 @@ namespace PlacementCell
                         //command.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
                         command.Parameters.Add("@t", MySqlDbType.VarChar).Value = token;
                         MySqlDataAdapter adapter = new MySqlDataAdapter();
-                        adapter.SelectCommand = command;
                         DataTable dt = new DataTable();
+                        connection.Open();
+                        adapter.SelectCommand = command;
                         adapter.Fill(dt);
                         connection.Close();
-                        adapter.Dispose();
                         if (dt.Rows.Count > 0) // this is set to > 0 because in case the same token are generated then ==1 will not work. chances of same token generation is 0.001%.
                         {
                             error = null;
@@ -410,11 +428,11 @@ namespace PlacementCell
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
                         MySqlDataAdapter adapter = new MySqlDataAdapter();
-                        adapter.SelectCommand = command;
                         DataTable dt = new DataTable();
+                        connection.Open();
+                        adapter.SelectCommand = command;
                         adapter.Fill(dt);
                         connection.Close();
-                        adapter.Dispose();
                         if (dt.Rows.Count > 0) // this is set to > 0 because in case the same token are generated then ==1 will not work. chances of same token generation is 0.001%.
                         {
                             error = null;
@@ -446,6 +464,7 @@ namespace PlacementCell
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
                         command.Parameters.Add("@np", MySqlDbType.VarChar).Value = newPass;
+                        connection.Open();
                         int affectedRows = command.ExecuteNonQuery();
                         connection.Close();
                         if (affectedRows == 1) 
@@ -472,10 +491,11 @@ namespace PlacementCell
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchClassName",con)) {
                     cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    adapter.SelectCommand = cmd;
-                    con.Close();
                     DataSet ds = new DataSet();
+                    con.Open();
+                    adapter.SelectCommand = cmd;
                     adapter.Fill(ds);
+                    con.Close();
                     DataTable dt = ds.Tables[0];
                     return dt;
                 }
