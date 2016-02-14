@@ -33,7 +33,8 @@ namespace PlacementCell
             {
                 string hashval = HashGenerator.getHash(Session["student_username"].ToString(), tb_currentPass.Text);
                 string str_SPName = "sp_isStdPassChanged";
-                if (DataAccessLayer.isStudentExits(Session["student_username"].ToString(), hashval))
+                string verified;//no use of the parameter in this case;
+                if (DataAccessLayer.isStudentExits(Session["student_username"].ToString(), hashval,out verified))
                 {
                     string error;
                     string newhashval = HashGenerator.getHash(Session["student_username"].ToString(), tb_newPass.Text);

@@ -182,6 +182,8 @@
     <Content Include="style\material.min.css" />
     <Content Include="style\material.min.js" />
     <Content Include="style\StyleSheet.css" />
+    <Content Include="verifyEmail.aspx" />
+    <Content Include="verifyInfo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +225,7 @@
     <Compile Include="App_Code\ConnectionManager.cs" />
     <Compile Include="App_Code\DataAccessLayer.cs" />
     <Compile Include="App_Code\HashGenerator.cs" />
+    <Compile Include="App_Code\SendMailManager.cs" />
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -323,6 +326,20 @@
     </Compile>
     <Compile Include="changePass.aspx.designer.cs">
       <DependentUpon>changePass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="verifyEmail.aspx.cs">
+      <DependentUpon>verifyEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="verifyEmail.aspx.designer.cs">
+      <DependentUpon>verifyEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="verifyInfo.aspx.cs">
+      <DependentUpon>verifyInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="verifyInfo.aspx.designer.cs">
+      <DependentUpon>verifyInfo.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

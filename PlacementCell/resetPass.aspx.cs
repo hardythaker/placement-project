@@ -14,10 +14,11 @@ namespace PlacementCell
             if (!Page.IsPostBack)
             {
                 string token = Request.QueryString["token"];
+                string id = Request.QueryString["id"];
                 if (token != null && token.Length == 128)
                 {
                     string error;
-                    if (DataAccessLayer.isPassResetTokenValid(token, out error) == false)
+                    if (DataAccessLayer.isTokenValid(token, id, out error) == false)
                     {
                         lbl_InvalidToken_attack.Text = "Invalid Token or Token Expired";
                         ResetDiv.Style["display"] = "none";
@@ -37,26 +38,40 @@ namespace PlacementCell
 
         protected void btn_resetPass_Click1(object sender, EventArgs e)
         {
+            string token = Request.QueryString["token"];
             string id = Request.QueryString["id"];
             string error;
-            string svvmail = DataAccessLayer.getSvvmailOfstdID(id,out error);
-            if (error == null && svvmail != null)
+            if (DataAccessLayer.isTokenValid(token, id, out error))
             {
-                string hashVal = HashGenerator.getHash(svvmail, tb_Reset_newPass.Text.Trim());
-                if (DataAccessLayer.isPassResetSuccessfully(id, hashVal, out error))
+                if (error == null)
                 {
-                    if (error != null)
+                    string svvmail = DataAccessLayer.getSvvmailOfstdID(id, out error);
+                    if (error == null && svvmail != null)
                     {
-                        lbl_resetPassStatus.Text = error;
-                        //tb_Reset_Email.Text = string.Empty;
+                        string hashVal = HashGenerator.getHash(svvmail, tb_Reset_newPass.Text.Trim());
+                        if (DataAccessLayer.isPassResetSuccessfully(id, hashVal, out error))
+                        {
+                            if (error != null)
+                            {
+                                lbl_resetPassStatus.Text = error;
+                                //tb_Reset_Email.Text = string.Empty;
+                            }
+                        }
+                        else {
+                            lbl_resetPassStatus.Text = "Token Already Used";
+                        }
+                    }
+                    else {
+                        lbl_resetPassStatus.Text = error + "id";
                     }
                 }
-                else {
-                    lbl_resetPassStatus.Text = "Token Already Used";
+                else
+                {
+                    lbl_resetPassStatus.Text = error;
                 }
             }
             else {
-                lbl_resetPassStatus.Text = error + "id";
+                lbl_resetPassStatus.Text = "Invalid Token";
             }
         }
     }

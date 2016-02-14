@@ -113,9 +113,9 @@ namespace PlacementCell
                     command.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
                     command.Parameters.Add("@p", MySqlDbType.VarChar).Value = hashval;
                     connection.Open();
-                    int affectedrows = command.ExecuteNonQuery();
+                    int affectedRows = command.ExecuteNonQuery();
                     connection.Close();
-                    if (affectedrows == 1)
+                    if (affectedRows == 1)
                     {
                         error = null;
                         return true;
@@ -133,7 +133,40 @@ namespace PlacementCell
                 }
             }
         }
-        public static bool isStudentExits(string email, string hashval)
+
+        public static bool isStudentSuccessfullyVerified(string id, out string error) {
+            try
+            {
+                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_studentVeriFied", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                        // MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else
+                        {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return true;
+            }
+        }
+        public static bool isStudentExits(string email, string hashval,out string verified)
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
             {
@@ -151,19 +184,55 @@ namespace PlacementCell
                     connection.Close();
                     if (dt.Rows.Count == 1)
                     {
+                        verified = dt.Rows[0].ItemArray[7].ToString();
                         return true;
                     }
                     else {
+                        verified = null;
                         return false;
                     }
 
                 }
                 catch (Exception)
                 {
-                    connection.Close();
+                    verified = null;
+                    //connection.Close();
                     return false;
                 }
 
+            }
+        }
+
+        public static bool isStudentDeleted(string stdEmail, out string error) {
+            try
+            {
+                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_deleteStudent", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@i", MySqlDbType.Int32).Value = stdEmail;
+                        // MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else
+                        {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return true;
             }
         }
 
@@ -385,16 +454,17 @@ namespace PlacementCell
             }
         }
 
-        public static bool isPassResetTokenValid(string token, out string error) {
+        public static bool isTokenValid(string token,string id, out string error) {
             try
             {
                 using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
                 {
-                    using (MySqlCommand command = new MySqlCommand("sp_isPassResetTokenValid", connection))
+                    using (MySqlCommand command = new MySqlCommand("sp_isTokenValid", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         //command.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
                         command.Parameters.Add("@t", MySqlDbType.VarChar).Value = token;
+                        command.Parameters.Add("@i", MySqlDbType.VarChar).Value = id;
                         MySqlDataAdapter adapter = new MySqlDataAdapter();
                         DataTable dt = new DataTable();
                         connection.Open();
