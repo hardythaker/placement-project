@@ -251,16 +251,16 @@ namespace PlacementCell
                         adapter.SelectCommand = command;
                         adapter.Fill(dt);
                         connection.Close();
-                        adapter.Dispose();
+                        //adapter.Dispose();
                         if (dt.Rows.Count == 1)
                         {
-                            error = null;
                             verificationStatus = dt.Rows[0].ItemArray[7].ToString();
+                            error = null;
                             return true;
                         }
                         else {
-                            error = null;
                             verificationStatus = null;
+                            error = null;
                             return false;
                         }
                     }

@@ -21,7 +21,7 @@ namespace PlacementCell
             string error,verified;
             if (DataAccessLayer.isStdEmailVerificationPending(dec_svvmail_id,out verified, out error))
             {
-                if (error == null)
+                if (error == null && verified != null)
                 {
                     if (verified != "1")
                     {
