@@ -24,12 +24,12 @@ namespace PlacementCell
                             //string id = Request.QueryString["id"];
                             if (DataAccessLayer.isStudentSuccessfullyVerified(id,out error))
                             {
-                                ResetDiv.Style["display"] = "normal";
                             }
 
                         }
                         else {
                             lbl_InvalidToken_attack.Text = error;
+                            ResetDiv.Style["display"] = "none";
                         }
                         
                     }

@@ -52,5 +52,14 @@ namespace PlacementCell
             var token = HttpServerUtility.UrlTokenEncode(randomBytes); // unlike straight-up Base64, safe in URLs
             return token;
         }
+        //private static byte[] _optionalEntropy = { 9, 8, 7, 6, 5 };
+        public static string URLEncrypt(string plain_parameters)
+        {
+            return HttpUtility.UrlEncode(Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(plain_parameters)));
+        }
+        public static string URLDecrypt(string enc_parameters)
+        {
+            return ASCIIEncoding.ASCII.GetString((Convert.FromBase64String(HttpUtility.UrlDecode(enc_parameters))));
+        }
     }
 }

@@ -14,7 +14,12 @@ namespace PlacementCell
                 {
                     dbcon = new MySqlConnection(connectionString);
                 }
-                return dbcon;
+                if (dbcon != null)
+                {
+                    dbcon.Close();
+                    dbcon = new MySqlConnection(connectionString);
+                }
+            return dbcon;
         }
             public static void CloseDatabaseConnection()
             {

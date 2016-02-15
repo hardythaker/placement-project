@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -24,7 +25,7 @@ namespace PlacementCell
                 string lname = signup_lname.Text;
                 string stream = DropDownList1.SelectedItem.Value;
                 string gender = Request.Form["options"];
-                string email = signup_emailid.Text;
+                string email = signup_emailid.Text.Trim();
                 string pass = signup_password.Text;
                 //End collecting data
 
@@ -34,22 +35,9 @@ namespace PlacementCell
                 {
                     if (error != null)
                     {
-                        Label1.Text ="here" +error;
+                        Label1.Text = error;
                     }
                     else {
-                        //signup_fname.Text = string.Empty;
-                        //signup_lname.Text = string.Empty;
-                        //DropDownList1.ClearSelection();
-                        //Request.Form["options"] = string.Empty;
-                        //signup_emailid.Text = string.Empty;
-                        //signup_password.Text = string.Empty;
-                        //isValidEmail = false;
-                        // Label1.Text = "success";
-                        //string label = window.location.replace('studentLogin.aspx');
-                        //ClientScript.RegisterStartupScript(Page.GetType(), "validation", "<script language='javascript'>alert('Succesfully Registered...!\\n Click Ok to Login');window.location.replace('studentLogin.aspx');</script>");
-                        // ScriptManager1.RegisterDataItem(Label3, "successReg");
-                        //string message = "alert('You Succesfully Registered...!\n Click Ok to Login');";
-                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         isValidEmail = false;
                         string mailerror;
                         if (SendMailManager.newStdVerify(signup_emailid.Text.Trim(), out mailerror))
@@ -57,7 +45,9 @@ namespace PlacementCell
                             if (mailerror == null)
                             {
                                 // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script type='text/javascript'> $('#spinner2').hide(); alert('You Succesfully Registered...!\\n Click Ok to Login');window.location.replace('studentLogin.aspx');</script>", false);
-                                Response.Redirect("verifyInfo.aspx");
+                                string enc_signup_emailID = HttpUtility.UrlEncode(email);
+                                string str_enc_email = HashGenerator.URLEncrypt(email);
+                                Response.Redirect("verifyInfo.aspx?svvmailid=" + str_enc_email);
                             }
                             else {
                                 Label1.Text = mailerror;
@@ -109,7 +99,7 @@ namespace PlacementCell
                 string error;
                 string id;// no use of this ID here;it is for forgot pass token link;
                 string sp_name = "sp_isStdEmailIdExist";
-                if (DataAccessLayer.isEmailIDExist_getItsID(signup_emailid.Text, sp_name, out error, out id))
+                if (DataAccessLayer.isEmailIDExist_getItsID(signup_emailid.Text.Trim(), sp_name, out error, out id))
                 {
                     if (error == null)
                     {

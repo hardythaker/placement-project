@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <asp:Label ID="lbl_InvalidToken_attack" runat="server" Text=""></asp:Label>
     <center> 
-    <div runat="server" id="ResetDiv" class="mdl-card mdl-shadow--6dp" style="width:75vw; display:none">
+    <div runat="server" id="ResetDiv" class="mdl-card mdl-shadow--6dp" style="width:75vw; display:block">
             <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
                  <h2 class="mdl-card__title-text" style="text-align: center">SuccessFully VeriFied</h2>
             </div>

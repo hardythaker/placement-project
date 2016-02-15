@@ -147,6 +147,7 @@
                 <div class="mdl-card__actions mdl-card--border">
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
+                            <input id="hd" type="hidden" runat="server" value=""/>
                             <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnStudentReg" runat="server" Text="Sign Up" OnClick="btnStudentReg_Click" />
                             <br />
                             <br />

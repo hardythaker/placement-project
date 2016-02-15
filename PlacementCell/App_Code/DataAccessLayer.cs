@@ -236,6 +236,44 @@ namespace PlacementCell
             }
         }
 
+        public static bool isStdEmailVerificationPending(string stdEmailId, out string verificationStatus, out string error) {
+            try
+            {
+                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_fetchStudentLogInDetails", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@e", MySqlDbType.VarChar).Value = stdEmailId;
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        DataTable dt = new DataTable();
+                        connection.Open();
+                        adapter.SelectCommand = command;
+                        adapter.Fill(dt);
+                        connection.Close();
+                        adapter.Dispose();
+                        if (dt.Rows.Count == 1)
+                        {
+                            error = null;
+                            verificationStatus = dt.Rows[0].ItemArray[7].ToString();
+                            return true;
+                        }
+                        else {
+                            error = null;
+                            verificationStatus = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                verificationStatus = null;
+                return true;
+            }
+        }
+
         public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType)
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
@@ -342,19 +380,23 @@ namespace PlacementCell
         public static string fetchFname(string session_email) {
             using (MySqlConnection con = ConnectionManager.GetDatabaseConnection())
             {
-                using (MySqlCommand cmd = new MySqlCommand("sp_fetchFname", con)) {
+                using (MySqlCommand cmd = new MySqlCommand("sp_fetchStudentLogInDetails", con)) {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@e", MySqlDbType.VarChar).Value = session_email;
+                    DataTable dt = new DataTable();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
                     con.Open();
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    reader.Read();
-                    string fname = reader.GetString("fname");
-                    reader.Close();
+                    adapter.SelectCommand = cmd;
+                    adapter.Fill(dt);
                     con.Close();
-                    //MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    //adapter.SelectCommand = cmd;
-                    //string fname;
-                    //adapter.Fill(fname);
+                    string fname;
+                    if (dt.Rows.Count == 1)
+                    {
+                        fname = dt.Rows[0].ItemArray[1].ToString();
+                    }
+                    else {
+                        fname = null;
+                    }
                     return fname;
                 }
             }
