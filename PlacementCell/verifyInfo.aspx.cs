@@ -34,6 +34,9 @@ namespace PlacementCell
                         resend.Text = "If You didn't received the Mail Click on Resend Mail button and Wait For 5 mins.<br> If You Still didn't Received it Check Your SVV Mail ID or Contact to the TPO of your Stream";
                         hideIt.Style["display"] = "block";
                     }
+                    else {
+                        Response.Write("Invalid Attempt");
+                    }
                 }
             }
         }
