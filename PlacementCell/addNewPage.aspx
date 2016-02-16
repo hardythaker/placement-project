@@ -47,37 +47,48 @@
                     <asp:Label ID="chkBox_Label" runat="server" Text="Check This Box, If you Want to Chage the Uploaded File." ForeColor="Red" Visible="false"></asp:Label>
                 </div>  
                
-                <div id="hideIT" runat="server">                             
-                <div style="display:inline; padding-left:5vw; padding-right:5vw;">
-                    <label for="options" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size:15px">Notice Type :  </label>
-                        
+                <div id="hideIT" runat="server">
+                <div style="display: inline;">
+                    <label for="option1" class="mdl-typography--body-2-force-preferred-font-color-contrast">Section :</label>
+                            <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="rdBtn_option-1">
+                                <input type="radio" id="rdBtn_option-1" class="mdl-radio__button" name="sections" value="1" <%=this.selectedSectionRB == "1" ? "checked='checked'" : ""%>>
+                                <span class="mdl-radio__label mdl-typography--body-2-force-preferred-font-color-contrast">Achievments</span>
+                            </label>
+                        <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="rdBtn_option-2">
+                            <input type="radio" id="rdBtn_option-2" class="mdl-radio__button" name="sections" value="2" <%=this.selectedSectionRB == "2" ? "checked='checked'" : ""%>>
+                            <span class="mdl-radio__label mdl-typography--body-2-force-preferred-font-color-contrast">Notices</span>
+                        </label>
+                </div>
+                    <br />                       
+                <div style="display:inline-flex; padding-left:5vw; padding-right:5vw;">
+                        <label for="options" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size:15px">Type :&nbsp;</label>
                         <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option1">
                             <input enableviewstate="true" type="radio" id="option1" Class="mdl-radio__button" name="options" <%=this.selectRadioButton == "htmlPage" ? "checked='checked'" : ""%> value="htmlPage">
-                            <span class="mdl-radio__label">Html Page</span>
-                        </label>
-                                <div id="tt1" class="icon material-icons mdl-color-text--accent" style="margin-top:8px">help_outline</div> <%--info icon will fetch from google server--%>
-                                <div class="mdl-tooltip" style="font-size:10px" for="tt1">
-                                    A word File Converted to a Web Page. 
-                                    A web Page will get open After Clickng View More
+                            <span class="mdl-radio__label mdl-typography--body-2-force-preferred-font-color-contrast">Html Page</span>
+                        </label>&nbsp;
+                                <div id="tt1" class="icon material-icons mdl-color-text--accent" style="padding-bottom:4px">help_outline</div> <%--info icon will fetch from google server--%>
+                                <div class="mdl-tooltip" style="font-size:14px" for="tt1">
+                                    A word File Converted to a Web Page.<br> 
+                                    That Page will get open After Clickng View More
                                 </div>
-                        
+                        &nbsp;&nbsp;&nbsp;
                         <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option2">
                             <input enableviewstate="true"  type="radio" id="option2" class="mdl-radio__button" name="options" value="image" <%=this.selectRadioButton == "image" ? "checked='checked'" : ""%>>
-                            <span class="mdl-radio__label">Image</span>
-                        </label>
-                                <div id="tt2" class="icon material-icons mdl-color-text--accent" style="margin-top:8px">help_outline</div> <%--info icon will fetch from google server--%>
-                                <div class="mdl-tooltip" style="font-size:10px" for="tt2">
-                                    To upload A Image. 
-                                    A Image that will Open after clicking View More.
+                            <span class="mdl-radio__label mdl-typography--body-2-force-preferred-font-color-contrast">Image</span>
+                        </label>&nbsp;
+                                <div id="tt2" class="icon material-icons mdl-color-text--accent" style="padding-bottom:4px">help_outline</div> <%--info icon will fetch from google server--%>
+                                <div class="mdl-tooltip" style="font-size:14px" for="tt2">
+                                    To upload A Image.<br>
+                                    That Image will Open after clicking View More.
                                 </div>
-                        
+                        &nbsp;&nbsp;&nbsp;
                         <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option3">
                             <input enableviewstate="true" type="radio" id="option3" class="mdl-radio__button" name="options" value="downloadLink" <%=this.selectRadioButton == "downloadLink" ? "checked='checked'" : ""%>>
-                            <span class="mdl-radio__label">Download Link</span>
-                        </label>
-                                <div id="tt3" class="icon material-icons mdl-color-text--accent" style="margin-top:8px">help_outline</div> <%--info icon will fetch from google server--%>
-                                <div class="mdl-tooltip" style="font-size:10px" for="tt3">
-                                    A File will be downloaded After Clicking on View More Button.
+                            <span class="mdl-radio__label mdl-typography--body-2-force-preferred-font-color-contrast">Download Link</span>
+                        </label>&nbsp;
+                                <div id="tt3" class="icon material-icons mdl-color-text--accent" style="padding-bottom:4px">help_outline</div> <%--info icon will fetch from google server--%>
+                                <div class="mdl-tooltip" style="font-size:14px" for="tt3">
+                                    A File will be downloaded<br> After Clicking on View More Button.<br>
                                     For eg: A Large File
                                 </div> 
                 </div>

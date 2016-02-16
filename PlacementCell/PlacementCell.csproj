@@ -125,7 +125,32 @@
     <Content Include="forgotpass.aspx" />
     <Content Include="home.aspx" />
     <Content Include="changePass.aspx" />
-    <Content Include="images\favicon.ico" />
+    <Content Include="images\favicon\android-icon-144x144.png" />
+    <Content Include="images\favicon\android-icon-192x192.png" />
+    <Content Include="images\favicon\android-icon-36x36.png" />
+    <Content Include="images\favicon\android-icon-48x48.png" />
+    <Content Include="images\favicon\android-icon-72x72.png" />
+    <Content Include="images\favicon\android-icon-96x96.png" />
+    <Content Include="images\favicon\apple-icon-114x114.png" />
+    <Content Include="images\favicon\apple-icon-120x120.png" />
+    <Content Include="images\favicon\apple-icon-144x144.png" />
+    <Content Include="images\favicon\apple-icon-152x152.png" />
+    <Content Include="images\favicon\apple-icon-180x180.png" />
+    <Content Include="images\favicon\apple-icon-57x57.png" />
+    <Content Include="images\favicon\apple-icon-60x60.png" />
+    <Content Include="images\favicon\apple-icon-72x72.png" />
+    <Content Include="images\favicon\apple-icon-76x76.png" />
+    <Content Include="images\favicon\apple-icon-precomposed.png" />
+    <Content Include="images\favicon\apple-icon.png" />
+    <Content Include="images\favicon\browserconfig.xml" />
+    <Content Include="images\favicon\favicon-16x16.png" />
+    <Content Include="images\favicon\favicon-32x32.png" />
+    <Content Include="images\favicon\favicon-96x96.png" />
+    <Content Include="images\favicon\favicon.ico" />
+    <Content Include="images\favicon\ms-icon-144x144.png" />
+    <Content Include="images\favicon\ms-icon-150x150.png" />
+    <Content Include="images\favicon\ms-icon-310x310.png" />
+    <Content Include="images\favicon\ms-icon-70x70.png" />
     <Content Include="images\placement-main-photo.png" />
     <Content Include="images\placements-banner.jpg" />
     <Content Include="images\placements.gif" />
@@ -162,6 +187,7 @@
     <Content Include="Site.Master" />
     <Content Include="admin.Master" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="images\favicon\manifest.json" />
     <None Include="Properties\PublishProfiles\Default Settings %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\myasp ftp.pubxml" />
     <None Include="Properties\PublishProfiles\placement cell.pubxml" />
@@ -344,6 +370,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="newdownloads\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

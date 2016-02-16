@@ -22,11 +22,9 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
-    <div style="border:double; height:100vh; background-image: url('http://localhost:50312/images/Thumbnails.jpg'); background-repeat:no-repeat; background-size:100vw 100vh">
+    <div style="height:100vh; background-image: url('images/Thumbnails.jpg'); background-repeat:no-repeat; background-size:100vw 100vh">
         <img src="images/somaiya_logo.jpg" />
-            <h3>S K Somaiya Degree College Of Arts, Science And Commerce </h3>
-        <%--<asp:Image CssClass="bgc" ID="bg" runat="server" src="images/Thumbnails.jpg" />--%>
-        <%--<iframe style="" runat="server" id="iFrame_home" draggable="false" oninit="iFrame_home_Init"></iframe>--%>
+            <h5>S.K Somaiya Degree College Of Arts, Science And Commerce </h5>
         <br />
         <br />
         <br />

@@ -274,17 +274,18 @@ namespace PlacementCell
             }
         }
 
-        public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType)
+        public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, string noticesection)
         {
             using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
             {
-                using (MySqlCommand command = new MySqlCommand("sp_addNewNotice", connection))
+                using (MySqlCommand command = new MySqlCommand("addNewNotices", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("@t", MySqlDbType.VarChar).Value = noticeCardTitle;
                     command.Parameters.Add("@d", MySqlDbType.VarChar).Value = noticeCardDesc;
                     command.Parameters.Add("@l", MySqlDbType.VarChar).Value = noticeCardLink;
                     command.Parameters.Add("@ty", MySqlDbType.VarChar).Value = noticeCardType;
+                    command.Parameters.Add("@s", MySqlDbType.VarChar).Value = noticesection;
                     connection.Open();
                     int affectedRows = command.ExecuteNonQuery();
                     connection.Close();
@@ -347,10 +348,10 @@ namespace PlacementCell
                 return true; 
             }
         }
-        public static bool isNoticeEdited(string id, string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, out string error) {
+        public static bool isNoticeEdited(string id, string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType,string sp_name, out string error) {
             try {
                 using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection()) {
-                    using (MySqlCommand command = new MySqlCommand("sp_isEditNotice", connection)) {
+                    using (MySqlCommand command = new MySqlCommand(sp_name, connection)) {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@i", MySqlDbType.Int32).Value = Convert.ToInt32(id);
                         command.Parameters.Add("@t", MySqlDbType.VarChar).Value = noticeCardTitle;
