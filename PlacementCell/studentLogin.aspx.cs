@@ -29,7 +29,9 @@ namespace PlacementCell
                     Response.Redirect("studentHome.aspx");
                 }
                 else {
-                    Response.Redirect("verifyInfo.aspx");
+                    string enc_EmailID = HashGenerator.URLEncrypt(username.Text.Trim());
+                    string str_enc_attempt = HashGenerator.URLEncrypt("2");
+                    Response.Redirect("verifyInfo.aspx?svvmailid="+enc_EmailID+"&attempt="+str_enc_attempt);
                 }
             }
             else

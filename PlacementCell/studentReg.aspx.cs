@@ -45,9 +45,10 @@ namespace PlacementCell
                             if (mailerror == null)
                             {
                                 // ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script type='text/javascript'> $('#spinner2').hide(); alert('You Succesfully Registered...!\\n Click Ok to Login');window.location.replace('studentLogin.aspx');</script>", false);
-                                string enc_signup_emailID = HttpUtility.UrlEncode(email);
+                                //string enc_signup_emailID = HttpUtility.UrlEncode(email);
                                 string str_enc_email = HashGenerator.URLEncrypt(email);
-                                Response.Redirect("verifyInfo.aspx?svvmailid=" + str_enc_email);
+                                string str_enc_attempt = HashGenerator.URLEncrypt("1");
+                                Response.Redirect("verifyInfo.aspx?svvmailid=" + str_enc_email+"&attempt="+str_enc_attempt);
                             }
                             else {
                                 Label1.Text = mailerror;

@@ -54,12 +54,12 @@
                 <%--<div class="mdl-card__supporting-text">--%>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        SVV Mail ID : 
+                        <label for="signup_emailid" class="mdl-typography--body-2-force-preferred-font-color-contrast">SVV Mail ID :</label> 
                             <div class="mdl-textfield mdl-js-textfield">
                                 <asp:TextBox OnTextChanged="signup_emailid_TextChanged" AutoPostBack="true" placeholder="Enter Your SVV Mail ID..." class="mdl-textfield__input" type="text" ID="signup_emailid" runat="server" TextMode="Email" MaxLength="100" />
                                 <label class="mdl-textfield__label" for="sample"></label>
                             </div>
-                        <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                        <asp:Label CssClass="mdl-typography--body-1-force-preferred-font-color-contrast" ID="Label2" runat="server" Text="<br/>(Enter Your Correct SVV Mail ID. It Wiil Be Verified.)"></asp:Label>
                         <asp:RequiredFieldValidator ID="adminusername_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="signup_emailid" Display="Dynamic" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -72,7 +72,7 @@
                 <br />
 
                 <div style="display: inline;">
-                    First Name :
+                    <label for="signup_fname" class="mdl-typography--body-2-force-preferred-font-color-contrast">First Name :</label>
                     <div class="mdl-textfield mdl-js-textfield">
                         <asp:TextBox class="mdl-textfield__input" type="text" ID="signup_fname" runat="server" MaxLength="25" placeholder="Enter Your Name..." />
                         <label class="mdl-textfield__label" for="sample"><b></b></label>
@@ -81,7 +81,7 @@
                 </div>
 
                 <div style="display: inline;">
-                    Last Name :
+                    <label for="signup_lname" class="mdl-typography--body-2-force-preferred-font-color-contrast">Last Name :</label>
                     <div class="mdl-textfield mdl-js-textfield">
                         <asp:TextBox class="mdl-textfield__input" type="text" ID="signup_lname" runat="server" MaxLength="25" placeholder="Enter Your Last Name..." />
                         <label class="mdl-textfield__label" for="sample"><b></b></label>
@@ -90,9 +90,9 @@
                 </div>
                 <br />
 
-
+               
                 <div style="display: inline;">
-                    <div style="width: auto">
+                    <label for="DropDownList1" class="mdl-typography--body-2-force-preferred-font-color-contrast">Stream :</label> 
                         <asp:DropDownList ID="DropDownList1" CssClass="ddstyle mdl-typography--font-light" runat="server">
                             <asp:ListItem Value="0" Selected="True">--Stream--</asp:ListItem>
                             <asp:ListItem Value="1">B.Com</asp:ListItem>
@@ -105,29 +105,29 @@
                             <asp:ListItem Value="8">BBI</asp:ListItem>
                             <asp:ListItem Value="9">BFM</asp:ListItem>
                         </asp:DropDownList>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="option1" class="mdl-typography--body-2-force-preferred-font-color-contrast">Gender :</label>
                             <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option-1">
                                 <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="Male" checked>
-                                <span class="mdl-radio__label">Male</span>
+                                <span class="mdl-radio__label mdl-typography--body-2-force-preferred-font-color-contrast">Male</span>
                             </label>
                         <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option-2">
                             <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="Female">
-                            <span class="mdl-radio__label">Female</span>
+                            <span class="mdl-radio__label mdl-typography--body-2-force-preferred-font-color-contrast">Female</span>
                         </label>
-                    </div>
                 </div>
                 <br />
                 <div style="padding-right:100px">
-                    <div id="tt2" class="icon material-icons mdl-color-text--accent">help_outline</div><%--info icon will fetch from google server--%>
-                    <div class="mdl-tooltip" style="font-size: 9px" for="tt2">
-                        It Must be 6-12 Characters Long. 
-                                    With at Least One Numeric.
-                                    One Alphabet.
-                                    And One Special Character.
+                    <div style="display:inline-flex"><div id="tt2" class="icon material-icons mdl-color-text--accent">help_outline</div><div class="mdl-typography--body-2-force-preferred-font-color-contrast" style="padding-top:1px">&nbsp;Password Policy</div></div><%--info icon will fetch from google server--%>
+                    <div class="mdl-tooltip" style="font-size: 12px" for="tt2">
+                        Password must be 6-12 Characters Long. 
+                                    <br>With at Least One Numeric.
+                                    <br>One Alphabet.
+                                    <br>And One Special Character.
                     </div>
                 </div>
                 <div style="display: inline;">
-                    Password :
+                <label for="signup_password" class="mdl-typography--body-2-force-preferred-font-color-contrast">Password :</label>
                         <div class="mdl-textfield mdl-js-textfield">
                             <asp:TextBox class="mdl-textfield__input" type="text" ID="signup_password" runat="server" TextMode="Password" placeholder="Enter Your Password..." />
                             <label class="mdl-textfield__label" for="sample"><b></b></label>
@@ -135,7 +135,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="signup_password" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                 </div>
                 <div style="display: inline;">
-                    Conform Password :
+                <label for="re_signup_password" class="mdl-typography--body-2-force-preferred-font-color-contrast">Conform Password :</label>
                     <div class="mdl-textfield mdl-js-textfield">
                         <asp:TextBox class="mdl-textfield__input" type="text" ID="re_signup_password" runat="server" TextMode="Password" placeholder="Re-Enter Your Password..." />
                         <label class="mdl-textfield__label" for="sample"><b></b></label>
@@ -151,8 +151,8 @@
                             <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnStudentReg" runat="server" Text="Sign Up" OnClick="btnStudentReg_Click" />
                             <br />
                             <br />
-                            <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label>
-                            <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
+                            <asp:Label ID="Label1" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" runat="server" Text="" ForeColor="Red"></asp:Label>
+                            <asp:Label ID="Label3" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" runat="server" Text=""></asp:Label>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     <asp:UpdateProgress ID="UpdateProgress2" runat="server" AssociatedUpdatePanelID="UpdatePanel2">

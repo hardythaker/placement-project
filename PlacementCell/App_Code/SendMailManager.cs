@@ -39,6 +39,8 @@ namespace PlacementCell
                                 mailsmtp.UseDefaultCredentials = false;
                                 mailsmtp.Credentials = mailAuthenticaion;
                                 mailsmtp.Send(msg);
+                                mailsmtp.Dispose();
+                                msg.Dispose();
                                 mailerror = null;
                                 return true;
                             }
