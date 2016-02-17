@@ -360,6 +360,7 @@ namespace PlacementCell
                         command.Parameters.Add("@d", MySqlDbType.VarChar).Value = noticeCardDesc;
                         command.Parameters.Add("@l", MySqlDbType.VarChar).Value = noticeCardLink;
                         command.Parameters.Add("@ty", MySqlDbType.VarChar).Value = noticeCardType;
+                        connection.Open();
                         int afftectedRows = command.ExecuteNonQuery();
                         connection.Close();
                         if (afftectedRows == 1) {
