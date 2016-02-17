@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Data;
 using System.Web.UI.WebControls;
 
 namespace PlacementCell
 {
-    public partial class notices : System.Web.UI.Page
+    public partial class achievments : System.Web.UI.Page
     {
         protected override void OnPreInit(EventArgs e)
         {
@@ -42,9 +42,9 @@ namespace PlacementCell
                     Response.Redirect("admin.aspx");
                 }
             }
-            string section_ID = "2";
+            string section_ID = "1";
             DataTable dt = DataAccessLayer.fetchNotices(section_ID);
-            if (dt != null)
+            if (dt.Rows.Count > 0)
             {
                 foreach (DataRow row in dt.Rows)
                 {
@@ -64,7 +64,7 @@ namespace PlacementCell
                     }
                     if (Session["admin_username"] != null)
                     {
-                        html = "<div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'><div class='mdl-card__title mdl-color--primary mdl-color-text--white'><h2 class='mdl-card__title-text' style='text-transform:capitalize;'>" + title + "</h2></div><div class='mdl-card__supporting-text mdl-typography--body-1-force-preferred-font-color-contrast' style='text-align:left; font-size:15px'><b>" + desc + "</b></div><div class='mdl-card__actions mdl-card--border'><div style ='text-align:left;display:flex;'><form method=post><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formaction='showFullEventHtml.aspx' name='viewmore' value=" + fileLink + ">" + buttonName + "</button><input type='hidden' runat='server' value=" + fileType + " name='fileType'><input type='hidden' runat='server' value=" + title.Replace(' ', '_') + " name='title'><input type='hidden' value=" + desc.Replace(' ', '_') + " name='desc'><input type='hidden' value=" + noticeID + " name='noticeID'><input type='hidden' value=" + fileLink + " name='fileLink'><input type='hidden' value=" + section_ID + " name='section_id'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formaction='addNewPage.aspx' name='edit' value=" + noticeID + "> Edit </button></form><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formmethod='post' formaction='notices.aspx' onclick='return confirmation()' name='delete' value=" + noticeID + "> Delete </button></div></div></div><br/>";
+                        html = "<div class='demo-card-wide mdl-card mdl-shadow--8dp' style='width:80vw'><div class='mdl-card__title mdl-color--primary mdl-color-text--white'><h2 class='mdl-card__title-text' style='text-transform:capitalize;'>" + title + "</h2></div><div class='mdl-card__supporting-text mdl-typography--body-1-force-preferred-font-color-contrast' style='text-align:left; font-size:15px'><b>" + desc + "</b></div><div class='mdl-card__actions mdl-card--border'><div style ='text-align:left;display:flex;'><form method=post><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formaction='showFullEventHtml.aspx' name='viewmore' value=" + fileLink + ">" + buttonName + "</button><input type='hidden' runat='server' value=" + fileType + " name='fileType'><input type='hidden' runat='server' value=" + title.Replace(' ', '_') + " name='title'><input type='hidden' value=" + desc.Replace(' ', '_') + " name='desc'><input type='hidden' value=" + noticeID + " name='noticeID'><input type='hidden' value=" + fileLink + " name='fileLink'><input type='hidden' value="+section_ID+" name='section_id'><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formaction='addNewPage.aspx' name='edit' value=" + noticeID + "> Edit </button></form><button class='mdl-button mdl-color-text--accent mdl-js-button mdl-js-ripple-effect' runat='server' formmethod='post' formaction='achievments.aspx' onclick='return confirm()' name='delete' value=" + noticeID + "> Delete </button></div></div></div><br/>";
                     }
                     else
                     {
@@ -75,7 +75,7 @@ namespace PlacementCell
             }
             else
             {
-                Label1.Text = "No New Notices...";
+                Label1.Text = "No New Achievments...";
             }
         }
     }

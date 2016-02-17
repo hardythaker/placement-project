@@ -116,6 +116,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="achievments.aspx" />
     <Content Include="addNewPage.aspx" />
     <Content Include="admin.aspx" />
     <Content Include="adminHome.aspx" />
@@ -188,6 +189,7 @@
     <Content Include="admin.Master" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="images\favicon\manifest.json" />
+    <None Include="PlacementReport.docx" />
     <None Include="Properties\PublishProfiles\Default Settings %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\myasp ftp.pubxml" />
     <None Include="Properties\PublishProfiles\placement cell.pubxml" />
@@ -213,6 +215,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="achievments.aspx.cs">
+      <DependentUpon>achievments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="achievments.aspx.designer.cs">
+      <DependentUpon>achievments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="addNewPage.aspx.cs">
       <DependentUpon>addNewPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -10,25 +10,16 @@
 namespace PlacementCell {
     
     
-    public partial class showFullEvent {
+    public partial class achievments {
         
         /// <summary>
-        /// Label1 control.
+        /// achCardPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// iFrame_showFullEvent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlIframe iFrame_showFullEvent;
+        protected global::System.Web.UI.HtmlControls.HtmlForm achCardPage;
         
         /// <summary>
         /// Panel1 control.
@@ -38,5 +29,14 @@ namespace PlacementCell {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }

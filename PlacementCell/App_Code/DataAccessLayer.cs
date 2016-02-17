@@ -13,7 +13,7 @@ namespace PlacementCell
         public static DataSet DisplayAllUsers()
         {
             DataSet dSet = new DataSet();
-            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
                 try
                 {
@@ -34,7 +34,7 @@ namespace PlacementCell
 
         public static bool isMemberExits(string un,string encPass,out string error)
         {
-            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
                 try
                 {
@@ -73,7 +73,7 @@ namespace PlacementCell
         }
         public static bool isMemRegSuccessful(string un, string encPwd)
         {
-            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
                 try
                 {
@@ -100,7 +100,7 @@ namespace PlacementCell
 
         public static bool isStudentRegSuccessful(string fname, string lname, string stream, string gender, string email, string hashval,out string error)
         {
-            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
                 try
                 {
@@ -137,7 +137,7 @@ namespace PlacementCell
         public static bool isStudentSuccessfullyVerified(string id, out string error) {
             try
             {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_studentVeriFied", connection))
                     {
@@ -168,7 +168,7 @@ namespace PlacementCell
         }
         public static bool isStudentExits(string email, string hashval,out string verified)
         {
-            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
                 try
                 {
@@ -206,7 +206,7 @@ namespace PlacementCell
         public static bool isStudentDeleted(string stdEmail, out string error) {
             try
             {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_deleteStudent", connection))
                     {
@@ -239,7 +239,7 @@ namespace PlacementCell
         public static bool isStdEmailVerificationPending(string stdEmailId, out string verificationStatus, out string error) {
             try
             {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_fetchStudentLogInDetails", connection))
                     {
@@ -276,9 +276,9 @@ namespace PlacementCell
 
         public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, string noticesection)
         {
-            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
-                using (MySqlCommand command = new MySqlCommand("addNewNotices", connection))
+                using (MySqlCommand command = new MySqlCommand("sp_addNewNotice", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("@t", MySqlDbType.VarChar).Value = noticeCardTitle;
@@ -297,11 +297,12 @@ namespace PlacementCell
                 }
             }
         }
-        public static DataTable fetchNotices()
+        public static DataTable fetchNotices(string section_id)
         {
-            using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection()) {
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection()) {
                 using (MySqlCommand command = new MySqlCommand("sp_fetchNotices", connection)) {
                     command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("@s", MySqlDbType.VarChar).Value = section_id;
                     //MySqlDataReader reader = command.ExecuteReader();
                     //DataSet ds = new DataSet();
                     //reader.
@@ -320,7 +321,7 @@ namespace PlacementCell
         public static bool deleteNotices(int id , out string error) {
             try
             {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_deleteEvent", connection))
                     {
@@ -350,7 +351,8 @@ namespace PlacementCell
         }
         public static bool isNoticeEdited(string id, string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType,string sp_name, out string error) {
             try {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection()) {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection()) {
+                    
                     using (MySqlCommand command = new MySqlCommand(sp_name, connection)) {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@i", MySqlDbType.Int32).Value = Convert.ToInt32(id);
@@ -379,7 +381,7 @@ namespace PlacementCell
         }
 
         public static string fetchFname(string session_email) {
-            using (MySqlConnection con = ConnectionManager.GetDatabaseConnection())
+            using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
             {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchStudentLogInDetails", con)) {
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -404,7 +406,7 @@ namespace PlacementCell
         }
         public static bool isPassChanged(string sessionUsername, string newPass,string sp_name, out string error) {
             try {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand(sp_name, connection))
                     {
@@ -433,7 +435,7 @@ namespace PlacementCell
         }
         public static bool isEmailIDExist_getItsID(string emailID,string sp_name,out string error,out string id) {
             try{
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand(sp_name, connection))
                     {
@@ -469,7 +471,7 @@ namespace PlacementCell
         public static bool isUniqueCodeUpdated(string emailID,string uCode,out string error) {
             try
             {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_isUniqueCodeSet", connection))
                     {
@@ -500,7 +502,7 @@ namespace PlacementCell
         public static bool isTokenValid(string token,string id, out string error) {
             try
             {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_isTokenValid", connection))
                     {
@@ -534,7 +536,7 @@ namespace PlacementCell
         public static string getSvvmailOfstdID(string id,out string error) {
             try
             {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_getSvvMailIDofStdID", connection))
                     {
@@ -570,7 +572,7 @@ namespace PlacementCell
         {
             try
             {
-                using (MySqlConnection connection = ConnectionManager.GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_isPassResetSuccessfully", connection))
                     {
@@ -600,7 +602,7 @@ namespace PlacementCell
         }
 
         public static DataTable fetchClass() {
-            using (MySqlConnection con = ConnectionManager.GetDatabaseConnection()) {
+            using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection()) {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchClassName",con)) {
                     cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -616,7 +618,7 @@ namespace PlacementCell
         }
         public static DataTable fetchDivision()
         {
-            using (MySqlConnection con = ConnectionManager.GetDatabaseConnection())
+            using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
             {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchDivision", con))
                 {
@@ -633,7 +635,7 @@ namespace PlacementCell
         }
         public static DataTable fetchSemester()
         {
-            using (MySqlConnection con = ConnectionManager.GetDatabaseConnection())
+            using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
             {
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchSemester", con))
                 {

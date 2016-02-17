@@ -69,6 +69,7 @@
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="addNewPage.aspx">Add new Page</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Student Data</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="notices.aspx">Notices</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="achievments.aspx">Achievments</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Change Password</a>
             </nav>
         </div>

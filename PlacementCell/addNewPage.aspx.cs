@@ -38,6 +38,7 @@ namespace PlacementCell
                 desc = Request.Form["desc"].Replace('_', ' ');
                 fileLinkInDB = Request.Form["fileLink"];
                 fileTypeInDB = Request.Form["fileType"];
+                selectedSectionRB = Request.Form["section_ID"];
                 fileTitle.Text = title;
                 fileDesc.Text = desc;
                 hideIT.Style.Add("display", "none");
@@ -164,10 +165,6 @@ namespace PlacementCell
                         Label1.Text = "Please Select Notice Type HTML or IMG or Download Link.";
                     }
                 }
-                //else if (sections == "2")
-                //{
-                //    selectedSectionRB = "2";
-                //}
                 else
                 {
                     Label1.ForeColor = System.Drawing.Color.Red;
@@ -185,21 +182,21 @@ namespace PlacementCell
 
         protected void saveNotice(string link, string selectedType)
         {
-            string section = null;
+            string sectionID = null;
             if (selectedSectionRB == "1")
             {
-                section = "1";
+                sectionID = "1";
             }
             else if (selectedSectionRB == "2")
             {
-                section = "2";
+                sectionID = "2";
             }
-            if (section != null)
+            if (sectionID != null)
             {
-                if (DataAccessLayer.isNoticeCreated(fileTitle.Text, fileDesc.Text, link.Replace(' ', '_').Trim(), selectedType, section))
+                if (DataAccessLayer.isNoticeCreated(fileTitle.Text, fileDesc.Text, link.Replace(' ', '_').Trim(), selectedType, sectionID))
                 {
                     Label1.CssClass = "mdl-color-text--primary";
-                    Label1.Text = "Successfully Created New Page...<br/>Do you want to <a href='notices.aspx'>Delete</a> ?";
+                    Label1.Text = "Successfully Created New Page...";
                 }
                 else
                 {
@@ -215,19 +212,19 @@ namespace PlacementCell
         protected void editNotice(string newlink, string newselectedType)
         {
             string error;
-            string sction = null;
+            string sctionID = null;
             // Label1.Text = id_Of_Editnotice +"<br/> "+ fileTitle.Text + " <br/>" + fileDesc.Text + "<br/> " + newlink + "<br/> " + newselectedType;
             if (selectedSectionRB == "1")
             {
-                sction = "1";
+                sctionID = "1";
             }
             else if (selectedSectionRB == "2")
             {
-                sction = "2";
+                sctionID = "2";
             }
-            if (sction != null)
+            if (sctionID != null)
             {
-                if (DataAccessLayer.isNoticeEdited(id_Of_Editnotice, fileTitle.Text, fileDesc.Text, newlink.Replace(' ', '_').Trim(), newselectedType, sction, out error))
+                if (DataAccessLayer.isNoticeEdited(id_Of_Editnotice, fileTitle.Text, fileDesc.Text, newlink.Replace(' ', '_').Trim(), newselectedType, sctionID, out error))
                 {
 
                     if (error == null)
