@@ -15,8 +15,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-    <div style="width:inherit; overflow: hidden;">
-        <iframe style="width:calc(100% + 18px); margin-right:18px; overflow: hidden;" seamless="seamless"  runat="server" id="iFrame_showFullEvent" draggable="true" oninit="iFrame_showFullEvent_Init"></iframe>
+    <div style="width:inherit; overflow: hidden; padding-right:50vw;">
+        <iframe style="width:calc(100% + 18px); overflow: hidden;" seamless="seamless"  runat="server" id="iFrame_showFullEvent" draggable="true" oninit="iFrame_showFullEvent_Init"></iframe>
     </div>
     <asp:Panel ID="Panel1" runat="server"></asp:Panel>
 </asp:Content>
