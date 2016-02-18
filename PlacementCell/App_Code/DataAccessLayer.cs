@@ -10,65 +10,68 @@ namespace PlacementCell
 {
     public class DataAccessLayer
     {
-        public static DataSet DisplayAllUsers()
+        public static DataTable showAllStudent(out string error)
         {
-            DataSet dSet = new DataSet();
-            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+            try
             {
-                try
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
-                    MySqlCommand command = new MySqlCommand("spDisplayAll", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    adapter.SelectCommand = command;
-                    adapter.Fill(dSet);
-                    connection.Close();
+                    using (MySqlCommand command = new MySqlCommand("sp_ShowAllStudent", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        DataSet dSet = new DataSet();
+                        connection.Open();
+                        adapter.SelectCommand = command;
+                        adapter.Fill(dSet);
+                        connection.Close();
+                        DataTable dt = dSet.Tables[0];
+                        error = null;
+                        return dt;
+                    }
                 }
-                catch (Exception)
-                {
-                    throw;
-                }
-                return dSet;
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return null;
             }
         }
-
-        public static bool isMemberExits(string un,string encPass,out string error)
+        public static bool isMemberExits(string un, string encPass, out string error)
         {
-            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+            try
             {
-                try
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
-                    MySqlCommand command = new MySqlCommand("sp_isMemberExits", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add("@u", MySqlDbType.VarChar).Value = un;
-                    command.Parameters.Add("@p", MySqlDbType.VarChar).Value = encPass;
-                    MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    DataTable dt = new DataTable();
-                    connection.Open();
-                    adapter.SelectCommand = command;
-                    adapter.Fill(dt);
-                    connection.Close();
-                    if (dt.Rows.Count > 0)
+                    using (MySqlCommand command = new MySqlCommand("sp_isMemberExits", connection))
                     {
-                        error = null;
-                        return true;
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@u", MySqlDbType.VarChar).Value = un;
+                        command.Parameters.Add("@p", MySqlDbType.VarChar).Value = encPass;
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        DataTable dt = new DataTable();
+                        connection.Open();
+                        adapter.SelectCommand = command;
+                        adapter.Fill(dt);
+                        connection.Close();
+                        if (dt.Rows.Count > 0)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else {
+                            error = null;
+                            return false;
+                        }
                     }
-                    else {
-                        error = null;
-                        return false;
-                    }
+                }
 
-                }
-                catch (Exception ex)
-                {
-                    //connection.Close();
-                    error = ex.Message;
-                    return false;
-                }
-                finally {
-                    connection.Close();
-                }
-                
+            }
+            catch (Exception ex)
+            {
+                //connection.Close();
+                error = ex.Message;
+                return false;
             }
         }
         public static bool isMemRegSuccessful(string un, string encPwd)
@@ -97,8 +100,7 @@ namespace PlacementCell
                 }
             }
         }
-
-        public static bool isStudentRegSuccessful(string fname, string lname, string stream, string gender, string email, string hashval,out string error)
+        public static bool isStudentRegSuccessful(string fname, string lname, string stream, string gender, string email, string hashval, out string error)
         {
             using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
@@ -133,8 +135,8 @@ namespace PlacementCell
                 }
             }
         }
-
-        public static bool isStudentSuccessfullyVerified(string id, out string error) {
+        public static bool isStudentSuccessfullyVerified(string id, out string error)
+        {
             try
             {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -166,7 +168,7 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static bool isStudentExits(string email, string hashval,out string verified)
+        public static bool isStudentExits(string email, string hashval, out string verified)
         {
             using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
@@ -202,8 +204,8 @@ namespace PlacementCell
 
             }
         }
-
-        public static bool isStudentDeleted(string stdEmail, out string error) {
+        public static bool isStudentDeleted(string stdEmail, out string error)
+        {
             try
             {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -235,8 +237,8 @@ namespace PlacementCell
                 return true;
             }
         }
-
-        public static bool isStdEmailVerificationPending(string stdEmailId, out string verificationStatus, out string error) {
+        public static bool isStdEmailVerificationPending(string stdEmailId, out string verificationStatus, out string error)
+        {
             try
             {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -273,7 +275,6 @@ namespace PlacementCell
                 return true;
             }
         }
-
         public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, string noticesection)
         {
             using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -299,8 +300,10 @@ namespace PlacementCell
         }
         public static DataTable fetchNotices(string section_id)
         {
-            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection()) {
-                using (MySqlCommand command = new MySqlCommand("sp_fetchNotices", connection)) {
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+            {
+                using (MySqlCommand command = new MySqlCommand("sp_fetchNotices", connection))
+                {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.Add("@s", MySqlDbType.VarChar).Value = section_id;
                     //MySqlDataReader reader = command.ExecuteReader();
@@ -308,7 +311,7 @@ namespace PlacementCell
                     //reader.
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     DataSet ds = new DataSet();
-                        connection.Open();
+                    connection.Open();
                     adapter.SelectCommand = command;
                     adapter.Fill(ds);
                     connection.Close();
@@ -318,7 +321,8 @@ namespace PlacementCell
                 }
             }
         }
-        public static bool deleteNotices(int id , out string error) {
+        public static bool deleteNotices(int id, out string error)
+        {
             try
             {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -344,16 +348,21 @@ namespace PlacementCell
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 error = ex.Message;
-                return true; 
+                return true;
             }
         }
-        public static bool isNoticeEdited(string id, string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType,string noticeCardSectionID, out string error) {
-            try {
-                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection()) {
-                    
-                    using (MySqlCommand command = new MySqlCommand("sp_isEditNotice", connection)) {
+        public static bool isNoticeEdited(string id, string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, string noticeCardSectionID, out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+
+                    using (MySqlCommand command = new MySqlCommand("sp_isEditNotice", connection))
+                    {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@i", MySqlDbType.Int32).Value = Convert.ToInt32(id);
                         command.Parameters.Add("@t", MySqlDbType.VarChar).Value = noticeCardTitle;
@@ -364,7 +373,8 @@ namespace PlacementCell
                         connection.Open();
                         int afftectedRows = command.ExecuteNonQuery();
                         connection.Close();
-                        if (afftectedRows == 1) {
+                        if (afftectedRows == 1)
+                        {
                             error = null;
                             return true;
                         }
@@ -376,16 +386,18 @@ namespace PlacementCell
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 error = ex.Message;
                 return true;
             }
         }
-
-        public static string fetchFname(string session_email) {
+        public static string fetchFname(string session_email)
+        {
             using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
             {
-                using (MySqlCommand cmd = new MySqlCommand("sp_fetchStudentLogInDetails", con)) {
+                using (MySqlCommand cmd = new MySqlCommand("sp_fetchStudentLogInDetails", con))
+                {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.Add("@e", MySqlDbType.VarChar).Value = session_email;
                     DataTable dt = new DataTable();
@@ -406,8 +418,10 @@ namespace PlacementCell
                 }
             }
         }
-        public static bool isPassChanged(string sessionUsername, string newPass,string sp_name, out string error) {
-            try {
+        public static bool isPassChanged(string sessionUsername, string newPass, string sp_name, out string error)
+        {
+            try
+            {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand(sp_name, connection))
@@ -430,13 +444,16 @@ namespace PlacementCell
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 error = ex.Message;
                 return true;
             }
         }
-        public static bool isEmailIDExist_getItsID(string emailID,string sp_name,out string error,out string id) {
-            try{
+        public static bool isEmailIDExist_getItsID(string emailID, string sp_name, out string error, out string id)
+        {
+            try
+            {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand(sp_name, connection))
@@ -464,13 +481,15 @@ namespace PlacementCell
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 error = ex.Message;
                 id = null;
                 return true;
             }
         }
-        public static bool isUniqueCodeUpdated(string emailID,string uCode,out string error) {
+        public static bool isUniqueCodeUpdated(string emailID, string uCode, out string error)
+        {
             try
             {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -495,13 +514,14 @@ namespace PlacementCell
                     }
                 }
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 error = ex.Message;
                 return true;
             }
         }
-
-        public static bool isTokenValid(string token,string id, out string error) {
+        public static bool isTokenValid(string token, string id, out string error)
+        {
             try
             {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -530,12 +550,14 @@ namespace PlacementCell
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 error = ex.Message;
                 return true;
             }
         }
-        public static string getSvvmailOfstdID(string id,out string error) {
+        public static string getSvvmailOfstdID(string id, out string error)
+        {
             try
             {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -569,8 +591,7 @@ namespace PlacementCell
                 return null;
             }
         }
-
-        public static bool isPassResetSuccessfully(string id,string newPass,out string error)
+        public static bool isPassResetSuccessfully(string id, string newPass, out string error)
         {
             try
             {
@@ -584,7 +605,7 @@ namespace PlacementCell
                         connection.Open();
                         int affectedRows = command.ExecuteNonQuery();
                         connection.Close();
-                        if (affectedRows == 1) 
+                        if (affectedRows == 1)
                         {
                             error = null;
                             return true;
@@ -602,10 +623,12 @@ namespace PlacementCell
                 return true;
             }
         }
-
-        public static DataTable fetchClass() {
-            using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection()) {
-                using (MySqlCommand cmd = new MySqlCommand("sp_fetchClassName",con)) {
+        public static DataTable fetchClass()
+        {
+            using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
+            {
+                using (MySqlCommand cmd = new MySqlCommand("sp_fetchClassName", con))
+                {
                     cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     DataSet ds = new DataSet();

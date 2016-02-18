@@ -44,7 +44,7 @@ namespace PlacementCell
             }
             string section_ID = "2";
             DataTable dt = DataAccessLayer.fetchNotices(section_ID);
-            if (dt != null)
+            if (dt.Rows.Count > 0)
             {
                 foreach (DataRow row in dt.Rows)
                 {

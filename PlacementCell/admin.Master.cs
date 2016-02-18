@@ -11,7 +11,11 @@ namespace PlacementCell
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // This code should be uncomment before Depolyment
+            //if (Session["admin_username"] == null)
+            //{
+            //    Response.Redirect("admin.aspx");
+            //}
         }
     }
 }

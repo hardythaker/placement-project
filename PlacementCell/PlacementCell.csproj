@@ -180,6 +180,7 @@
     <Content Include="resetPass.aspx" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="showFullEventHtml.aspx" />
+    <Content Include="showMembers.aspx" />
     <Content Include="studentHome.aspx" />
     <Content Include="studentLogin.aspx" />
     <Content Include="studentReg.aspx" />
@@ -324,6 +325,13 @@
     </Compile>
     <Compile Include="showFullEventHtml.aspx.designer.cs">
       <DependentUpon>showFullEventHtml.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="showMembers.aspx.cs">
+      <DependentUpon>showMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showMembers.aspx.designer.cs">
+      <DependentUpon>showMembers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
