@@ -18,6 +18,8 @@ namespace PlacementCell
 
         protected static string fileTypeInDB { get; set; }
 
+        protected static string fileSectionInDB { get; set; }
+
         protected string selectRadioButton { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -38,12 +40,12 @@ namespace PlacementCell
                 desc = Request.Form["desc"].Replace('_', ' ');
                 fileLinkInDB = Request.Form["fileLink"];
                 fileTypeInDB = Request.Form["fileType"];
-                selectedSectionRB = Request.Form["section_ID"];
+                fileSectionInDB = Request.Form["section_ID"];
                 fileTitle.Text = title;
                 fileDesc.Text = desc;
                 hideIT.Style.Add("display", "none");
                 fileHistory.Text = "<br />Selected file was " + fileLinkInDB;
-               /// Label2.Text = id_Of_Editnotice + "<br/> " + title + "<br/> " + desc + "<br/> " + fileLinkInDB + "<br/>" + fileTypeInDB;
+                //Label2.Text = id_Of_Editnotice + "<br/> " + title + "<br/> " + desc + "<br/> " + fileLinkInDB + "<br/>" + fileTypeInDB + "<br/>" + selectedSectionRB;
             }
         }
 
@@ -51,20 +53,19 @@ namespace PlacementCell
         {
             string link=null;
             string selectedType = null;
-            string sections = Request.Form["sections"];
-            selectedType = Request.Form["options"];
-
+            string sections = Request.Form["sections"]; // fetch selected rb from addnewpage.aspx
+            selectedType = Request.Form["options"];//fetch selected Radio Btn from addnewpage.aspx
             if (CheckBox1.Checked == true || btnCreateNewPage.Text == "Create Notice")//After click on edit button on notice card,if admin wants to change only the title or description of the notice then he/she will not upload any file.therefore this condition is here
             {
                 if (sections == "1" || sections == "2")
                 {
                     if (sections == "1")
                     {
-                        selectedSectionRB = "1";
+                        this.selectedSectionRB = "1";
                     }
                     else if (sections == "2")
                     {
-                        selectedSectionRB = "2";
+                        this.selectedSectionRB = "2";
                     }
                     if (selectedType == "htmlPage" || selectedType == "image" || selectedType == "downloadLink")
                     {
@@ -85,7 +86,7 @@ namespace PlacementCell
                                         FileUpload1.SaveAs(Server.MapPath("~/newpages/") + link.Replace(' ', '_'));
                                         if (CheckBox1.Checked == true && btnCreateNewPage.Text == "Save Changes")
                                         {
-                                            editNotice(link, selectedType);
+                                            editNotice(link, selectedType, sections);
                                         }
                                         else {
                                             saveNotice(link, selectedType);
@@ -99,6 +100,7 @@ namespace PlacementCell
                                 }
                                 else
                                 {
+                                    Label1.ForeColor = System.Drawing.Color.Red;
                                     Label1.Text = " Only Html Files are Allowed if Html is Selected";
                                 }
                             }
@@ -113,7 +115,7 @@ namespace PlacementCell
                                         FileUpload1.SaveAs(Server.MapPath("~/newimages/") + link.Replace(' ', '_'));
                                         if (CheckBox1.Checked == true && btnCreateNewPage.Text == "Save Changes")
                                         {
-                                            editNotice(link, selectedType);
+                                            editNotice(link, selectedType, sections);
                                         }
                                         else {
                                             saveNotice(link, selectedType);
@@ -127,6 +129,7 @@ namespace PlacementCell
                                 }
                                 else
                                 {
+                                    Label1.ForeColor = System.Drawing.Color.Red;
                                     Label1.Text = "Only jpg/jpeg Files are allowed if Image is Selected";
                                 }
                             }
@@ -139,7 +142,7 @@ namespace PlacementCell
                                     FileUpload1.SaveAs(Server.MapPath("~/newdownloads/") + link.Replace(' ', '_'));
                                     if (CheckBox1.Checked == true && btnCreateNewPage.Text == "Save Changes")
                                     {
-                                        editNotice(link, selectedType);
+                                        editNotice(link, selectedType, sections);
                                     }
                                     else {
                                         saveNotice(link, selectedType);
@@ -168,14 +171,15 @@ namespace PlacementCell
                 else
                 {
                     Label1.ForeColor = System.Drawing.Color.Red;
-                    Label1.Text = "Please Select a Section Type Achievement.";
+                    Label1.Text = "Please Select a Section Type Achievement or Notices.";
                 }
             }
             else if (CheckBox1.Checked == false && btnCreateNewPage.Text == "Save Changes")
             {
-                editNotice(fileLinkInDB, fileTypeInDB);
+                editNotice(fileLinkInDB, fileTypeInDB, fileSectionInDB);
             }
             else {
+                Label1.ForeColor = System.Drawing.Color.Red;
                 Label1.Text = "Something is Worng";
             }
         }
@@ -209,22 +213,15 @@ namespace PlacementCell
  
         }
 
-        protected void editNotice(string newlink, string newselectedType)
+        protected void editNotice(string newlink, string newselectedType, string sectionID)
         {
             string error;
-            string sctionID = null;
+            
             // Label1.Text = id_Of_Editnotice +"<br/> "+ fileTitle.Text + " <br/>" + fileDesc.Text + "<br/> " + newlink + "<br/> " + newselectedType;
-            if (selectedSectionRB == "1")
+           
+            if (sectionID != null)
             {
-                sctionID = "1";
-            }
-            else if (selectedSectionRB == "2")
-            {
-                sctionID = "2";
-            }
-            if (sctionID != null)
-            {
-                if (DataAccessLayer.isNoticeEdited(id_Of_Editnotice, fileTitle.Text, fileDesc.Text, newlink.Replace(' ', '_').Trim(), newselectedType, sctionID, out error))
+                if (DataAccessLayer.isNoticeEdited(id_Of_Editnotice, fileTitle.Text, fileDesc.Text, newlink.Replace(' ', '_').Trim(), newselectedType, sectionID, out error))
                 {
 
                     if (error == null)
@@ -237,9 +234,6 @@ namespace PlacementCell
                     }
                 }
             }
-            else {
-                Label1.Text = "Cannot know Where to upload Edited card in Achievment or Notice";
-            }
         }
 
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
@@ -249,7 +243,9 @@ namespace PlacementCell
                 hideIT.Style.Clear();
                 hideIT.Style.Add("display", "normal");
                 string st = fileTypeInDB;
+                string ss = fileSectionInDB;
                 this.selectRadioButton = st;
+                this.selectedSectionRB = ss;
             }
             else {
                 hideIT.Style.Clear();

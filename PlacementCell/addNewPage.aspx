@@ -96,7 +96,6 @@
 
                 <div style="display:inline-block; padding-left:5vw; padding-right:5vw;">
                     <asp:FileUpload ID="FileUpload1" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" runat="server" AllowMultiple="True" ViewStateMode="Enabled" EnableViewState="True" />
-                    <br />
                     <asp:Label CssClass="mdl-typography--body-2-force-preferred-font-color-contrast" ID="fileHistory" runat="server" Text="" ForeColor="Red"></asp:Label>
                 </div>
                 </div>
