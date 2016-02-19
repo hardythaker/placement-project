@@ -12,12 +12,14 @@ namespace PlacementCell
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack) {
-            //    GridView1.DataBind();
-            //}
+            if (IsPostBack)
+            {
+                //GridView1 = null;
+            }
         }
         static string error;
-        DataTable dt = DataAccessLayer.showAllStudent(out error);
+        static DataTable dt = DataAccessLayer.showAllStudent(out error);
+        DataView dv = new DataView(dt);
         protected void ddl_selectMember_SelectedIndexChanged(object sender, EventArgs e)
         {
            
@@ -28,7 +30,7 @@ namespace PlacementCell
                 {
                     if (dt.Rows.Count > 0)
                     {
-                        GridView1.DataSource = dt;
+                        GridView1.DataSource = dv;
                         GridView1.DataBind();
                     }
                     else {
@@ -43,37 +45,26 @@ namespace PlacementCell
                 GridView1.DataSource = null;
                 GridView1.DataBind();
             }
+            //System.Threading.Thread.Sleep(5000);
+
         }
 
         protected void ddl_selectBranch_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (error == null && ddl_selectBranch.SelectedIndex !=0)
-            {
-                dt.DefaultView.RowFilter = "branch = '"+ddl_selectBranch.SelectedValue +"'";
-                if (dt.Rows.Count > 0) {
-                    GridView1.DataSource = dt;
+            { 
+                //DataView dv = new DataView(dv, "branch = '" + ddl_selectBranch.SelectedValue + "'", "branch asc", DataViewRowState.ModifiedCurrent);
+                dv.RowFilter = "branch = '" + ddl_selectBranch.SelectedValue + "'";
+                //dv.RowFilter = " ";
+                //dt = dt.DefaultView.RowFilter = "branch = '"+ddl_selectBranch.SelectedValue +"'");
+                //dt = dt.Select("branch = '" + ddl_selectBranch.SelectedValue + "'").CopyToDataTable();
+                if (dv.Count > 0) {
+                    GridView1.DataSource = dv;
                     GridView1.DataBind();
                 }
                 else {
                     lbl_ifNoStudent.Text = " No Record Found";
                 }
-                //DataTable newdt = dt;
-                //newdt.DefaultView.RowFilter = "verified = '0'";
-                ////DataView dv = new DataView(dt);
-                //////DataTable newdt = dt.Rows("verified = '0'").CopyToDataTable();
-                //DataRow[] dr = newdt.Select();
-                //DataColumnCollection dc = dt.Columns;
-                //foreach (DataColumn dcc in dc)
-                //{
-                //    string c = dcc.ColumnName + " ";
-                //    Panel1.Controls.Add(new LiteralControl(c));
-                //}
-                //foreach (DataRow drr in dr)
-                //{
-                //    string html = drr.ItemArray.Length.ToString();
-                //    Panel1.Controls.Add(new LiteralControl(html));
-                //}
-                ////drawTable(dr);
             }
             else {
                 lbl_ifNoStudent.Text = error;
@@ -84,19 +75,32 @@ namespace PlacementCell
         {
             if (error == null && ddl_selectBranch.SelectedIndex != 0)
             {
-                dt.DefaultView.RowFilter = "verified = " + ddl_selectVerified.SelectedValue;
-                if (dt.Rows.Count > 0)
+                lbl_ifNoStudent.Style["display"] = "none";
+                GridView1.Visible = true;
+                // DataView dv = new DataView(dt, "verified = '" + ddl_selectBranch.SelectedValue + "'"," ", DataViewRowState.ModifiedOriginal);
+                dv.RowStateFilter = DataViewRowState.ModifiedCurrent;
+                dv.RowFilter = "verified = " + ddl_selectVerified.SelectedValue;
+                //dt.DefaultView.RowFilter = "verified = " + ddl_selectVerified.SelectedValue;
+                //dt = dt.Select("verified = " + ddl_selectVerified.SelectedValue).CopyToDataTable();
+                if (dv.Count > 0)
                 {
-                    GridView1.DataSource = dt;
+                    GridView1.DataSource = dv;
                     GridView1.DataBind();
                 }
                 else {
+                    lbl_ifNoStudent.Visible = true;
                     lbl_ifNoStudent.Text = " No Record Found";
+                    //GridView1.Visible = false;
                 }
             }
             else {
                 lbl_ifNoStudent.Text = error;
             }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
         //static int srno = 0;
         //protected void drawTable(DataRow[] dr) {
