@@ -49,6 +49,15 @@ namespace PlacementCell {
         protected global::System.Web.UI.WebControls.DropDownList ddl_selectMember;
         
         /// <summary>
+        /// ddl_selectBranch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddl_selectBranch;
+        
+        /// <summary>
         /// ddl_selectVerified control.
         /// </summary>
         /// <remarks>
@@ -74,5 +83,14 @@ namespace PlacementCell {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

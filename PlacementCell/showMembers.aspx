@@ -28,7 +28,8 @@
             prm.add_beginRequest(BeginRequestHandler);
             prm.add_endRequest(EndRequestHandler);
             function BeginRequestHandler(sender, args) {
-                $("#loader").show();
+                //$("#loader").show();
+                //document.getElementById("#myDiv").innerHTML = "<span id='loader' class='mdl-spinner mdl-js-spinner is-active'></span>";
                 pbControl = args.get_postBackElement();  //the control causing the postback 
                 pbControl.disabled = true;
                 
@@ -38,16 +39,6 @@
                 pbControl.disabled = false;
                 pbControl = null;
             }
-            $(document).ready(function () {
-                var table = $('#example').DataTable();
-
-                $('#ddl_selectMember').on('change', function () {
-                    table.columns(1).search(this.value).draw();
-                });
-                $('#ddl_select').on('change', function () {
-                    table.columns(3).search(this.value).draw();
-                });
-            });
         </script>
         <div class="mdl-card mdl-shadow--6dp" style="width: 100%; align-items: center">
             <div class="mdl-card__title mdl-color--primary mdl-color-text--white" style="width: 100%">
@@ -67,17 +58,25 @@
                                 </asp:DropDownList>
                             </div>
                             <div>
-                                <lable for="ddl_selectVerified" class="mdl-typography--body-2-force-preferred-font-color-contrast">Select Branch :</lable>
-                                <asp:DropDownList AutoPostBack="true" ClientID="ddl_select" ID="ddl_selectVerified" runat="server" CssClass="mdl-dropdown-menu ddstyle" OnSelectedIndexChanged="ddl_selectMember_SelectedIndexChanged">
+                                <lable for="ddl_selectBranch" class="mdl-typography--body-2-force-preferred-font-color-contrast">Select Branch :</lable>
+                                <asp:DropDownList AutoPostBack="true" ClientID="ddl_select" ID="ddl_selectBranch" runat="server" CssClass="mdl-dropdown-menu ddstyle" OnSelectedIndexChanged="ddl_selectBranch_SelectedIndexChanged">
                                     <asp:ListItem Value="0">--Select--</asp:ListItem>
                                     <asp:ListItem Value="BSc.IT">Bsc.IT</asp:ListItem>
                                     <asp:ListItem Value="BAF">BAF</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
+                            <div>
+                                <lable for="ddl_selectVerified" class="mdl-typography--body-2-force-preferred-font-color-contrast">Select Member :</lable>
+                                <asp:DropDownList AutoPostBack="true" ClientIDMode="Inherit" ID="ddl_selectVerified" runat="server" CssClass="mdl-dropdown-menu ddstyle" OnSelectedIndexChanged="ddl_selectVerified_SelectedIndexChanged">
+                                    <asp:ListItem Value="null">--Select--</asp:ListItem>
+                                    <asp:ListItem Value="1">Verified</asp:ListItem>
+                                    <asp:ListItem Value="0">Not Verified</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
                         </div>
                         <br />
-                        <div style="border: solid;">
-                            <span id="loader" style="display: none;" class="mdl-spinner mdl-js-spinner is-active"></span>
+                        <div id="myDiv" style="border: solid;">
+                            <%--<span id='loader' style='' class='mdl-spinner mdl-js-spinner is-active'></span>--%>
                         </div>
 
 
@@ -98,6 +97,7 @@
                                 </thead>
                                 <tbody>
                                     <asp:Panel ID="Panel1" runat="server">
+                                        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
                                         <%--<tr>
                                             <td class='mdl-data-table__cell--non-numeric'> </td>
                                             <td class='mdl-data-table__cell--non-numeric'> </td>
