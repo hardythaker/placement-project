@@ -12,7 +12,6 @@ namespace PlacementCell
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Threading.Thread.Sleep(3000);
         }
     }
 }
