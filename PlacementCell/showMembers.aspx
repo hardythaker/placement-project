@@ -18,9 +18,20 @@
             border-color: ActiveBorder none;
         }
     </style>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.material.min.css" />
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.11/js/dataTables.material.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
+
+    
     <script type="text/javascript">
        $(document).ready(function () {
         //$("#loadData").click(function () {
@@ -31,12 +42,23 @@
                     dataType: 'json',
                     success: function (data) {
                         $("#tableDiv").show();
+
                         $("#studentDataTable").DataTable({
+                            dom: 'Bfrtip',
+                            buttons: [
+                                'copy', 'csv', 'excel', 'pdf', 'print'
+                            ],
                              data: data,
                             'paging': true,
                             'sort': true,
                             'searching': true,
                             'scrollX': '70vw',
+                            columnDefs: [
+                                {
+                                    targets: [ 1, 2, 3, 4, 5 ],
+                                    className: 'mdl-data-table__cell--non-numeric'
+                                }
+                            ],
                             'columns': [
                                { 'data': 'student_id' },
                                { 'data': 'fname' },
@@ -45,7 +67,28 @@
                                { 'data': 'gender' },
                                { 'data': 'username' },
                                { 'data': 'verified' },
-                            ]
+                            ],
+                            initComplete: function () {
+                                this.api().columns().every(function () {
+                                    var column = this;
+                                    var select = $('<select><option value=""></option></select>')
+                                        .appendTo($(column.footer()).empty())
+                                        .on('change', function () {
+                                            var val = $.fn.dataTable.util.escapeRegex(
+                                                $(this).val()
+                                            );
+
+                                            column
+                                                .search(val ? '^' + val + '$' : '', true, false)
+                                                .draw();
+                                        });
+
+                                    column.data().unique().sort().each(function (d, j) {
+                                        select.append('<option value="' + d + '">' + d + '</option>')
+                                    });
+                                });
+                            }
+
                         });
                         $("#loader").hide();
                     }
@@ -92,11 +135,11 @@
                         <thead>
                             <tr>
                                 <th>Student ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Branch</th>
-                                <th>Gender</th>
-                                <th>Svv Mail</th>
+                                <th class="mdl-data-table__cell--non-numeric">First Name</th>
+                                <th class="mdl-data-table__cell--non-numeric">Last Name</th>
+                                <th class="mdl-data-table__cell--non-numeric">Branch</th>
+                                <th class="mdl-data-table__cell--non-numeric">Gender</th>
+                                <th class="mdl-data-table__cell--non-numeric">Svv Mail</th>
                                 <th>Is Verified</th>
                             </tr>
                         </thead>
