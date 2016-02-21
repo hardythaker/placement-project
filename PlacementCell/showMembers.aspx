@@ -18,6 +18,70 @@
             border-color: ActiveBorder none;
         }
     </style>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.material.min.css" />
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.11/js/dataTables.material.min.js"></script>
+    <script type="text/javascript">
+        function getStudentData() {
+            $.ajax({
+                url: 'StudentLoginDataService.asmx/getStudentLoginData',
+                method: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    var table = $("#studentDataTable").DataTable({
+                        data: data,
+                        'paging': true,
+                        'sort': true,
+                        'searching': true,
+                        'scrollY': '50vh',
+                        "scrollX": true,
+                        'scrollCollapse': true,
+                        "language": {
+                            "lengthMenu": "Display _MENU_ records per page",
+                            "zeroRecords": "Nothing found Sorry",
+                            //"info": "Showing page _PAGE_ of _PAGES_",
+                            "infoEmpty": "No records available",
+                            "infoFiltered": "(filtered from _MAX_ total records)"
+                        },
+                        initComplete: function () {
+                            this.api().columns().every( function () {
+                                var column = this;
+                                var select = $('<select><option value=""></option></select>')
+                                    .appendTo( $(column.footer()).empty() )
+                                    .on( 'change', function () {
+                                        var val = $.fn.dataTable.util.escapeRegex(
+                                            $(this).val()
+                                        );
+ 
+                                        column
+                                            .search( val ? '^'+val+'$' : '', true, false )
+                                            .draw();
+                                    } );
+ 
+                                column.data().unique().sort().each( function ( d, j ) {
+                                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                                } );
+                            } );
+                        },
+                        columnsDefs: [{
+                            targets: [0, 1, 2, 3, 5, 5, 6],
+                            className: 'mdl-data-table__cell--non-numeric'
+                        }],
+                        columns: [
+                            { 'data': 'student_id' },
+                            { 'data': 'fname' },
+                            { 'data': 'lname' },
+                            { 'data': 'branch' },
+                            { 'data': 'gender' },
+                            { 'data': 'username' },
+                            { 'data': 'verified' },
+                        ]
+                    })
+                }
+            })
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <form runat="server" method="post" id="showmembers_form">
@@ -30,112 +94,64 @@
             function BeginRequestHandler(sender, args) {
                 componentHandler.upgradeDom();
                 $("#loader").show();
-                //document.getElementById("#myDiv").innerHTML = "<span id='loader' class='mdl-spinner mdl-js-spinner is-active'></span>";
-                //$get("myDiv").innerHTML = "<span id='loader' class='mdl-spinner mdl-js-spinner is-active'></span>";
+                $("#<%=btnGetData.ClientID%>").hide();
                 pbControl = args.get_postBackElement();  //the control causing the postback 
                 pbControl.disabled = true;
-                
             }
             function EndRequestHandler(sender, args) {
                 $("#loader").hide();
+                $("#<%=btnGetData.ClientID%>").hide();
+                $("#tableDiv").show();
                 pbControl.disabled = false;
                 pbControl = null;
             }
         </script>
-        <div class="mdl-card mdl-shadow--6dp" style="width: 100%; align-items: center">
+        <div class="mdl-card mdl-shadow--6dp" style="width: 100%; align-items: center; align-content: center">
             <div class="mdl-card__title mdl-color--primary mdl-color-text--white" style="width: 100%">
                 <h2 class="mdl-card__title-text">Members Info</h2>
             </div>
             <br />
-            <div>
+            <div style="border: 0px solid black; width: 95%;">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        <div style="display: inline-flex; border: solid; padding: 6px 6px 6px 5px">
-                            <div>
-                                <lable for="ddl_selectMember" class="mdl-typography--body-2-force-preferred-font-color-contrast">Select Member :</lable>
-                                <asp:DropDownList AutoPostBack="true" ClientIDMode="Inherit" ID="ddl_selectMember" runat="server" CssClass="mdl-dropdown-menu ddstyle" OnSelectedIndexChanged="ddl_selectMember_SelectedIndexChanged">
-                                    <asp:ListItem Value="0">--Select--</asp:ListItem>
-                                    <asp:ListItem Value="1">Students</asp:ListItem>
-                                    <asp:ListItem Value="2">Admin</asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-                            <div>
-                                <lable for="ddl_selectBranch" class="mdl-typography--body-2-force-preferred-font-color-contrast">Select Branch :</lable>
-                                <asp:DropDownList AutoPostBack="true" ClientID="ddl_select" ID="ddl_selectBranch" runat="server" CssClass="mdl-dropdown-menu ddstyle" OnSelectedIndexChanged="ddl_selectBranch_SelectedIndexChanged">
-                                    <asp:ListItem Value="0">--Select--</asp:ListItem>
-                                    <asp:ListItem Value="BSc.IT">Bsc.IT</asp:ListItem>
-                                    <asp:ListItem Value="BAF">BAF</asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-                            <div>
-                                <lable for="ddl_selectVerified" class="mdl-typography--body-2-force-preferred-font-color-contrast">Select Member :</lable>
-                                <asp:DropDownList AutoPostBack="true" ClientIDMode="Inherit" ID="ddl_selectVerified" runat="server" CssClass="mdl-dropdown-menu ddstyle" OnSelectedIndexChanged="ddl_selectVerified_SelectedIndexChanged">
-                                    <asp:ListItem Value="null">--Select--</asp:ListItem>
-                                    <asp:ListItem Value="1">Verified</asp:ListItem>
-                                    <asp:ListItem Value="0">Not Verified</asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-                        </div>
+                        <%--<asp:Button ClientIDMode="Inherit" ID="Button1" runat="server" Text="Get Student Data" OnClientClick="getStudentData()" />--%>
+                        <asp:LinkButton ID="btnGetData" CssClass="mdl-button mdl-button--raised mdl-color--accent mdl-color-text--white mdl-shadow--8dp" runat="server" OnClientClick="getStudentData()"><span class="material-icons mdl-color-text--white">get_app</span>Student Login Data</asp:LinkButton>
                         <br />
-                        <div id="myDiv" style="border: solid;">
-                            <span id='loader' style='display:none' class='mdl-spinner mdl-js-spinner is-active'></span>
-                        </div>
-
-
-                        <asp:Label ID="lbl_ifNoStudent" runat="server" Text=""></asp:Label>
-<asp:GridView ID="GridView1" runat="server" FooterStyle-BorderStyle="Inset" AllowSorting="True" AutoGenerateDeleteButton="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-    <FooterStyle BorderStyle="Inset" />
-                        </asp:GridView>
-                        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="showAllStudent" TypeName="PlacementCell.DataAccessLayer">
-                            <SelectParameters>
-                                <asp:Parameter DefaultValue="" Direction="Output" Name="error" Type="String" />
-                            </SelectParameters>
-                        </asp:ObjectDataSource>
-                        <%--<div style="width: auto" class="mdl-card mdl-shadow--2dp">
-                            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="example">
-                                <thead>
-                                    <tr>
-                                        <th class="mdl-data-table__cell--non-numeric">Sr No.</th>
-                                        <%--<th class="mdl-data-table__cell--non-numeric">ID</th>--%>
-                                        <%--<th class="mdl-data-table__cell--non-numeric">Name</th>
-                                        <th class="mdl-data-table__cell--non-numeric">Branch</th>
-                                        <th class="mdl-data-table__cell--non-numeric">Gender</th>
-                                        <th class="mdl-data-table__cell--non-numeric">Username</th>
-                                        <th class="mdl-data-table__cell--non-numeric">Is Verified</th>
-                                        <th class="mdl-data-table__cell--non-numeric">Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>--%>
-                                    <asp:Panel ID="Panel1" runat="server">
-                                        <%--<tr>
-                                            <td class='mdl-data-table__cell--non-numeric'> </td>
-                                            <td class='mdl-data-table__cell--non-numeric'> </td>
-                                            <td class='mdl-data-table__cell--non-numeric'> </td>
-                                            <td class='mdl-data-table__cell--non-numeric'> </td>
-                                            <td class='mdl-data-table__cell--non-numeric'> </td>
-                                            <td class='mdl-data-table__cell--non-numeric'> </td>
-                                            <td class='mdl-data-table__cell--non-numeric'> </td>
-                                            <td class='mdl-data-table__cell--non-numeric'> </td>
-                                        </tr>--%>
-                                    </asp:Panel>
-                                <%--</tbody>
-                            </table>
-                        </div>--%>
-                        <%--<asp:GridView ID="GridView1" AutoGenerateDeleteButton="true" AutoGenerateColumns="true" runat="server"></asp:GridView>--%>
+                        <span id="loader" class="mdl-spinner mdl-js-spinner is-active" style="display: none"></span>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-                <%--<asp:UpdateProgress ID="UpdateProgress1" runat="server"  AssociatedUpdatePanelID="UpdatePanel1">
-                    <ProgressTemplate>
-                        <%--<br>
-                        <span class="mdl-spinner mdl-js-spinner is-active" id="spinner1"></span>--%>
-                <%--<script type="text/javascript">--%>
-                <%--//$(document.getElementById("#loader").)
-                            //$('#loader').show();
-                            //document.getElementById('#loader').style.display = "block";
-                        </script>
-                    </ProgressTemplate>
-                </asp:UpdateProgress>--%>
+                <center>
+                <div style="width: 80%; border: 2px solid #2db1d2; display: none;" id="tableDiv">
+                    <table id="studentDataTable" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Branch</th>
+                                <th>Gender</th>
+                                <th>Svv Mail</th>
+                                <th>Is Verified</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Student ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Branch</th>
+                                <th>Gender</th>
+                                <th>Svv Mail</th>
+                                <th>Is Verified</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                    </center>
             </div>
+            <br />
+            <br />
+            <br />
         </div>
     </form>
 </asp:Content>

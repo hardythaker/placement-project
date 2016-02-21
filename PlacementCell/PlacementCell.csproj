@@ -183,6 +183,7 @@
     <Content Include="showMembers.aspx" />
     <Content Include="studentHome.aspx" />
     <Content Include="studentLogin.aspx" />
+    <Content Include="StudentLoginDataService.asmx" />
     <Content Include="studentReg.aspx" />
     <Content Include="style\bower.json" />
     <Content Include="style\LICENSE" />
@@ -267,6 +268,7 @@
     <Compile Include="App_Code\DataAccessLayer.cs" />
     <Compile Include="App_Code\HashGenerator.cs" />
     <Compile Include="App_Code\SendMailManager.cs" />
+    <Compile Include="App_Code\StudentLoginDetails.cs" />
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -360,6 +362,10 @@
     </Compile>
     <Compile Include="studentLogin.aspx.designer.cs">
       <DependentUpon>studentLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentLoginDataService.asmx.cs">
+      <DependentUpon>StudentLoginDataService.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="studentReg.aspx.cs">
       <DependentUpon>studentReg.aspx</DependentUpon>
