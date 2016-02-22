@@ -10,7 +10,7 @@ namespace PlacementCell
 {
     public partial class studentReg : System.Web.UI.Page
     {
-        static bool isValidEmail;
+        static bool isValidEmail;// this is because if the email id already present in the database then he/she should be prevented from sending the mail
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -40,7 +40,8 @@ namespace PlacementCell
                     else {
                         isValidEmail = false;
                         string mailerror;
-                        if (SendMailManager.newStdVerify(signup_emailid.Text.Trim(), out mailerror))
+                        string msgType = "verification";//dont change this. it is for slecting the type of email msg body.
+                        if (SendMailManager.sendMail(signup_emailid.Text.Trim(),msgType, out mailerror))
                         {
                             if (mailerror == null)
                             {
@@ -54,7 +55,7 @@ namespace PlacementCell
                                 Label1.Text = mailerror;
                             }
                         }
-                        else {
+                        else {   //if mail cannot be send for some reasons then that student should be deleted automatically, so that he/she can register again, otherwise if the mail sending fail then he cannot login and if he thought to do the registration again he/she cannot do that because we are checking that the email id is exists or on on registration..
                             string deleteerror;
                             if (DataAccessLayer.isStudentDeleted(signup_emailid.Text, out deleteerror))
                             {
@@ -117,7 +118,7 @@ namespace PlacementCell
                 else {
                     isValidEmail = true;
                     //Label2.CssClass = "mdl-color-text--primary";
-                    Label2.Text = "<br/><div style='display:inline-flex; vertical-align:central;'><div class='icon material-icons mdl-color-text--primary'>done</div><label style='padding-top:2px' for='tt2'class='mdl-radio__label mdl-color-text--primary'>&nbsp;Valid Email ID</label></div>";
+                    Label2.Text = "<br/><div style='display:inline-flex; vertical-align:central;'><div class='icon material-icons mdl-color-text--primary'>done</div><label style='padding-top:2px' for='tt2'class='mdl-radio__label mdl-color-text--primary'>&nbsp;Valid Email ID/Student not Exists</label></div>";
                     //LabeText = "valid";
                 }
             }

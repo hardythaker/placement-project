@@ -4,6 +4,9 @@
         body {
             height: 100%;
         }
+        /*#btnStudentLogin:hover .mdl-shadow{
+            box-shadow: 50px;
+        }*/
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
@@ -27,11 +30,11 @@
                     <asp:RequiredFieldValidator ID="password_tb_validator" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="password" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <div class="mdl-card__actions mdl-card--border" style="padding-right:5em">
-                    <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--8dp" ID="btnStudentLogin" runat="server" Text="Login" OnClick="btnStudentLogin_Click" />
+                    <asp:Button CssClass="mdl-button mdl-button--raised mdl-color--primary mdl-shadow--4dp" ID="btnStudentLogin" runat="server" Text="Login" OnClick="btnStudentLogin_Click" />
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="studentReg.aspx">Signup
                     </a>
                 </div>
-                
+                <br />
                 <span style="padding-right:6em"><a href="forgotpass.aspx" class="mdl-color-text--cyan" style="font-size: 14px">Forgot your password?</a>
                     <br /><br />
                 <asp:Label ID="Label1" runat="server" Text="" ForeColor="Red"></asp:Label><br />

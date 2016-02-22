@@ -24,7 +24,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <div style="height:100vh; background-image: url('images/Thumbnails.jpg'); background-repeat:no-repeat; background-size:100vw 100vh">
         <img src="images/somaiya_logo.jpg" />
-            <h5>S.K Somaiya Degree College Of Arts, Science And Commerce </h5>
+            <h4>S.K Somaiya Degree College Of Arts, Science And Commerce </h4>
         <br />
         <br />
         <br />

@@ -21,17 +21,25 @@ namespace PlacementCell
         {
             string hashval = HashGenerator.getHash(username.Text, password.Text);
             string verified;
-            if (DataAccessLayer.isStudentExits(username.Text, hashval,out verified))
+            string error;
+            if (DataAccessLayer.isStudentExits(username.Text, hashval,out verified,out error))
             {
-                if (verified == "1")
+                if (error == null)
                 {
-                    Session["student_username"] = username.Text;
-                    Response.Redirect("studentHome.aspx");
+                    if (verified == "1")
+                    {
+                        Session["student_username"] = username.Text;
+                        Response.Redirect("studentHome.aspx");
+                    }
+                    else
+                    {
+                        string enc_EmailID = HashGenerator.URLEncrypt(username.Text.Trim());
+                        string str_enc_attempt = HashGenerator.URLEncrypt("2");
+                        Response.Redirect("verifyInfo.aspx?svvmailid=" + enc_EmailID + "&attempt=" + str_enc_attempt);
+                    }
                 }
                 else {
-                    string enc_EmailID = HashGenerator.URLEncrypt(username.Text.Trim());
-                    string str_enc_attempt = HashGenerator.URLEncrypt("2");
-                    Response.Redirect("verifyInfo.aspx?svvmailid="+enc_EmailID+"&attempt="+str_enc_attempt);
+                    Label1.Text = error;
                 }
             }
             else

@@ -58,13 +58,13 @@ namespace PlacementCell {
         protected global::System.Web.UI.WebControls.Label resend;
         
         /// <summary>
-        /// hideIt control.
+        /// hideResendMailBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hideIt;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hideResendMailBtn;
         
         /// <summary>
         /// UpdatePanel1 control.

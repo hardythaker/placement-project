@@ -8,13 +8,13 @@ using System.Web;
 
 namespace PlacementCell
 {
-    public class DataAccessLayer
+    internal class DataAccessLayer
     {
         public static DataTable showAllStudent(out string error)
         {
             try
             {
-                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                using (MySqlConnection connection =new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_ShowAllStudent", connection))
                     {
@@ -69,9 +69,8 @@ namespace PlacementCell
             }
             catch (Exception ex)
             {
-                //connection.Close();
                 error = ex.Message;
-                return false;
+                return true;
             }
         }
         public static bool isMemRegSuccessful(string un, string encPwd)
@@ -168,7 +167,7 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static bool isStudentExits(string email, string hashval, out string verified)
+        public static bool isStudentExits(string email, string hashval, out string verified,out string error)
         {
             using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
@@ -186,20 +185,23 @@ namespace PlacementCell
                     connection.Close();
                     if (dt.Rows.Count == 1)
                     {
+                        error = null;
                         verified = dt.Rows[0].ItemArray[7].ToString();
                         return true;
                     }
                     else {
+                        error = null;
                         verified = null;
                         return false;
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    error = ex.Message;
                     verified = null;
                     //connection.Close();
-                    return false;
+                    return true;
                 }
 
             }
@@ -311,7 +313,11 @@ namespace PlacementCell
                     //reader.
                     MySqlDataAdapter adapter = new MySqlDataAdapter();
                     DataSet ds = new DataSet();
-                    connection.Open();
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        connection.Close();
+                        connection.Open();
+                    }
                     adapter.SelectCommand = command;
                     adapter.Fill(ds);
                     connection.Close();

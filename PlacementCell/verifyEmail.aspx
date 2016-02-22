@@ -8,9 +8,9 @@
             <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
                  <h2 class="mdl-card__title-text" style="text-align: center">SuccessFully VeriFied</h2>
             </div>
-             <h3>Thank You..!</h3>
-             <h4>You Svv Mail ID is SuccessFully Verified..</h4><br/>
-             <h3>Please Click Ok To Login and Get Started</h3>
+             <h4 class="mdl-typography--body-2-force-preferred-font-color-contrast">Thank You..!</h4>
+             <h5 class="mdl-typography--body-2-force-preferred-font-color-contrast">Your Svv Mail ID is SuccessFully Verified..</h5>
+             <h5 class="mdl-typography--body-2-force-preferred-font-color-contrast">Please Click Ok To Login and Get Started</h5>
                 <div class='mdl-card__actions mdl-card--border'>
                     <a class="mdl-button mdl-button--colored mdl-color--accent mdl-js-button mdl-js-ripple-effect" href="studentLogin.aspx">Okay !</a>    
                 </div>    

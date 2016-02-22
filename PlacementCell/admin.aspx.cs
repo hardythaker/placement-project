@@ -9,7 +9,6 @@ namespace PlacementCell
 {
     public partial class admin : System.Web.UI.Page
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["admin_username"] != null)
@@ -35,7 +34,6 @@ namespace PlacementCell
             }
             else
             {
-
                 Label1.ForeColor = System.Drawing.Color.Red;
                 Label1.Text = "Wrong user id or Password";
             }

@@ -34,25 +34,33 @@ namespace PlacementCell
                 string hashval = HashGenerator.getHash(Session["student_username"].ToString(), tb_currentPass.Text);
                 string str_SPName = "sp_isStdPassChanged";
                 string verified;//no use of the parameter in this case;
-                if (DataAccessLayer.isStudentExits(Session["student_username"].ToString(), hashval,out verified))
+                string error;
+                if (DataAccessLayer.isStudentExits(Session["student_username"].ToString(), hashval,out verified,out error))
                 {
-                    string error;
-                    string newhashval = HashGenerator.getHash(Session["student_username"].ToString(), tb_newPass.Text);
-                    if (DataAccessLayer.isPassChanged(Session["student_username"].ToString(), newhashval, str_SPName, out error))
+                    if (error == null)
                     {
-                        if (error != null)
+                        string newhashval = HashGenerator.getHash(Session["student_username"].ToString(), tb_newPass.Text);
+                        if (DataAccessLayer.isPassChanged(Session["student_username"].ToString(), newhashval, str_SPName, out error))
                         {
-                            lbl_changePassStatus.Text = error;
+                            if (error == null)
+                            {
+                                lbl_changePassStatus.CssClass = "mdl-color-text--primary";
+                                lbl_changePassStatus.Text = "<br/>Sucessfully Changed your Password";
+                            }
+                            else
+                            {
+                                lbl_changePassStatus.Text = error;
+                            }
                         }
-                        else {
-                            lbl_changePassStatus.CssClass = "mdl-color-text--primary";
-                            lbl_changePassStatus.Text = "<br/>Sucessfully Changed your Password";
+                        else
+                        {
+                            lbl_changePassStatus.ForeColor = System.Drawing.Color.Red;
+                            lbl_changePassStatus.Text = "<br/>Some Error Occured";
                         }
-
                     }
                     else {
                         lbl_changePassStatus.ForeColor = System.Drawing.Color.Red;
-                        lbl_changePassStatus.Text = "<br/>Some Error Occured";
+                        lbl_changePassStatus.Text = error;
                     }
                 }
                 else

@@ -10,7 +10,7 @@ using System.Text;
 
 namespace PlacementCell
 {
-    public class HashGenerator
+    internal class HashGenerator
     {
         public static string getHash (string user,string pass)
         {

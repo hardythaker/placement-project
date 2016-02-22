@@ -26,6 +26,7 @@
                     pbControl = null;
                 }
                 function showMessage() {
+                    pbControl.disabled = true;
                     alert('Your Password Succesfully Reset...!\n Click Ok to Login');
                     window.location.replace('studentLogin.aspx');
                 }

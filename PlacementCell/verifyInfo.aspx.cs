@@ -25,14 +25,14 @@ namespace PlacementCell
                         great.Text = "Thank you <u>" + email + "</u>";
                         //but.Text = null;
                         resend.Text = "If You didn't received the Mail On Your Registered Mail Id Please Wait For 5 mins.<br>If you Still didn't Received Email Check Your Svv Mail ID First, then Click <a href='studentLogin.aspx'>Here</a> and Login into Your Account";
-                        hideIt.Style["display"] = "none";
+                        hideResendMailBtn.Style["display"] = "none";
                     }
                     else if (attempt == "2")
                     {
                         great.Text = "Welcome <u>" + email + "</u> ";
                         but.Text = ", But You have Not Verified Your Svv Mail ID. ";
                         resend.Text = "If You didn't received the Mail Click on Resend Mail button and Wait For 5 mins.<br> If You Still didn't Received it Check Your SVV Mail ID or Contact to the TPO of your Stream";
-                        hideIt.Style["display"] = "block";
+                        hideResendMailBtn.Style["display"] = "block";
                     }
                     else {
                         Response.Write("Invalid Attempt");
@@ -51,7 +51,8 @@ namespace PlacementCell
                 {
                     if (verified != "1")
                     {
-                        if (SendMailManager.newStdVerify(dec_svvmail_id, out error))
+                        string msgType = "verification";//dont change this. it is for slecting the type of email msg body.
+                        if (SendMailManager.sendMail(dec_svvmail_id,msgType, out error))
                         {
                             if (error == null)
                             {
