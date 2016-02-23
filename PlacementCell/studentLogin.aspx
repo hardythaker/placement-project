@@ -1,18 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="studentLogin.aspx.cs" Inherits="PlacementCell.studentLogin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        body {
-            height: 100%;
-        }
+        /*body {
+            min-height: 100%;
+        }*/
         /*#btnStudentLogin:hover .mdl-shadow{
             box-shadow: 50px;
         }*/
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
-    <div class="mdl-card mdl-shadow--6dp" style="width:auto;">
+
+    <div style="min-height:100%">
+    <div class="mdl-card mdl-shadow--6dp" style="width:auto;margin:50px,0px,0px,0px;">
        <form id="studentLoginForm" method="post" runat="server">
-            <div class="mdl-card mdl-shadow--6dp" style="width:100%">
+            <div class="mdl-card mdl-shadow--6dp" style="width:100%;">
                 <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
                     <h2 class="mdl-card__title-text" style="text-align: center">Student Login</h2>
                 </div>
@@ -44,4 +46,5 @@
             </div>           
         </form>
     </div>
+        </div>
 </asp:Content>

@@ -8,7 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
     <script src="scripts/jquery-2.2.0.min.js"></script>
-
+    <script type="text/javascript">
+        $(window).bind("load", function () {
+            var footer = $("#footer");
+            var pos = footer.position();
+            var height = $(window).height();
+            height = height - pos.top;
+            height = height - footer.height();
+            if (height > 0) {
+                footer.css({
+                    'margin-top': height + 'px'
+                });
+            }
+        });
+</script>  
     <%-- For Drop Down Login Form --%>
 
     <%--   <script type="text/javascript">
@@ -48,7 +61,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
@@ -58,10 +71,39 @@
     <meta name="theme-color" content="#ffffff">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .social-btn {
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            margin: 0 16px;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            opacity: 1;
+            border-radius: 2px;
+        }
 
+        .social-btn__instagram {
+            background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_instagram_white_24dp.png');
+        }
+
+        .social-btn__twitter {
+            background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_white_24dp.png');
+        }
+
+        .social-btn__blogger {
+            background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_facebook_white_24dp.png');
+        }
+
+        .social-btn__gplus {
+            background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_white_24dp.png');
+        }
+    </style>
 </head>
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <div style="" class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-color--grey-100 mdl-color-text--cyan  mdl-shadow--4dp">
             <div class="mdl-layout__header-row">
                 <span class="mdl-layout-title">Placement Cell</span>
@@ -78,7 +120,7 @@
         </header>
         <%-- Fixed Header Ends --%>
         <%-- Side Drawer Starts Here --%>
-        <div class="demo-navigation mdl-layout__drawer  mdl-color--cyan mdl-color-text--grey-100" runat="server" id="drawer">
+        <div style="" class="demo-navigation mdl-layout__drawer  mdl-color--cyan mdl-color-text--grey-100" id="drawer">
             <span class="mdl-layout-title">Welcome</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
@@ -91,15 +133,35 @@
             </nav>
         </div>
         <%-- Side Drawer Ends Here --%>
-        <main class="mdl-layout__content">
+        <main class="mdl-layout__content"">
+ 
             <center>
-                    <div class="page-content" style="width:100%; text-align: center;">
+                    <div class="page-content" style="text-align: center;">
                         <asp:ContentPlaceHolder ID="main_content" runat="server">
                         </asp:ContentPlaceHolder>
+                        <div id="footer">
+                            <footer class="mdl-mini-footer">
+                                <div class="mdl-mini-footer__left-section">
+                                    <div class="mdl-logo">Hardik Thaker</div>
+                                    <ul class="mdl-mini-footer__link-list">
+                                        <li><a href="#">Help</a></li>
+                                        <li><a href="#">Privacy & Terms</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mdl-mini-footer__right-section">
+                                     <a  href="http://instagram.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__blogger social-btn"></button></a>
+                                     <a  href="https://plus.google.com/u/0/109397890308622152669" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__gplus social-btn"></button></a>
+                                     <a  href="http://facebook.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__blogger social-btn"></button></a>
+                                     <a  href="http://twiter.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__twitter social-btn"></button></a>
+                                    </ul>
+                                </div>
+                            </footer>
+                        </div>
                     </div>
-                </center>
-        </main>
+                   </center>
 
+
+        </main>
     </div>
 </body>
 </html>
