@@ -129,7 +129,7 @@
                 <br />
                 <span id="loader" class="mdl-spinner mdl-js-spinner is-active" style="display: none"></span>
                 <center>               
-                <div style="width:70vw; border:2px solid #2db1d2; text-align:center; align-items:center;display:none" id="tableDiv"> 
+                <div style="width:80vw; border:2px solid #2db1d2; text-align:center; align-items:center;display:none" id="tableDiv"> 
                     <center>
                     <table id="studentDataTable" class="mdl-data-table mdl-shadow--4dp">
                         <thead>
