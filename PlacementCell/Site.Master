@@ -140,7 +140,7 @@
                         <asp:ContentPlaceHolder ID="main_content" runat="server">
                         </asp:ContentPlaceHolder>
                         <div id="footer">
-                            <footer style="height:50px" class="mdl-mini-footer">
+                            <footer style="" class="mdl-mini-footer">
                                 <div class="mdl-mini-footer__left-section">
                                     <div class="mdl-logo mdl-typography--body-2-force-preferred-font-color-contrast">&copy; By Hardik Thaker</div>
                                     <br>

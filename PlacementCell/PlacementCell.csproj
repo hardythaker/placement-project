@@ -185,6 +185,7 @@
     <Content Include="studentLogin.aspx" />
     <Content Include="StudentLoginDataService.asmx" />
     <Content Include="studentReg.aspx" />
+    <Content Include="student_PersonalDetails.aspx" />
     <Content Include="style\bower.json" />
     <Content Include="style\LICENSE" />
     <Content Include="style\material.min.css.map" />
@@ -380,6 +381,13 @@
     </Compile>
     <Compile Include="changePass.aspx.designer.cs">
       <DependentUpon>changePass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student_PersonalDetails.aspx.cs">
+      <DependentUpon>student_PersonalDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student_PersonalDetails.aspx.designer.cs">
+      <DependentUpon>student_PersonalDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="verifyEmail.aspx.cs">
       <DependentUpon>verifyEmail.aspx</DependentUpon>
