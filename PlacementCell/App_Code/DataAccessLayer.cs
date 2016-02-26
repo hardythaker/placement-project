@@ -14,7 +14,7 @@ namespace PlacementCell
         {
             try
             {
-                using (MySqlConnection connection =new ConnectionManager().GetDatabaseConnection())
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
                     using (MySqlCommand command = new MySqlCommand("sp_ShowAllStudent", connection))
                     {
@@ -167,7 +167,7 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static bool isStudentExits(string email, string hashval, out string verified,out string error)
+        public static bool isStudentExits(string email, string hashval, out string verified, out string error)
         {
             using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {
@@ -275,6 +275,82 @@ namespace PlacementCell
                 error = ex.Message;
                 verificationStatus = null;
                 return true;
+            }
+        }
+        public static bool isStdPersonalDetailsUpdated(string svv, string honorifics, string fname, string mname, string lname, string email, string gender, string maritial, string mobileno, string dob, out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_addStdPersonalDetails", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svv;
+                        command.Parameters.Add("@h", MySqlDbType.VarChar).Value = honorifics;
+                        command.Parameters.Add("@f", MySqlDbType.VarChar).Value = fname;
+                        command.Parameters.Add("@m", MySqlDbType.VarChar).Value = mname;
+                        command.Parameters.Add("@l", MySqlDbType.VarChar).Value = lname;
+                        command.Parameters.Add("@e", MySqlDbType.VarChar).Value = email;
+                        command.Parameters.Add("@g", MySqlDbType.VarChar).Value = gender;
+                        command.Parameters.Add("@ms", MySqlDbType.VarChar).Value = maritial;
+                        command.Parameters.Add("@mn", MySqlDbType.VarChar).Value = mobileno;
+                        command.Parameters.Add("@dob", MySqlDbType.VarChar).Value = dob;
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return true;
+            }
+        }
+        public static DataTable stdDetailExist(string svvMailID,out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_fetchStdData", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvMailID;
+                        MySqlDataAdapter adapter = new MySqlDataAdapter();
+                        DataSet ds = new DataSet();
+                        connection.Open();
+                        adapter.SelectCommand = command;
+                        adapter.Fill(ds);
+                        connection.Close();
+                        DataTable dt = ds.Tables[0];
+                        error = null;
+                        return dt;
+                        //if (ds.Tables.Count > 0)
+                        //{
+                        //    error = null;
+                            
+                        //}
+                        //else {
+                        //    error = null;
+                        //    return null;
+                        //}
+                    }
+                }
+            }
+            catch(Exception ex) {
+                error = ex.Message;
+                return null;
             }
         }
         public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, string noticesection)
