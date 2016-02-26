@@ -126,6 +126,7 @@
     <Content Include="forgotpass.aspx" />
     <Content Include="home.aspx" />
     <Content Include="changePass.aspx" />
+    <Content Include="images\calendar-icon.png" />
     <Content Include="images\favicon\android-icon-144x144.png" />
     <Content Include="images\favicon\android-icon-192x192.png" />
     <Content Include="images\favicon\android-icon-36x36.png" />
@@ -185,6 +186,7 @@
     <Content Include="studentLogin.aspx" />
     <Content Include="StudentLoginDataService.asmx" />
     <Content Include="studentReg.aspx" />
+    <Content Include="student_AcademicDetails.aspx" />
     <Content Include="student_PersonalDetails.aspx" />
     <Content Include="style\bower.json" />
     <Content Include="style\LICENSE" />
@@ -381,6 +383,13 @@
     </Compile>
     <Compile Include="changePass.aspx.designer.cs">
       <DependentUpon>changePass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="student_AcademicDetails.aspx.cs">
+      <DependentUpon>student_AcademicDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="student_AcademicDetails.aspx.designer.cs">
+      <DependentUpon>student_AcademicDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="student_PersonalDetails.aspx.cs">
       <DependentUpon>student_PersonalDetails.aspx</DependentUpon>
