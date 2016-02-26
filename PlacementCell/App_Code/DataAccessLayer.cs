@@ -709,7 +709,7 @@ namespace PlacementCell
         {
             using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
             {
-                using (MySqlCommand cmd = new MySqlCommand("sp_fetchClassName", con))
+                using (MySqlCommand cmd = new MySqlCommand("sp_fetchClassNames", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     MySqlDataAdapter adapter = new MySqlDataAdapter();

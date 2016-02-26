@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
+using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,7 +10,15 @@ namespace PlacementCell
         static bool isValidEmail;// this is because if the email id already present in the database then he/she should be prevented from sending the mail
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                DataTable dt = DataAccessLayer.fetchClass();
+                listClass.DataSource = dt;
+                listClass.DataTextField = "branch";
+                listClass.DataValueField = "branch_id";
+                listClass.DataBind();
+                listClass.Items.Insert(0, new ListItem("--Stream--", "0"));
+            }
         }
 
         protected void btnStudentReg_Click(object sender, EventArgs e)
@@ -23,7 +28,7 @@ namespace PlacementCell
                 //collecting data from form
                 string fname = signup_fname.Text;
                 string lname = signup_lname.Text;
-                string stream = DropDownList1.SelectedItem.Value;
+                string stream = listClass.SelectedItem.Value;
                 string gender = Request.Form["options"];
                 string email = signup_emailid.Text.Trim();
                 string pass = signup_password.Text;
@@ -82,7 +87,7 @@ namespace PlacementCell
             else {
                 signup_fname.Text = string.Empty;
                 signup_lname.Text = string.Empty;
-                DropDownList1.ClearSelection();
+                listClass.ClearSelection();
                 Request.Form["options"] = string.Empty;
                 signup_emailid.Text = string.Empty;
                 signup_password.Text = string.Empty;

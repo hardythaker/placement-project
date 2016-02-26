@@ -93,8 +93,8 @@
                
                 <div style="display: inline;">
                     <label for="DropDownList1" class="mdl-typography--body-2-force-preferred-font-color-contrast">Stream :</label> 
-                        <asp:DropDownList ID="DropDownList1" CssClass="ddstyle mdl-typography--font-light" runat="server">
-                            <asp:ListItem Value="0" Selected="True">--Stream--</asp:ListItem>
+                        <asp:DropDownList ID="listClass" CssClass="ddstyle mdl-typography--font-light" runat="server">
+                            <%--<asp:ListItem Value="0" Selected="True">--Stream--</asp:ListItem>
                             <asp:ListItem Value="1">B.Com</asp:ListItem>
                             <asp:ListItem Value="2">BMM</asp:ListItem>
                             <asp:ListItem Value="3">BAF</asp:ListItem>
@@ -103,7 +103,7 @@
                             <asp:ListItem Value="6">B.A</asp:ListItem>
                             <asp:ListItem Value="7">BMS</asp:ListItem>
                             <asp:ListItem Value="8">BBI</asp:ListItem>
-                            <asp:ListItem Value="9">BFM</asp:ListItem>
+                            <asp:ListItem Value="9">BFM</asp:ListItem>--%>
                         </asp:DropDownList>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label for="option1" class="mdl-typography--body-2-force-preferred-font-color-contrast">Gender :</label>

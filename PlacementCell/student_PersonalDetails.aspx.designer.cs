@@ -13,24 +13,6 @@ namespace PlacementCell {
     public partial class student_PersonalDetails {
         
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
         /// div_edit control.
         /// </summary>
         /// <remarks>
@@ -58,13 +40,13 @@ namespace PlacementCell {
         protected global::System.Web.UI.WebControls.LinkButton btn_next;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddHonorificsList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddHonorificsList;
         
         /// <summary>
         /// tb_firstName control.

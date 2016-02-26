@@ -56,14 +56,14 @@ namespace PlacementCell
                             ViewState["mStatusRB"] = mStatusRB;
                             mNo = dt.Rows[0].ItemArray[7].ToString();
                             dob = dt.Rows[0].ItemArray[8].ToString();
-                            DropDownList1.Items.FindByValue(honorifics).Selected = true;
+                            ddHonorificsList.Items.FindByValue(honorifics).Selected = true;
                             tb_firstName.Text = fn;
                             tb_middleName.Text = mn;
                             tb_lastName.Text = ln;
                             tb_emailID.Text = eID;
                             tb_mobileNumber.Text = mNo;
                             tb_dob.Text = dob;
-                            DropDownList1.Enabled = false;
+                            ddHonorificsList.Enabled = false;
                             tb_firstName.ReadOnly = true;
                             tb_middleName.ReadOnly = true;
                             tb_lastName.ReadOnly = true;
@@ -81,7 +81,8 @@ namespace PlacementCell
                         }
                     }
                     else {
-                        lbl_student_PesrsonalDetailsStatus.Text = error;
+                        lbl_student_PesrsonalDetailsStatus.ForeColor = System.Drawing.Color.Red;
+                        lbl_student_PesrsonalDetailsStatus.Text = "<br>"+error;
                     }
                 }
             }
@@ -93,6 +94,8 @@ namespace PlacementCell
             uploadDetails(out error);
             if (error == null)
             {
+                ViewState.Remove("genRB");
+                ViewState.Remove("mStatusRB");
                 Response.Redirect("student_AcademicDetails.aspx");
             }
             else
@@ -106,7 +109,7 @@ namespace PlacementCell
         {
             div_edit.Style["display"] = "none";
             div_save.Style["display"] = "block";
-            DropDownList1.Enabled = true;
+            ddHonorificsList.Enabled = true;
             tb_firstName.ReadOnly = false;
             tb_middleName.ReadOnly = false;
             tb_lastName.ReadOnly = false;
@@ -125,7 +128,7 @@ namespace PlacementCell
         {
             string svvmailID, honorifics, fn, mn, ln, eID, gen, mStatus, mNo, dob, error;
             svvmailID = Session["student_username"].ToString();
-            honorifics = DropDownList1.SelectedValue.ToString();
+            honorifics = ddHonorificsList.SelectedValue.ToString();
             fn = tb_firstName.Text.Trim();
             mn = tb_middleName.Text.Trim();
             ln = tb_lastName.Text.Trim();
@@ -164,7 +167,7 @@ namespace PlacementCell
                 lbl_student_PesrsonalDetailsStatus.Text = "<br>Data Successfully Saved";
                 genRB = ViewState["genRB"].ToString();
                 mStatusRB = ViewState["mStatusRB"].ToString();
-                DropDownList1.Enabled = false;
+                ddHonorificsList.Enabled = false;
                 tb_firstName.ReadOnly = true;
                 tb_middleName.ReadOnly = true;
                 tb_lastName.ReadOnly = true;
@@ -175,8 +178,7 @@ namespace PlacementCell
                 tb_dob.Enabled = false;
                 div_edit.Style["display"] = "block";
                 div_save.Style["display"] = "none";
-                ViewState.Remove("genRB");
-                ViewState.Remove("mStatusRB");
+                
             }
             else
             {
@@ -187,6 +189,8 @@ namespace PlacementCell
 
         protected void btn_next_Click(object sender, EventArgs e)
         {
+            ViewState.Remove("genRB");
+            ViewState.Remove("mStatusRB");
             Response.Redirect("student_AcademicDetails.aspx");
         }
     }
