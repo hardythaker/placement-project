@@ -12,7 +12,8 @@ namespace PlacementCell
         {
             if (!IsPostBack)
             {
-                DataTable dt = DataAccessLayer.fetchClass();
+                DataSet ds = DataAccessLayer.fetchClassDivision();
+                DataTable dt = ds.Tables[0];
                 listClass.DataSource = dt;
                 listClass.DataTextField = "branch";
                 listClass.DataValueField = "branch_id";

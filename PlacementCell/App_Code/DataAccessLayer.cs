@@ -37,6 +37,9 @@ namespace PlacementCell
                 return null;
             }
         }
+
+
+
         public static bool isMemberExits(string un, string encPass, out string error)
         {
             try
@@ -99,6 +102,10 @@ namespace PlacementCell
                 }
             }
         }
+
+
+
+
         public static bool isStudentRegSuccessful(string fname, string lname, string stream, string gender, string email, string hashval, out string error)
         {
             using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -277,6 +284,7 @@ namespace PlacementCell
                 return true;
             }
         }
+
         public static bool isStdPersonalDetailsUpdated(string svv, string honorifics, string fname, string mname, string lname, string email, string gender, string maritial, string mobileno, string dob, out string error)
         {
             try
@@ -317,13 +325,13 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static DataTable stdDetailExist(string svvMailID,out string error)
+        public static DataTable fetchStdDetailIfExist(string sp_name,string svvMailID,out string error)
         {
             try
             {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
-                    using (MySqlCommand command = new MySqlCommand("sp_fetchStdData", connection))
+                    using (MySqlCommand command = new MySqlCommand(sp_name, connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvMailID;
@@ -336,15 +344,6 @@ namespace PlacementCell
                         DataTable dt = ds.Tables[0];
                         error = null;
                         return dt;
-                        //if (ds.Tables.Count > 0)
-                        //{
-                        //    error = null;
-                            
-                        //}
-                        //else {
-                        //    error = null;
-                        //    return null;
-                        //}
                     }
                 }
             }
@@ -353,6 +352,52 @@ namespace PlacementCell
                 return null;
             }
         }
+        public static bool isStdTYAcademicDetailsUpdated(string svvmailID,string branch, string division, string rollno, string backlogs, string sem1M, string sem1TM, string sem2M, string sem2TM, string sem3M, string sem3TM, string sem4M, string sem4TM,out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_addStdTYDetails", connection)) {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvmailID;
+                        command.Parameters.Add("@b", MySqlDbType.VarChar).Value = branch;
+                        command.Parameters.Add("@d", MySqlDbType.VarChar).Value = division;
+                        command.Parameters.Add("@r", MySqlDbType.VarChar).Value = rollno;
+                        command.Parameters.Add("@bl", MySqlDbType.VarChar).Value = backlogs;
+                        command.Parameters.Add("@s1m", MySqlDbType.VarChar).Value = sem1M;
+                        command.Parameters.Add("@s1t", MySqlDbType.VarChar).Value = sem1TM;
+                        command.Parameters.Add("@s2m", MySqlDbType.VarChar).Value = sem2M;
+                        command.Parameters.Add("@s2t", MySqlDbType.VarChar).Value = sem2TM;
+                        command.Parameters.Add("@s3m", MySqlDbType.VarChar).Value = sem3M;
+                        command.Parameters.Add("@s3t", MySqlDbType.VarChar).Value = sem3TM;
+                        command.Parameters.Add("@s4m", MySqlDbType.VarChar).Value = sem4M;
+                        command.Parameters.Add("@s4t", MySqlDbType.VarChar).Value = sem4TM;
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else {
+                            error = null;
+                            return true;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return true;
+            }
+        }
+
+
+
         public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, string noticesection)
         {
             using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
@@ -474,6 +519,9 @@ namespace PlacementCell
                 return true;
             }
         }
+
+
+
         public static string fetchFname(string session_email)
         {
             using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
@@ -500,6 +548,9 @@ namespace PlacementCell
                 }
             }
         }
+
+
+
         public static bool isPassChanged(string sessionUsername, string newPass, string sp_name, out string error)
         {
             try
@@ -532,6 +583,9 @@ namespace PlacementCell
                 return true;
             }
         }
+
+
+
         public static bool isEmailIDExist_getItsID(string emailID, string sp_name, out string error, out string id)
         {
             try
@@ -570,6 +624,9 @@ namespace PlacementCell
                 return true;
             }
         }
+
+
+
         public static bool isUniqueCodeUpdated(string emailID, string uCode, out string error)
         {
             try
@@ -638,6 +695,9 @@ namespace PlacementCell
                 return true;
             }
         }
+
+
+
         public static string getSvvmailOfstdID(string id, out string error)
         {
             try
@@ -705,21 +765,37 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static DataTable fetchClass()
+
+
+
+        public static DataSet fetchClassDivision()
         {
             using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
             {
-                using (MySqlCommand cmd = new MySqlCommand("sp_fetchClassNames", con))
+                
+                using (MySqlCommand cmd = new MySqlCommand("sp_fetchBranches", con))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    MySqlDataAdapter adapter = new MySqlDataAdapter();
-                    DataSet ds = new DataSet();
-                    con.Open();
-                    adapter.SelectCommand = cmd;
-                    adapter.Fill(ds);
-                    con.Close();
-                    DataTable dt = ds.Tables[0];
-                    return dt;
+                    using (MySqlCommand cmddiv = new MySqlCommand("sp_fetchDivisions", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmddiv.CommandType = CommandType.StoredProcedure;
+                        MySqlDataAdapter classes = new MySqlDataAdapter();
+                        MySqlDataAdapter division = new MySqlDataAdapter();
+                        DataSet ds = new DataSet();
+                        DataTable d1 = new DataTable();
+                        DataTable d2 = new DataTable();
+                        con.Open();
+                        MySqlTransaction tranCon = con.BeginTransaction();
+                        classes.SelectCommand = cmd;
+                        division.SelectCommand = cmddiv;
+                        classes.Fill(d1);
+                        division.Fill(d2);
+                        tranCon.Commit();
+                        con.Close();
+                        ds.Tables.Add(d1);
+                        ds.Tables.Add(d2);
+                        return ds;
+                    }
                 }
             }
         }

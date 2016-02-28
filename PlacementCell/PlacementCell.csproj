@@ -186,7 +186,7 @@
     <Content Include="studentLogin.aspx" />
     <Content Include="StudentLoginDataService.asmx" />
     <Content Include="studentReg.aspx" />
-    <Content Include="student_AcademicDetails.aspx" />
+    <Content Include="student_TyAcademicDetails.aspx" />
     <Content Include="student_PersonalDetails.aspx" />
     <Content Include="style\bower.json" />
     <Content Include="style\LICENSE" />
@@ -384,12 +384,12 @@
     <Compile Include="changePass.aspx.designer.cs">
       <DependentUpon>changePass.aspx</DependentUpon>
     </Compile>
-    <Compile Include="student_AcademicDetails.aspx.cs">
-      <DependentUpon>student_AcademicDetails.aspx</DependentUpon>
+    <Compile Include="student_TyAcademicDetails.aspx.cs">
+      <DependentUpon>student_TyAcademicDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="student_AcademicDetails.aspx.designer.cs">
-      <DependentUpon>student_AcademicDetails.aspx</DependentUpon>
+    <Compile Include="student_TyAcademicDetails.aspx.designer.cs">
+      <DependentUpon>student_TyAcademicDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="student_PersonalDetails.aspx.cs">
       <DependentUpon>student_PersonalDetails.aspx</DependentUpon>

@@ -37,7 +37,8 @@ namespace PlacementCell
                 else {
                     string error;
                     DataTable dt = new DataTable();
-                    dt = DataAccessLayer.stdDetailExist(Session["student_username"].ToString(), out error);
+                    string sp_name = "sp_fetchStdData";
+                    dt = DataAccessLayer.fetchStdDetailIfExist(sp_name,Session["student_username"].ToString(), out error);
                     if (error == null)
                     {
                         if (dt.Rows.Count == 1)
@@ -96,7 +97,7 @@ namespace PlacementCell
             {
                 ViewState.Remove("genRB");
                 ViewState.Remove("mStatusRB");
-                Response.Redirect("student_AcademicDetails.aspx");
+                Response.Redirect("student_TyAcademicDetails.aspx");
             }
             else
             {
@@ -153,7 +154,7 @@ namespace PlacementCell
                 }
             }
             else {
-                error = "Some Error Occured";
+                this_error = "Some Error Occured";
             }
             
         }
@@ -191,7 +192,7 @@ namespace PlacementCell
         {
             ViewState.Remove("genRB");
             ViewState.Remove("mStatusRB");
-            Response.Redirect("student_AcademicDetails.aspx");
+            Response.Redirect("student_TyAcademicDetails.aspx");
         }
     }
 }

@@ -36,14 +36,14 @@
             var dateToday = new Date();
             var yrRange = (dateToday.getFullYear() - 50) + ":" + (dateToday.getFullYear());
             $("#<%=tb_dob.ClientID%>").datepicker({
-                    dateFormat: "dd-mm-yy",
-                    changeMonth: true,
-                    changeYear: true,
-                    yearRange: yrRange.toString(),
-                    minDate: '-40Y',
-                    maxDate: '-15Y',
-                });
+                dateFormat: "dd-mm-yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: yrRange.toString(),
+                minDate: '-40Y',
+                maxDate: '-15Y',
             });
+        });
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
@@ -112,19 +112,21 @@
                 <asp:RequiredFieldValidator ID="tb_lastName_RequiredFieldValidator2" runat="server" ErrorMessage="*" Display="Dynamic" ForeColor="Red" Font-Bold="True" Font-Size="Large" ControlToValidate="tb_lastName"></asp:RequiredFieldValidator>
             </div>
             <div>
-                <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
-                    <asp:TextBox MaxLength="100" ID="tb_emailID" runat="server" class="mdl-textfield__input"></asp:TextBox>
-                    <label class="mdl-textfield__label" for="tb_emailID"><strong>Enter Your Email ID</strong></label>
-                </div>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" Display="Dynamic" ForeColor="Red" Font-Bold="True" Font-Size="Large" ControlToValidate="tb_emailID"></asp:RequiredFieldValidator>
-                <span <%--style="display:inline-flex"--%>>
-                    <span id="tt2" class="icon material-icons mdl-color-text--accent">info</span>
-                    <%--info icon will fetch from google server--%>
-                    <span class="mdl-tooltip" style="font-size: 12px" for="tt2">Enter Your Correct Email ID.
+                <div style="display: block; padding-left: 5px; padding-right: 5px">
+                    <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
+                        <asp:TextBox MaxLength="100" ID="tb_emailID" runat="server" class="mdl-textfield__input"></asp:TextBox>
+                        <label class="mdl-textfield__label" for="tb_emailID"><strong>Enter Your Email ID</strong></label>
+                    </div>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" Display="Dynamic" ForeColor="Red" Font-Bold="True" Font-Size="Large" ControlToValidate="tb_emailID"></asp:RequiredFieldValidator>
+                    <span <%--style="display:inline-flex"--%>>
+                        <span id="tt2" class="icon material-icons mdl-color-text--accent">info</span>
+                        <%--info icon will fetch from google server--%>
+                        <span class="mdl-tooltip" style="font-size: 12px" for="tt2">Enter Your Correct Email ID.
                        <br>
-                        Where you want to Companies should contact you.
+                            Where you want to Companies should contact you.
+                        </span>
                     </span>
-                </span>
+                </div>
                 <div style="display: block;">
                     <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="rb_gen_option-1">
                         <input type="radio" id="rb_gen_option-1" class="mdl-radio__button" name="gender_options" value="Male" <%=this.genRB =="Male" ? "checked='checked'" : ""%> <%=this.genRBReadOnly == true ? "disabled='disabled'" : ""%> />
