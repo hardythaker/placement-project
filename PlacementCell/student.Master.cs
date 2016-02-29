@@ -11,14 +11,14 @@ namespace PlacementCell
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["student_username"] != null)
-            //{
-            //    string email = Session["student_username"].ToString();
-            //    Label1.Text = DataAccessLayer.fetchFname(email).ToUpper() + " " + Session["student_id"];//Session["student_username"].ToString();
-            //}
-            //else {
-            //    Response.Redirect("studentLogin.aspx");
-            //}
+            if (Session["student_username"] != null)
+            {
+                string email = Session["student_username"].ToString();
+                Label1.Text = DataAccessLayer.fetchFname(email).ToUpper() + " " + Session["student_id"];//Session["student_username"].ToString();
+            }
+            else {
+                Response.Redirect("studentLogin.aspx");
+            }
         }
     }
 }

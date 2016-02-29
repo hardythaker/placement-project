@@ -130,6 +130,9 @@ namespace PlacementCell
             string svvmailID, honorifics, fn, mn, ln, eID, gen, mStatus, mNo, dob, error;
             svvmailID = Session["student_username"].ToString();
             honorifics = ddHonorificsList.SelectedValue.ToString();
+            tb_firstName.Style["text-transform"] = "capitalize";
+            tb_middleName.Style["text-transform"] = "capitalize";
+            tb_lastName.Style["text-transform"] = "capitalize";
             fn = tb_firstName.Text.Trim();
             mn = tb_middleName.Text.Trim();
             ln = tb_lastName.Text.Trim();

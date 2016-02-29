@@ -142,7 +142,7 @@
                         <div id="footer">
                             <footer style="" class="mdl-mini-footer">
                                 <div class="mdl-mini-footer__left-section">
-                                    <div class="mdl-logo mdl-typography--body-2-force-preferred-font-color-contrast">&copy; By Hardik Thaker</div>
+                                    <div class="mdl-logo mdl-typography--body-2-force-preferred-font-color-contrast" style="display:inline-flex"><div style="padding-top:5px"><i class="material-icons">copyright</i></div>&nbsp; By Hardik Thaker</div>
                                     <br>
                                     <%--<ul style="left:0px" class="mdl-mini-footer__link-list"--%>
                                     <div style="display:inline-flex">

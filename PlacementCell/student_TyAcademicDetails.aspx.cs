@@ -80,7 +80,7 @@ namespace PlacementCell
             {
                 hideControls(true);
                 div_edit.Style["display"] = "block";
-                div_save.Style["display"] = "none";
+                div_save_btns.Style["display"] = "none";
                 lbl_student_TyDetailsStatus.CssClass = "mdl-color-text--primary";
                 lbl_student_TyDetailsStatus.Text = "<br>Data Successfully Saved";
             }
@@ -138,8 +138,8 @@ namespace PlacementCell
 
         private void uploadTyDetails(out string this_error)
         {
-            string svvID, stream, division, rollno, backlogs, sem1_marks, sem2_marks, sem3_marks, sem4_marks, sem1_total, sem2_total, sem3_total, sem4_total, error;
-            svvID = "rithu.dhanki@somaiya.edu";
+            string svvID, stream, division, rollno, backlogs, sem1_marks, sem2_marks, sem3_marks, sem4_marks, sem1_total, sem2_total, sem3_total, sem4_total,sem1per,sem2per,sem3per,sem4per,avg, error;
+            svvID = Session["student_username"].ToString();
             stream = listClass.SelectedValue.ToString();
             division = listDivision.SelectedValue.ToString();
             rollno = tb_RollNo.Text;
@@ -152,7 +152,12 @@ namespace PlacementCell
             sem3_total = tb_sem3TotalMarks.Text;
             sem4_marks = tb_sem4Marks.Text;
             sem4_total = tb_sem4TotalMarks.Text;
-            if (DataAccessLayer.isStdTYAcademicDetailsUpdated(svvID, stream, division, rollno, backlogs, sem1_marks, sem1_total, sem2_marks, sem2_total, sem3_marks, sem3_total, sem4_marks, sem4_total, out error))
+            sem1per = lbl_sem1.Text;
+            sem2per = lbl_sem2.Text;
+            sem3per = lbl_sem3.Text;
+            sem4per = lbl_sem4.Text;
+            avg = lbl_average.Text;
+            if (DataAccessLayer.isStdTYAcademicDetailsUpdated(svvID, stream, division, rollno, backlogs, sem1_marks, sem1_total, sem2_marks, sem2_total, sem3_marks, sem3_total, sem4_marks, sem4_total,sem1per,sem2per,sem3per,sem4per,avg,out error))
             {
                 if (error == null)
                 {
@@ -169,6 +174,66 @@ namespace PlacementCell
                 this_error = "Some Error Occured";
             }
 
+        }
+
+        //protected void calculateSem1Marks_Click(object sender, EventArgs e)
+        //{
+        //    int sem1m = int.Parse(tb_sem1Marks.Text);
+        //    int sem1t = int.Parse(tb_sem1TotalMarks.Text);
+        //    lbl_cal_sem1.Text = "clicked";
+        //}
+
+        //protected void calculateSem2Marks_Click(object sender, EventArgs e)
+        //{
+        //    int sem1m = int.Parse(tb_sem1Marks.Text);
+        //    int sem1t = int.Parse(tb_sem1TotalMarks.Text);
+        //    int cgpr;
+        //    lbl_cal_sem1.Text = "clicked";
+        //}
+
+        //protected void calculateSem3Marks_Click(object sender, EventArgs e)
+        //{
+        //    int sem1m = int.Parse(tb_sem1Marks.Text);
+        //    int sem1t = int.Parse(tb_sem1TotalMarks.Text);
+        //    lbl_cal_sem1.Text = "clicked";
+        //}
+
+        //protected void calculateSem4Marks_Click(object sender, EventArgs e)
+        //{
+        //    int sem1m = int.Parse(tb_sem1Marks.Text);
+        //    int sem1t = int.Parse(tb_sem1TotalMarks.Text);
+        //    lbl_cal_sem1.Text = "clicked";
+        //}
+
+        protected void calculateMarks_Click(object sender, EventArgs e)
+        {
+            double sem1, sem1_total, sem2, sem2_total, sem3, sem3_total, sem4, sem4_total;
+            double sum1,sum2,sum3,sum4,avg;
+            sem1 = Convert.ToDouble(tb_sem1Marks.Text);
+            sem1_total = Convert.ToDouble(tb_sem1TotalMarks.Text);
+            sem2 = Convert.ToDouble(tb_sem2Marks.Text);
+            sem2_total = Convert.ToDouble(tb_sem2TotalMarks.Text);
+            sem3 = Convert.ToDouble(tb_sem3Marks.Text);
+            sem3_total = Convert.ToDouble(tb_sem3TotalMarks.Text);
+            sem4 = Convert.ToDouble(tb_sem4Marks.Text);
+            sem4_total = Convert.ToDouble(tb_sem4TotalMarks.Text);
+            sum1 = (sem1/sem1_total)*100;
+            sum2 = sem2 / sem2_total * 100;
+            sum3 = sem3 / sem3_total * 100;
+            sum4 = sem4 / sem4_total * 100;
+            avg = (sum1 + sum2 + sum3 + sum4) / 4;
+            lbl_sem1.Text = sum1.ToString("0.00") + " %";
+            lbl_sem2.Text = sum2.ToString("0.00") + " %";
+            lbl_sem3.Text = sum3.ToString("0.00") + " %";
+            lbl_sem4.Text = sum4.ToString("0.00") + " %";
+            lbl_average.Text = avg.ToString("0.00") + " %";
+            div_save_btns.Style["display"] = "block";
+            div_save.Style["display"] = "none";
+        }
+
+        protected void btn_back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("student_PersonalDetails.aspx");
         }
     }
 }

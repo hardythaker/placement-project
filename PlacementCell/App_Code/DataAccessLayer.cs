@@ -352,7 +352,7 @@ namespace PlacementCell
                 return null;
             }
         }
-        public static bool isStdTYAcademicDetailsUpdated(string svvmailID,string branch, string division, string rollno, string backlogs, string sem1M, string sem1TM, string sem2M, string sem2TM, string sem3M, string sem3TM, string sem4M, string sem4TM,out string error)
+        public static bool isStdTYAcademicDetailsUpdated(string svvmailID,string branch, string division, string rollno, string backlogs, string sem1M, string sem1TM, string sem2M, string sem2TM, string sem3M, string sem3TM, string sem4M, string sem4TM,string sem1per, string sem2per, string sem3per, string sem4per, string totalAvg, out string error)
         {
             try
             {
@@ -373,6 +373,11 @@ namespace PlacementCell
                         command.Parameters.Add("@s3t", MySqlDbType.VarChar).Value = sem3TM;
                         command.Parameters.Add("@s4m", MySqlDbType.VarChar).Value = sem4M;
                         command.Parameters.Add("@s4t", MySqlDbType.VarChar).Value = sem4TM;
+                        command.Parameters.Add("@s1p", MySqlDbType.VarChar).Value = sem1per;
+                        command.Parameters.Add("@s2p", MySqlDbType.VarChar).Value = sem2per;
+                        command.Parameters.Add("@s3p", MySqlDbType.VarChar).Value = sem3per;
+                        command.Parameters.Add("@s4p", MySqlDbType.VarChar).Value = sem4per;
+                        command.Parameters.Add("@ta", MySqlDbType.VarChar).Value = totalAvg;
                         connection.Open();
                         int affectedRows = command.ExecuteNonQuery();
                         connection.Close();

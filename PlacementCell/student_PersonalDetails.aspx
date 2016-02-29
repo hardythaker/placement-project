@@ -50,7 +50,7 @@
     <form method="post" runat="server">
         <div class="mdl-card mdl-shadow--6dp" style="width: 100%">
             <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-                <h2 class="mdl-card__title-text" style="text-align: center">Personal Detail Form</h2>
+                <h2 class="mdl-card__title-text" style="text-align: center">Personal Detail Form (1/4)</h2>
             </div>
             <br />
             <%--<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -89,6 +89,7 @@
             <div style="display: block; padding-left: 5px; padding-right: 5px">
                 <asp:DropDownList ID="ddHonorificsList" CssClass="ddstyle mdl-typography--font-light" runat="server">
                     <asp:ListItem Value="Mr.">Mr.</asp:ListItem>
+                    <asp:ListItem Value="Ms.">Ms.</asp:ListItem>
                     <asp:ListItem Value="Mrs.">Mrs.</asp:ListItem>
                 </asp:DropDownList>
                 <%--<label for="tb_firstName" class="mdl-typography--body-2-force-preferred-font-color-contrast">First Name :</label>--%>
