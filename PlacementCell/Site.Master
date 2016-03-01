@@ -128,8 +128,8 @@
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="achievments.aspx">Achievments</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="studentLogin.aspx">Student Login</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Contact</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">About</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="contact.aspx">Contact</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="about.aspx">About</a>
             </nav>
         </div>
         <%-- Side Drawer Ends Here --%>

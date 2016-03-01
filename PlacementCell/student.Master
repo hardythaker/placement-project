@@ -66,8 +66,8 @@
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">My Profile</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="notices.aspx">Notices</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="achievments.aspx">Achievments</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Contact</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">About</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="contact.aspx">Contact</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="about.aspx">About</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="admin.aspx">Admin Login</a>
             </nav>
         </div>

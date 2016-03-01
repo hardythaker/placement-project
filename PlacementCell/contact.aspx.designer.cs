@@ -11,7 +11,7 @@ namespace PlacementCell
 {
 
 
-    public partial class contact
+    public partial class contact1
     {
     }
 }
