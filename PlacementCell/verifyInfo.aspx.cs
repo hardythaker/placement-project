@@ -12,14 +12,14 @@ namespace PlacementCell
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) {
-                if (Request.QueryString["svvmailid"] == null)
-                {
-                    Response.Redirect("home.aspx");
-                }
-                else {
-                    string attempt = HashGenerator.URLDecrypt(Request.QueryString["attempt"]);
-                    string email = HashGenerator.URLDecrypt(Request.QueryString["svvmailid"]);
+            //if (!IsPostBack) {
+            //    if (Request.QueryString["svvmailid"] == null)
+            //    {
+            //        Response.Redirect("home.aspx");
+            //    }
+            //    else {
+                    string attempt = "1";//HashGenerator.URLDecrypt(Request.QueryString["attempt"]);
+                    string email = "a";//HashGenerator.URLDecrypt(Request.QueryString["svvmailid"]);
                     if (attempt == "1")
                     {
                         great.Text = "Thank you <u>" + email + "</u>";
@@ -38,8 +38,8 @@ namespace PlacementCell
                         Response.Write("Invalid Attempt");
                     }
                 }
-            }
-        }
+            //}
+        //}
 
         protected void btnResendMail_Click(object sender, EventArgs e)
         {

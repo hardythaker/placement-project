@@ -35,11 +35,11 @@
                 <h2 class="mdl-card__title-text">Registration Successfull</h2>
             </div>
             <br />
-            <div style="width: 60%">
-                <div style='display: inline-flex; vertical-align: central;'>
-                    <div class='icon material-icons mdl-color-text--primary' style="font-size: 30px; padding-left:50px">done_all</div>
-                    <div style="padding-top:4px"><label style='padding-top: 90px; padding-left: 0px; font-size: 20px' for='tt2' class='mdl-radio__label'>
-                        <asp:Label ID="great" runat="server" Text=""></asp:Label>. You Have Successfully Registered With Us <asp:Label ID="but" runat="server" Text=""></asp:Label> Please Check Your Svv Mail Inbox and Click on Activate Your Account link.</label></div>
+            <div style="width: 80%">
+                <div style='display:inline-flex;border:1px solid'>
+                        <span  class='icon material-icons mdl-color-text--primary' style="font-size: 30px;">done_all</span>&nbsp;
+                        <label style='padding-top:5px; font-size: 20px' class='mdl-radio__label'>
+                            <asp:Label ID="great" runat="server" Text=""></asp:Label>. You Have Successfully Registered With Us <asp:Label ID="but" runat="server" Text=""></asp:Label> Please Check Your Svv Mail Inbox and Click on Activate Your Account link.</label>
                 </div>
                 <br />
                 <br />
