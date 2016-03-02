@@ -73,7 +73,7 @@
                     </asp:LinkButton>&nbsp;&nbsp;
                             <asp:LinkButton ID="btn_next" OnClick="btn_next_Click" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server">
                                 <span class="material-icons">arrow_forward</span>
-                                    Next&nbsp;
+                                    HSC&nbsp;
                             </asp:LinkButton>
                     <br />
                 </div>
@@ -128,7 +128,7 @@
                         <br />
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator7"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem1Marks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator8"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem1TotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
-                        <asp:CompareValidator ID="CompareValidator1" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem1Marks" ControlToCompare="tb_sem1TotalMarks" Operator="LessThanEqual"></asp:CompareValidator>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem1TotalMarks" ControlToCompare="tb_sem1Marks" Operator="GreaterThanEqual"></asp:CompareValidator>
                         <br />
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                         <br />
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator5"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem2Marks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator6"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem2TotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
-                        <asp:CompareValidator ID="CompareValidator2" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem2Marks" ControlToCompare="tb_sem2TotalMarks" Operator="LessThanEqual"></asp:CompareValidator>
+                        <asp:CompareValidator ID="CompareValidator2" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem2TotalMarks" ControlToCompare="tb_sem2Marks" Operator="GreaterThanEqual"></asp:CompareValidator>
                         <br />
                     </div>
                 </div>
@@ -183,7 +183,7 @@
                         <br />
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ForeColor="Red" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem3Marks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ForeColor="Red" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem3TotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
-                        <asp:CompareValidator ID="CompareValidator3" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem3Marks" ControlToCompare="tb_sem3TotalMarks" Operator="LessThanEqual"></asp:CompareValidator>
+                        <asp:CompareValidator ID="CompareValidator3" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem3TotalMarks" ControlToCompare="tb_sem3Marks" Operator="GreaterThanEqual"></asp:CompareValidator>
                         <br />
                     </div>
                 </div>
@@ -210,7 +210,7 @@
                         <br />
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="Red" runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem4Marks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ForeColor="Red" runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem4TotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
-                        <asp:CompareValidator ID="CompareValidator4" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem4Marks" ControlToCompare="tb_sem4TotalMarks" Operator="LessThanEqual"></asp:CompareValidator>
+                        <asp:CompareValidator ID="CompareValidator4" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem4TotalMarks" ControlToCompare="tb_sem4Marks" Operator="GreaterThanEqual"></asp:CompareValidator>
                         <br />
                     </div>
                 </div>
@@ -253,7 +253,7 @@
                     <div style="padding: 5px 5px 8px 5px;">
                         <asp:LinkButton OnClientClick="showSpinner()" OnClick="btn_saveAndContinue_Click" ID="btn_saveAndContinue" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server">
                                     <span class="material-icons">check</span>
-                                        Save & Next
+                                        Save & HSC
                                     <span class="material-icons">arrow_forward</span>
                         </asp:LinkButton>
                     </div>

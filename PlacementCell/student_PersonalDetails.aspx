@@ -85,7 +85,7 @@
                     &nbsp;&nbsp;
                             <asp:LinkButton ID="btn_next" OnClick="btn_next_Click" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server">
                                 <span class="material-icons">arrow_forward</span>
-                                    Next&nbsp;
+                                    Graduation&nbsp;
                             </asp:LinkButton>
                 </div>
             </div>
@@ -178,7 +178,7 @@
                     <div style="padding: 5px 5px 8px 5px;">
                         <asp:LinkButton OnClientClick="showSpinner()" OnClick="btn_saveAndContinue_Click" ID="btn_saveAndContinue" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server">
                                     <span class="material-icons">check</span>
-                                        Save & Next
+                                        Save & Graduation
                                     <span class="material-icons">arrow_forward</span>
                         </asp:LinkButton>
                     </div>

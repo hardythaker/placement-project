@@ -123,6 +123,7 @@ namespace PlacementCell
             mStatusRB = ViewState["mStatusRB"].ToString();
             ViewState.Remove("genRB");
             ViewState.Remove("mStatusRB");
+            lbl_student_PesrsonalDetailsStatus.Text = null;
         }
 
         protected void uploadDetails(out string this_error)

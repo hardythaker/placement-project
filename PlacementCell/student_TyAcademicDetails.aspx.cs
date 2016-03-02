@@ -29,20 +29,21 @@ namespace PlacementCell
                     {
                         if (dt.Rows.Count == 1)
                         {
+                            DataRow dr = dt.Rows[0];
                             div_edit.Style["display"] = "block";
                             div_save.Style["display"] = "none";
-                            listClass.Items.FindByValue(dt.Rows[0].ItemArray[0].ToString()).Selected = true;
-                            listDivision.Items.FindByValue(dt.Rows[0].ItemArray[1].ToString()).Selected = true;
-                            tb_RollNo.Text = dt.Rows[0].ItemArray[2].ToString();
-                            tb_backlogs.Text = dt.Rows[0].ItemArray[3].ToString();
-                            tb_sem1Marks.Text = dt.Rows[0].ItemArray[4].ToString();
-                            tb_sem1TotalMarks.Text = dt.Rows[0].ItemArray[5].ToString();
-                            tb_sem2Marks.Text = dt.Rows[0].ItemArray[6].ToString();
-                            tb_sem2TotalMarks.Text = dt.Rows[0].ItemArray[7].ToString();
-                            tb_sem3Marks.Text = dt.Rows[0].ItemArray[8].ToString();
-                            tb_sem3TotalMarks.Text = dt.Rows[0].ItemArray[9].ToString();
-                            tb_sem4Marks.Text = dt.Rows[0].ItemArray[10].ToString();
-                            tb_sem4TotalMarks.Text = dt.Rows[0].ItemArray[11].ToString();
+                            listClass.Items.FindByValue(dr.ItemArray[0].ToString()).Selected = true;
+                            listDivision.Items.FindByValue(dr.ItemArray[1].ToString()).Selected = true;
+                            tb_RollNo.Text = dr.ItemArray[2].ToString();
+                            tb_backlogs.Text = dr.ItemArray[3].ToString();
+                            tb_sem1Marks.Text = dr.ItemArray[4].ToString();
+                            tb_sem1TotalMarks.Text = dr.ItemArray[5].ToString();
+                            tb_sem2Marks.Text = dr.ItemArray[6].ToString();
+                            tb_sem2TotalMarks.Text = dr.ItemArray[7].ToString();
+                            tb_sem3Marks.Text = dr.ItemArray[8].ToString();
+                            tb_sem3TotalMarks.Text = dr.ItemArray[9].ToString();
+                            tb_sem4Marks.Text = dr.ItemArray[10].ToString();
+                            tb_sem4TotalMarks.Text = dr.ItemArray[11].ToString();
                             hideControls(true);
                         }
                     }
@@ -97,6 +98,7 @@ namespace PlacementCell
             div_edit.Style["display"] = "none";
             div_save.Style["display"] = "block";
             hideControls(false);
+            lbl_student_TyDetailsStatus.Text = null;
         }
 
         protected void btn_next_Click(object sender, EventArgs e)

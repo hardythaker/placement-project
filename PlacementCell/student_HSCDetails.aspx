@@ -51,7 +51,7 @@
                     </asp:LinkButton>&nbsp;&nbsp;
                             <asp:LinkButton ID="btn_next" OnClick="btn_next_Click" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server">
                                 <span class="material-icons">arrow_forward</span>
-                                    Next&nbsp;
+                                    SSC&nbsp;
                             </asp:LinkButton>
                         <br />
                     </div>
@@ -76,7 +76,7 @@
                 <br />
                 <div>
                     <asp:DropDownList ID="courseTypeList" CssClass="ddstyle mdl-typography--font-light" runat="server">
-                        <asp:ListItem Value="Arts">--Course Type--</asp:ListItem>
+                        <asp:ListItem Value="0">--Course Type--</asp:ListItem>
                         <asp:ListItem Value="Part Time">Part Time</asp:ListItem>
                         <asp:ListItem Value="Full Time">Full Time</asp:ListItem>
                     </asp:DropDownList>
@@ -96,15 +96,15 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="tb_HscTotalMarks" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="Red" runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_HscMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ForeColor="Red" runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_HscTotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator>
-                <asp:CompareValidator ID="CompareValidator1" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_HscMarks" ControlToCompare="tb_HscTotalMarks" Operator="LessThanEqual"></asp:CompareValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ForeColor="Red" runat="server" ErrorMessage="<br>Only Numbers Are Allowed" ControlToValidate="tb_HscTotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ForeColor="Red" ErrorMessage="<br>Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_HscTotalMarks" ControlToCompare="tb_HscMarks" Operator="GreaterThanEqual"></asp:CompareValidator>
                 <div style="padding: 5px 5px 8px 5px; display: none; align-items: center" id="spinner">
                     <span class="mdl-spinner mdl-js-spinner is-active"></span>
                 </div>
                 <div runat="server" id="div_save_btns" style="display: none">
                     <div>
                         <div style="display: inline-flex">
-                            <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Hsc % : &nbsp;</p>
+                            <p class="mdl-typography--body-2-force-preferred-font-color-contrast">HSC % : &nbsp;</p>
                             <asp:Label ID="lbl_hscPer" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label>
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                         <div style="padding: 5px 5px 8px 5px;">
                             <asp:LinkButton OnClientClick="showSpinner()" OnClick="btn_saveAndContinue_Click" ID="btn_saveAndContinue" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server">
                                     <span class="material-icons">check</span>
-                                        Save & Next
+                                        Save & SSC
                                     <span class="material-icons">arrow_forward</span>
                             </asp:LinkButton>
                         </div>

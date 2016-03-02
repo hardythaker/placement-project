@@ -57,9 +57,7 @@ namespace PlacementCell
             boardList.DataTextField = "board_name";
             boardList.DataValueField = "board_id";
             boardList.DataBind();
-            boardList.Style["text-align"] = "center";
-            boardList.Items.Insert(0, new ListItem("--Board--", "0"));
-            boardList.Style["text-align"] = "left";
+            boardList.Items.Insert(0, new ListItem("--Select Board--", "0"));
         }
 
         protected void btn_back_Click(object sender, EventArgs e)
@@ -72,12 +70,13 @@ namespace PlacementCell
             hideControls(false);
             div_calculate.Style["display"] = "block";
             div_edit.Style["display"] = "none";
+            lbl_saving_status.Text = null;
         }
 
         protected void btn_next_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("");
-            lbl_fetchingDataError.Text = "Redirected";
+            Response.Redirect("student_SSCDetails.aspx");
+            //lbl_fetchingDataError.Text = "Redirected";
         }
 
         protected void btn_saveAndContinue_Click(object sender, EventArgs e)
@@ -86,8 +85,8 @@ namespace PlacementCell
             uploadData(out error);
             if (error == null)
             {
-                lbl_fetchingDataError.Text = "Redirected";
-                //Response.Redirect("student_SSCDetails.aspx");
+                //lbl_fetchingDataError.Text = "Redirected";
+                Response.Redirect("student_SSCDetails.aspx");
             }
             else
             {
