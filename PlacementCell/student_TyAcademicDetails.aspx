@@ -26,7 +26,9 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         function showSpinner() {
-            document.getElementById("spinner").style.display = "block";
+            var a = Page_ClientValidate();
+            if (a)
+                document.getElementById("spinner").style.display = "block";
         }
         $(function () {
             $("#accordion").accordion({
@@ -38,7 +40,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <form runat="server" method="post">
-  <%--      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <%--      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <script type="text/javascript">
             var pbControl = null;
             var prm = Sys.WebForms.PageRequestManager.getInstance();
@@ -76,9 +78,7 @@
                     <br />
                 </div>
             </div>
-            <div style="padding: 5px 5px 8px 5px; display: none; align-items: center" id="spinner">
-                <span class="mdl-spinner mdl-js-spinner is-active"></span>
-            </div>
+            
             <div style="border: 0px solid">
                 <asp:DropDownList ID="listClass" CssClass="ddstyle mdl-typography--font-light" runat="server">
                 </asp:DropDownList>
@@ -125,24 +125,10 @@
                             <asp:TextBox MaxLength="3" ID="tb_sem1TotalMarks" runat="server" class="mdl-textfield__input"></asp:TextBox>
                             <label class="mdl-textfield__label" for="tb_sem1TotalMarks"><strong>Out of Marks of Sem-1</strong></label>
                         </div>
-                       <%-- <div>
-                            <asp:Label ID="lbl_cal_sem1" runat="server" Text="Click On Claculate"></asp:Label>
-                        </div>
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                            <ContentTemplate>
-                                <br />
-                                <asp:Button ID="calculateSem1Marks" Text="Calculate" OnClick="calculateSem1Marks_Click" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server" />
-                            </ContentTemplate>
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="calculateSem1Marks" />
-                            </Triggers>
-                        </asp:UpdatePanel>
-                        <asp:UpdateProgress ID="UpdateProgress1" AssociatedUpdatePanelID="UpdatePanel1" runat="server">
-                            <ProgressTemplate>
-                                <span class="mdl-spinner mdl-js-spinner is-active"></span>
-                            </ProgressTemplate>
-                        </asp:UpdateProgress>--%>
                         <br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator7"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem1Marks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator8"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem1TotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem1Marks" ControlToCompare="tb_sem1TotalMarks" Operator="LessThanEqual"></asp:CompareValidator>
                         <br />
                     </div>
                 </div>
@@ -166,24 +152,10 @@
                             <asp:TextBox MaxLength="3" ID="tb_sem2TotalMarks" runat="server" class="mdl-textfield__input"></asp:TextBox>
                             <label class="mdl-textfield__label" for="tb_sem2TotalMarks"><strong>Out of Marks of Sem-2</strong></label>
                         </div>
-                        <%--<div>
-                            <asp:Label ID="lbl_cal_sem2" runat="server" Text="Click On Claculate"></asp:Label>
-                        </div>
-                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                            <ContentTemplate>
-                                <br />
-                                <asp:Button ID="calculateSem2Marks" Text="Calculate" OnClick="calculateSem2Marks_Click" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server" />
-                            </ContentTemplate>
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="calculateSem2Marks" />
-                            </Triggers>
-                        </asp:UpdatePanel>
-                        <asp:UpdateProgress ID="UpdateProgress2" AssociatedUpdatePanelID="UpdatePanel2" runat="server">
-                            <ProgressTemplate>
-                                <span class="mdl-spinner mdl-js-spinner is-active"></span>
-                            </ProgressTemplate>
-                        </asp:UpdateProgress>--%>
                         <br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem2Marks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator6"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem2TotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
+                        <asp:CompareValidator ID="CompareValidator2" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem2Marks" ControlToCompare="tb_sem2TotalMarks" Operator="LessThanEqual"></asp:CompareValidator>
                         <br />
                     </div>
                 </div>
@@ -208,23 +180,11 @@
                             <asp:TextBox MaxLength="3" ID="tb_sem3TotalMarks" runat="server" class="mdl-textfield__input"></asp:TextBox>
                             <label class="mdl-textfield__label" for="tb_sem3TotalMarks"><strong>Out of Marks of Sem-3</strong></label>
                         </div>
-                        <%--<div>
-                            <asp:Label ID="lbl_cal_sem3" runat="server" Text="Click On Claculate"></asp:Label>
-                        </div>
-                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                            <ContentTemplate>
-                                <br />
-                                <asp:Button ID="calculateSem3Marks" Text="Calculate" OnClick="calculateSem3Marks_Click" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server" />
-                            </ContentTemplate>
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="calculateSem3Marks" />
-                            </Triggers>
-                        </asp:UpdatePanel>
-                        <asp:UpdateProgress ID="UpdateProgress3" AssociatedUpdatePanelID="UpdatePanel3" runat="server">
-                            <ProgressTemplate>
-                                <span class="mdl-spinner mdl-js-spinner is-active"></span>
-                            </ProgressTemplate>
-                        </asp:UpdateProgress>--%>
+                        <br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ForeColor="Red" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem3Marks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ForeColor="Red" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem3TotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
+                        <asp:CompareValidator ID="CompareValidator3" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem3Marks" ControlToCompare="tb_sem3TotalMarks" Operator="LessThanEqual"></asp:CompareValidator>
+                        <br />
                     </div>
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*Marks Empty" ControlToValidate="tb_sem3Marks" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -247,37 +207,47 @@
                             <asp:TextBox MaxLength="3" ID="tb_sem4TotalMarks" runat="server" class="mdl-textfield__input"></asp:TextBox>
                             <label class="mdl-textfield__label" for="tb_sem4TotalMarks"><strong>Out of Marks of Sem-4</strong></label>
                         </div>
-                       <%-- <div>
-                            <asp:Label ID="lbl_cal_sem4" runat="server" Text="Click On Claculate"></asp:Label>
-                        </div>
-                        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-                            <ContentTemplate>
-                                <br />
-                                <asp:Button ID="calculateSem4Marks" Text="Calculate" OnClick="calculateSem4Marks_Click" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server" />
-                            </ContentTemplate>
-                            <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="calculateSem4Marks" />
-                            </Triggers>
-                        </asp:UpdatePanel>
-                        <asp:UpdateProgress ID="UpdateProgress4" AssociatedUpdatePanelID="UpdatePanel4" runat="server">
-                            <ProgressTemplate>
-                                <span class="mdl-spinner mdl-js-spinner is-active"></span>
-                            </ProgressTemplate>
-                        </asp:UpdateProgress>--%>
+                        <br />
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ForeColor="Red" runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem4Marks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ForeColor="Red" runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_sem4TotalMarks" ValidationExpression="\d+" Display="Dynamic" EnableTheming="True"></asp:RegularExpressionValidator><br>
+                        <asp:CompareValidator ID="CompareValidator4" runat="server" ForeColor="Red" ErrorMessage="Marks Obtained Cannot Be Grater Than Out OF Marks..." ControlToValidate="tb_sem4Marks" ControlToCompare="tb_sem4TotalMarks" Operator="LessThanEqual"></asp:CompareValidator>
+                        <br />
                     </div>
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*Marks Empty" ControlToValidate="tb_sem4Marks" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="*Outof Empty" ControlToValidate="tb_sem4TotalMarks" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-
             </div>
             <br />
-            <div runat="server" id="div_save_btns" style="display:none">
+            <div style="padding: 5px 5px 8px 5px; display: none; align-items: center" id="spinner">
+                <span class="mdl-spinner mdl-js-spinner is-active"></span>
+            </div>
+            <div runat="server" id="div_save_btns" style="display: none">
                 <div>
-                    <div style="display:inline-flex"><p class="mdl-typography--body-2-force-preferred-font-color-contrast">Sem 1 % : &nbsp;</p><asp:Label ID="lbl_sem1" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label></div><br>
-                    <div style="display:inline-flex"><p class="mdl-typography--body-2-force-preferred-font-color-contrast">Sem 2 % : &nbsp;</p><asp:Label ID="lbl_sem2" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label></div><br>
-                    <div style="display:inline-flex"><p class="mdl-typography--body-2-force-preferred-font-color-contrast">Sem 3 % : &nbsp;<p><asp:Label ID="lbl_sem3" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label></div><br>
-                    <div style="display:inline-flex"><p class="mdl-typography--body-2-force-preferred-font-color-contrast">Sem 4 % : &nbsp;</p><asp:Label ID="lbl_sem4" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label></div><br>
-                    <div style="display:inline-flex"><p class="mdl-typography--body-2-force-preferred-font-color-contrast">Total Average % : &nbsp;</p><asp:Label ID="lbl_average" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label></div>
+                    <div style="display: inline-flex">
+                        <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Sem 1 % : &nbsp;</p>
+                        <asp:Label ID="lbl_sem1" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label>
+                    </div>
+                    <br>
+                    <div style="display: inline-flex">
+                        <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Sem 2 % : &nbsp;</p>
+                        <asp:Label ID="lbl_sem2" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label>
+                    </div>
+                    <br>
+                    <div style="display: inline-flex">
+                        <p class="mdl-typography--body-2-force-preferred-font-color-contrast">
+                            Sem 3 % : &nbsp;<p>
+                                <asp:Label ID="lbl_sem3" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label>
+                    </div>
+                    <br>
+                    <div style="display: inline-flex">
+                        <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Sem 4 % : &nbsp;</p>
+                        <asp:Label ID="lbl_sem4" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label>
+                    </div>
+                    <br>
+                    <div style="display: inline-flex">
+                        <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Total Average % : &nbsp;</p>
+                        <asp:Label ID="lbl_average" runat="server" Text="" CssClass="mdl-typography--body-2-force-preferred-font-color-contrast"></asp:Label>
+                    </div>
                 </div>
                 <div style="padding: 8px 5px 5px 5px;">
                     <div style="padding: 5px 5px 8px 5px;">
@@ -295,13 +265,13 @@
                     </div>
                 </div>
             </div>
-            <div  runat="server" id="div_save">
+            <div runat="server" id="div_save">
                 <div style="padding: 5px 5px 8px 5px;">
-                        <asp:LinkButton OnClientClick="showSpinner()" OnClick="calculateMarks_Click" ID="calculateMarks" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server">
+                    <asp:LinkButton OnClientClick="showSpinner()" OnClick="calculateMarks_Click" ID="calculateMarks" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server">
                                     <span class="material-icons">check</span>
                                         Calculate
-                        </asp:LinkButton>
-                    </div>
+                    </asp:LinkButton>
+                </div>
             </div>
             <asp:Label ID="lbl_student_TyDetailsStatus" runat="server" Text=""></asp:Label>
             <br />

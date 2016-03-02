@@ -325,7 +325,7 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static DataTable fetchStdDetailIfExist(string sp_name,string svvMailID,out string error)
+        public static DataTable fetchStdDetailIfExist(string sp_name, string svvMailID, out string error)
         {
             try
             {
@@ -347,18 +347,20 @@ namespace PlacementCell
                     }
                 }
             }
-            catch(Exception ex) {
+            catch (Exception ex)
+            {
                 error = ex.Message;
                 return null;
             }
         }
-        public static bool isStdTYAcademicDetailsUpdated(string svvmailID,string branch, string division, string rollno, string backlogs, string sem1M, string sem1TM, string sem2M, string sem2TM, string sem3M, string sem3TM, string sem4M, string sem4TM,string sem1per, string sem2per, string sem3per, string sem4per, string totalAvg, out string error)
+        public static bool isStdTYAcademicDetailsUpdated(string svvmailID, string branch, string division, string rollno, string backlogs, string sem1M, string sem1TM, string sem2M, string sem2TM, string sem3M, string sem3TM, string sem4M, string sem4TM, string sem1per, string sem2per, string sem3per, string sem4per, string totalAvg, out string error)
         {
             try
             {
                 using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
                 {
-                    using (MySqlCommand command = new MySqlCommand("sp_addStdTYDetails", connection)) {
+                    using (MySqlCommand command = new MySqlCommand("sp_addStdTYDetails", connection))
+                    {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvmailID;
                         command.Parameters.Add("@b", MySqlDbType.VarChar).Value = branch;
@@ -388,7 +390,45 @@ namespace PlacementCell
                         }
                         else {
                             error = null;
+                            return false;
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return true;
+            }
+        }
+        public static bool isStdHscAcademicDetailsUpdated(string svvmailID, string board, string specialization, string courseType, string hscMarks, string hscTotalMarks, string hscPer, out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_addStdHscDetails", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvmailID;
+                        command.Parameters.Add("@b", MySqlDbType.VarChar).Value = board;
+                        command.Parameters.Add("@s", MySqlDbType.VarChar).Value = specialization;
+                        command.Parameters.Add("@c", MySqlDbType.VarChar).Value = courseType;
+                        command.Parameters.Add("@hm", MySqlDbType.VarChar).Value = hscMarks;
+                        command.Parameters.Add("@htm", MySqlDbType.VarChar).Value = hscTotalMarks;
+                        command.Parameters.Add("@hp", MySqlDbType.VarChar).Value = hscPer;
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
                             return true;
+                        }
+                        else {
+                            error = null;
+                            return false;
                         }
                     }
                 }
@@ -777,7 +817,7 @@ namespace PlacementCell
         {
             using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
             {
-                
+
                 using (MySqlCommand cmd = new MySqlCommand("sp_fetchBranches", con))
                 {
                     using (MySqlCommand cmddiv = new MySqlCommand("sp_fetchDivisions", con))
@@ -801,6 +841,23 @@ namespace PlacementCell
                         ds.Tables.Add(d2);
                         return ds;
                     }
+                }
+            }
+        }
+        public static DataSet fetchBoard(string sp_name)
+        {
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+            {
+                using (MySqlCommand command = new MySqlCommand(sp_name, connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    MySqlDataAdapter board = new MySqlDataAdapter();
+                    DataSet ds = new DataSet();
+                    connection.Open();
+                    board.SelectCommand = command;
+                    board.Fill(ds);
+                    connection.Close();
+                    return ds;
                 }
             }
         }

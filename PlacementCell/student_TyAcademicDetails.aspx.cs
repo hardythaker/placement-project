@@ -62,8 +62,8 @@ namespace PlacementCell
             uploadTyDetails(out error);
             if (error == null)
             {
-                //Response.Redirect("student_HSCAcademicDetails.aspx");
-                lbl_student_TyDetailsStatus.Text = "redirected";
+                Response.Redirect("student_HSCDetails.aspx");
+                //lbl_student_TyDetailsStatus.Text = "redirected";//testing
             }
             else
             {
@@ -81,6 +81,7 @@ namespace PlacementCell
                 hideControls(true);
                 div_edit.Style["display"] = "block";
                 div_save_btns.Style["display"] = "none";
+                div_save.Style["display"] = "none";
                 lbl_student_TyDetailsStatus.CssClass = "mdl-color-text--primary";
                 lbl_student_TyDetailsStatus.Text = "<br>Data Successfully Saved";
             }
@@ -100,8 +101,8 @@ namespace PlacementCell
 
         protected void btn_next_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("student_HSCAcademicDetails.aspx");
-            lbl_student_TyDetailsStatus.Text = "redirected";
+            Response.Redirect("student_HSCDetails.aspx");
+            //lbl_student_TyDetailsStatus.Text = "redirected";//testing
         }
 
         private void bindDDL()
@@ -228,7 +229,7 @@ namespace PlacementCell
             lbl_sem4.Text = sum4.ToString("0.00") + " %";
             lbl_average.Text = avg.ToString("0.00") + " %";
             div_save_btns.Style["display"] = "block";
-            div_save.Style["display"] = "none";
+            //div_save.Style["display"] = "none"; //dont off the calculate button in case student want to calculate again
         }
 
         protected void btn_back_Click(object sender, EventArgs e)

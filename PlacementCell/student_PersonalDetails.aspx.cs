@@ -37,7 +37,7 @@ namespace PlacementCell
                 else {
                     string error;
                     DataTable dt = new DataTable();
-                    string sp_name = "sp_fetchStdData";
+                    string sp_name = "sp_fetchStdPersonalData";
                     dt = DataAccessLayer.fetchStdDetailIfExist(sp_name,Session["student_username"].ToString(), out error);
                     if (error == null)
                     {

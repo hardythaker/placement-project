@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="/resources/demos/style.css">
     <script>
         function showSpinner() {
+            var a = Page_ClientValidate();
+            if (a)
             document.getElementById("spinner").style.display = "block";
         }
         $("#<%=btn_saveAndContinue.ClientID%>").click(function () {
