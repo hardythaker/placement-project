@@ -29,7 +29,7 @@
         function showSpinner() {
             var a = Page_ClientValidate();
             if (a)
-            document.getElementById("spinner").style.display = "block";
+                document.getElementById("spinner").style.display = "block";
         }
         $("#<%=btn_saveAndContinue.ClientID%>").click(function () {
             $("spinner").show();
@@ -75,7 +75,7 @@
             </script>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>--%>
- <p class="mdl-typography--subhead-color-contrast">(Note : Student Should Provide Correct Details, as it will be Consider for the Selcetion Process for the Interviews by the TPC & by the Compaines.)</p>
+            <p class="mdl-typography--subhead-color-contrast">(Note : Student Should Provide Correct Details, as it will be Consider for the Selcetion Process for the Interviews by the TPC & by the Compaines.)</p>
             <div id="div_edit" runat="server" style="display: none">
                 <div style="padding: 8px 5px 20px 5px">
                     <asp:LinkButton ID="btn_Edit" OnClick="btn_Edit_Click" CssClass="mdl-button mdl-color--accent mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-shadow--8dp" runat="server">

@@ -480,7 +480,39 @@ namespace PlacementCell
                 return true;
             }
         }
+        public static bool isStdOthersDetailsUpdated(string svvmailID, string breakYear, out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_addStdOtherDetails", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvmailID;
+                        command.Parameters.Add("@b", MySqlDbType.VarChar).Value = breakYear;
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
 
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return true;
+            }
+        }
 
         public static bool isNoticeCreated(string noticeCardTitle, string noticeCardDesc, string noticeCardLink, string noticeCardType, string noticesection)
         {

@@ -74,8 +74,8 @@ namespace PlacementCell
 
         protected void btn_next_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("student_HSCDetails.aspx");
-            lbl_fetchingDataError.Text = "Redirected";
+            Response.Redirect("student_OtherDetails.aspx");
+            //lbl_fetchingDataError.Text = "Redirected";
         }
 
         protected void btn_saveAndContinue_Click(object sender, EventArgs e)
@@ -84,8 +84,8 @@ namespace PlacementCell
             uploadData(out error);
             if (error == null)
             {
-                lbl_fetchingDataError.Text = "Redirected";
-                //Response.Redirect("student_SSCDetails.aspx");
+                Response.Redirect("student_OtherDetails.aspx");
+                //lbl_fetchingDataError.Text = "Redirected";
             }
             else
             {

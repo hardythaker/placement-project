@@ -107,6 +107,7 @@
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="*" ControlToValidate="tb_backlogs" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
+            
             <div id="accordion">
                 <div class="mdl-color--primary" style="height: 40px; text-align: left">
                     <div style='display: inline-flex; vertical-align: central; padding-left: 20px; padding-top: 8px;'>
