@@ -73,12 +73,12 @@
                 <div style="display: block; padding-left: 5px; padding-right: 5px">
                     <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
                         <asp:TextBox MaxLength="3" ID="tb_SscMarks" runat="server" class="mdl-textfield__input"></asp:TextBox>
-                        <label class="mdl-textfield__label" for="tb_SscMarks"><strong>Marks Obtained in Hsc/Diploma</strong></label>
+                        <label class="mdl-textfield__label" for="tb_SscMarks"><strong>Marks Obtained in SSC</strong></label>
                     </div>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="*" ControlToValidate="tb_SscMarks" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                     <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
                         <asp:TextBox MaxLength="3" ID="tb_SscTotalMarks" runat="server" class="mdl-textfield__input"></asp:TextBox>
-                        <label class="mdl-textfield__label" for="tb_HscTotalMarks"><strong>Out Of Marks of Hsc/Diploma</strong></label>
+                        <label class="mdl-textfield__label" for="tb_HscTotalMarks"><strong>Out Of Marks of SSC</strong></label>
                     </div>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="tb_SscTotalMarks" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
