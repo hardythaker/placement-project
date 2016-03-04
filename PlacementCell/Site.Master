@@ -21,7 +21,7 @@
                 });
             }
         });
-</script>  
+    </script>
     <%-- For Drop Down Login Form --%>
 
     <%--   <script type="text/javascript">
@@ -133,38 +133,49 @@
             </nav>
         </div>
         <%-- Side Drawer Ends Here --%>
-        <main class="mdl-layout__content"">
- 
+        <main class="mdl-layout__content">
             <center>
-                    <div class="page-content" style="text-align: center;width:100%">
-                        <asp:ContentPlaceHolder ID="main_content" runat="server">
-                        </asp:ContentPlaceHolder>
-                        <div id="footer">
-                            <footer style="" class="mdl-mini-footer">
-                                <div class="mdl-mini-footer__left-section">
-                                    <div class="mdl-logo mdl-typography--body-2-force-preferred-font-color-contrast" style="display:inline-flex"><div style="padding-top:5px"><i class="material-icons">copyright</i></div>&nbsp; By Hardik Thaker</div>
-                                    <br>
-                                    <%--<ul style="left:0px" class="mdl-mini-footer__link-list"--%>
-                                    <div style="display:inline-flex">
-                                        <a href="#"><p class="mdl-typography--body-2-force-preferred-font-color-contrast"><b>Help</b></p></a>&nbsp;&nbsp;
-                                        <a href="#"><p class="mdl-typography--body-2-force-preferred-font-color-contrast"><b>Privacy & Terms</b></p></a>
-                                        </div>
-                                    <%--</ul>--%>
-                                </div>
-                                <div class="mdl-mini-footer__right-section">
-                                     <a  href="http://instagram.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__instagram social-btn"></button></a>
-                                     <a  href="https://plus.google.com/u/0/109397890308622152669" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__gplus social-btn"></button></a>
-                                     <a  href="http://facebook.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__blogger social-btn"></button></a>
-                                     <a  href="http://twiter.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__twitter social-btn"></button></a>
-                                     <%--<br>--%>
-                                     <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Designed and Developed by Hardik Thaker & Rithu Dhanki.</p>
-                                </div>
-                            </footer>
+            <div class="page-content" style="text-align: center; width: 100%">
+                <asp:ContentPlaceHolder ID="main_content" runat="server">
+                </asp:ContentPlaceHolder>
+                <div id="footer">
+                    <footer style="" class="mdl-mini-footer">
+                        <div class="mdl-mini-footer__left-section">
+                            <div class="mdl-logo mdl-typography--body-2-force-preferred-font-color-contrast" style="display: inline-flex">
+                                <div style="padding-top: 5px"><i class="material-icons">copyright</i></div>
+                                &nbsp; By Hardik Thaker</div>
+                            <br>
+                            <%--<ul style="left:0px" class="mdl-mini-footer__link-list"--%>
+                            <div style="display: inline-flex">
+                                <a href="#">
+                                    <p class="mdl-typography--body-2-force-preferred-font-color-contrast"><b>Help</b></p>
+                                </a>&nbsp;&nbsp;
+                                        <a href="#">
+                                            <p class="mdl-typography--body-2-force-preferred-font-color-contrast"><b>Privacy & Terms</b></p>
+                                        </a>
+                            </div>
+                            <%--</ul>--%>
                         </div>
-                    </div>
-                   </center>
-
-
+                        <div class="mdl-mini-footer__right-section">
+                            <a href="http://instagram.com/hardythaker" target="_blank">
+                                <button class="mdl-mini-footer__social-btn social-btn__instagram social-btn"></button>
+                            </a>
+                            <a href="https://plus.google.com/u/0/109397890308622152669" target="_blank">
+                                <button class="mdl-mini-footer__social-btn social-btn__gplus social-btn"></button>
+                            </a>
+                            <a href="http://facebook.com/hardythaker" target="_blank">
+                                <button class="mdl-mini-footer__social-btn social-btn__blogger social-btn"></button>
+                            </a>
+                            <a href="http://twiter.com/hardythaker" target="_blank">
+                                <button class="mdl-mini-footer__social-btn social-btn__twitter social-btn"></button>
+                            </a>
+                            <%--<br>--%>
+                            <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Designed and Developed by Hardik Thaker & Rithu Dhanki.</p>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+            </center>
         </main>
     </div>
 </body>

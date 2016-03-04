@@ -8,6 +8,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
     <script src="scripts/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript">
+        $(window).bind("load", function () {
+            var footer = $("#footer");
+            var pos = footer.position();
+            var height = $(window).height();
+            height = height - pos.top;
+            height = height - footer.height();
+            if (height > 0) {
+                footer.css({
+                    'margin-top': height + 'px'
+                });
+            }
+        });
+    </script>
     <script src="style/material.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -22,7 +36,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/images/favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
@@ -33,6 +47,36 @@
     <title>TPC SKS</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .social-btn {
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-color: transparent;
+            margin: 0 16px;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            opacity: 1;
+            border-radius: 2px;
+        }
+
+        .social-btn__instagram {
+            background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_instagram_white_24dp.png');
+        }
+
+        .social-btn__twitter {
+            background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_twitter_white_24dp.png');
+        }
+
+        .social-btn__blogger {
+            background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_facebook_white_24dp.png');
+        }
+
+        .social-btn__gplus {
+            background-image: url('https://www.gstatic.com/images/icons/material/system/2x/post_gplus_white_24dp.png');
+        }
+    </style>
 </head>
 <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
@@ -59,11 +103,12 @@
             </div>
         </header>
         <div class="mdl-layout__drawer  mdl-color--cyan mdl-color-text--grey-100">
-            <span class="mdl-layout-title">Hi <asp:Label ID="Label1" runat="server" Text=""></asp:Label></span>
+            <span class="mdl-layout-title">Hi
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label></span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="student_PersonalDetails.aspx">Student Detail Form</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">My Profile</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="student_profile.aspx">My Profile</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="notices.aspx">Notices</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="achievments.aspx">Achievments</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="contact.aspx">Contact</a>
@@ -77,6 +122,28 @@
               <div class="page-content" style="width:100%; text-align:center;">
                    <asp:ContentPlaceHolder ID="main_content" runat="server">
                     </asp:ContentPlaceHolder>
+                  <div id="footer">
+                            <footer style="" class="mdl-mini-footer">
+                                <div class="mdl-mini-footer__left-section">
+                                    <div class="mdl-logo mdl-typography--body-2-force-preferred-font-color-contrast" style="display:inline-flex"><div style="padding-top:5px"><i class="material-icons">copyright</i></div>&nbsp; By Hardik Thaker</div>
+                                    <br>
+                                    <%--<ul style="left:0px" class="mdl-mini-footer__link-list"--%>
+                                    <div style="display:inline-flex">
+                                        <a href="#"><p class="mdl-typography--body-2-force-preferred-font-color-contrast"><b>Help</b></p></a>&nbsp;&nbsp;
+                                        <a href="#"><p class="mdl-typography--body-2-force-preferred-font-color-contrast"><b>Privacy & Terms</b></p></a>
+                                        </div>
+                                    <%--</ul>--%>
+                                </div>
+                                <div class="mdl-mini-footer__right-section">
+                                     <a  href="http://instagram.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__instagram social-btn"></button></a>
+                                     <a  href="https://plus.google.com/u/0/109397890308622152669" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__gplus social-btn"></button></a>
+                                     <a  href="http://facebook.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__blogger social-btn"></button></a>
+                                     <a  href="http://twiter.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__twitter social-btn"></button></a>
+                                     <%--<br>--%>
+                                     <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Designed and Developed by Hardik Thaker & Rithu Dhanki.</p>
+                                </div>
+                            </footer>
+                        </div>
               </div>
              </center>
         </main>

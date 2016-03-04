@@ -28,7 +28,7 @@ namespace PlacementCell
                             DataRow dr = dt.Rows[0];
                             div_edit.Style["display"] = "block";
                             div_calculate.Style["display"] = "none";
-                            boardList.Items.FindByValue(dr.ItemArray[0].ToString()).Selected = true;
+                            boardList.Items.FindByText(dr.ItemArray[0].ToString()).Selected = true;
                             specializationList.Items.FindByValue(dr.ItemArray[1].ToString()).Selected = true;
                             courseTypeList.Items.FindByValue(dr.ItemArray[2].ToString()).Selected = true;
                             tb_HscMarks.Text = dr.ItemArray[3].ToString();
@@ -144,7 +144,7 @@ namespace PlacementCell
                 }
             }
             else {
-                this_error = "Some Error Occured";
+                this_error = "Some Error Occured or May Be you had not Submited the Privious Forms and Directly Submiting This Form /n Please Fill the Forms in Line Wise as Developed";
             }
         }
         private void hideControls(bool option)

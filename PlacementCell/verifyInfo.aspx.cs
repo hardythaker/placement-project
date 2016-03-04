@@ -14,13 +14,13 @@ namespace PlacementCell
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["svvmailid"] == null)
-                {
-                    Response.Redirect("home.aspx");
-                }
-                else {
-                    string attempt =HashGenerator.URLDecrypt(Request.QueryString["attempt"]);
-                    string email = HashGenerator.URLDecrypt(Request.QueryString["svvmailid"]);
+                //if (Request.QueryString["svvmailid"] == null)
+                //{
+                //    Response.Redirect("home.aspx");
+                //}
+                //else {
+                    string attempt = "1";//HashGenerator.URLDecrypt(Request.QueryString["attempt"]);
+                    string email = "a";//HashGenerator.URLDecrypt(Request.QueryString["svvmailid"]);
                     if (attempt == "1")
                     {
                         great.Text = "Thank you <u>" + email + "</u>";
@@ -38,7 +38,7 @@ namespace PlacementCell
                     else {
                         Response.Write("Invalid Attempt");
                     }
-                }
+               // }
             }
         }
 

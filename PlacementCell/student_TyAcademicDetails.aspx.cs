@@ -32,8 +32,8 @@ namespace PlacementCell
                             DataRow dr = dt.Rows[0];
                             div_edit.Style["display"] = "block";
                             div_save.Style["display"] = "none";
-                            listClass.Items.FindByValue(dr.ItemArray[0].ToString()).Selected = true;
-                            listDivision.Items.FindByValue(dr.ItemArray[1].ToString()).Selected = true;
+                            listClass.Items.FindByText(dr.ItemArray[0].ToString()).Selected = true;
+                            listDivision.Items.FindByText(dr.ItemArray[1].ToString()).Selected = true;
                             tb_RollNo.Text = dr.ItemArray[2].ToString();
                             tb_backlogs.Text = dr.ItemArray[3].ToString();
                             tb_sem1Marks.Text = dr.ItemArray[4].ToString();
@@ -174,7 +174,7 @@ namespace PlacementCell
                 }
             }
             else {
-                this_error = "Some Error Occured";
+                this_error = "Some Error Occured or May Be you had not Submited the Privious Forms and Directly Submiting This Form /n Please Fill the Forms in Line Wise as Developed";
             }
 
         }

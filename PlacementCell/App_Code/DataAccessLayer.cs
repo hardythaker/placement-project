@@ -356,6 +356,85 @@ namespace PlacementCell
                 return null;
             }
         }
+        public static DataSet fetchStdFullDetailIfExist(string svvMailID, out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+                    using (MySqlCommand command_personalData = new MySqlCommand("sp_fetchStdPersonalData", connection))
+                    {
+                        using (MySqlCommand command_GradData = new MySqlCommand("sp_fetchStdTyData", connection))
+                        {
+                            using (MySqlCommand command_HscData = new MySqlCommand("sp_fetchStdHscData", connection))
+                            {
+                                using (MySqlCommand command_SScData = new MySqlCommand("sp_fetchStdSscData", connection))
+                                {
+                                    using (MySqlCommand command_OtherData = new MySqlCommand("sp_fetchStdOtherDetailsData", connection))
+                                    {
+                                        command_personalData.CommandType = CommandType.StoredProcedure;
+                                        command_GradData.CommandType = CommandType.StoredProcedure;
+                                        command_HscData.CommandType = CommandType.StoredProcedure;
+                                        command_SScData.CommandType = CommandType.StoredProcedure;
+                                        command_OtherData.CommandType = CommandType.StoredProcedure;
+
+                                        command_personalData.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvMailID;
+                                        command_GradData.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvMailID;
+                                        command_HscData.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvMailID;
+                                        command_SScData.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvMailID;
+                                        command_OtherData.Parameters.Add("@svvID", MySqlDbType.VarChar).Value = svvMailID;
+
+                                        MySqlDataAdapter adapterPerosnal = new MySqlDataAdapter();
+                                        MySqlDataAdapter adapterTy = new MySqlDataAdapter();
+                                        MySqlDataAdapter adapterHsc = new MySqlDataAdapter();
+                                        MySqlDataAdapter adapterSsc = new MySqlDataAdapter();
+                                        MySqlDataAdapter adapterOther = new MySqlDataAdapter();
+
+                                        DataSet ds = new DataSet();
+                                        DataTable perosnal= new DataTable();
+                                        DataTable ty= new DataTable();
+                                        DataTable hsc= new DataTable();
+                                        DataTable ssc= new DataTable();
+                                        DataTable other = new DataTable();
+
+                                        connection.Open();
+                                        MySqlTransaction tranCon = connection.BeginTransaction();
+                                        adapterPerosnal.SelectCommand = command_personalData;
+                                        adapterTy.SelectCommand = command_GradData;
+                                        adapterHsc.SelectCommand = command_HscData;
+                                        adapterSsc.SelectCommand = command_SScData;
+                                        adapterOther.SelectCommand = command_OtherData;
+
+                                        adapterPerosnal.Fill(perosnal);
+                                        adapterTy.Fill(ty);
+                                        adapterHsc.Fill(hsc);
+                                        adapterSsc.Fill(ssc);
+                                        adapterOther.Fill(other);
+
+                                        tranCon.Commit();
+                                        connection.Close();
+
+                                        ds.Tables.Add(perosnal);
+                                        ds.Tables.Add(ty);
+                                        ds.Tables.Add(hsc);
+                                        ds.Tables.Add(ssc);
+                                        ds.Tables.Add(other);
+
+                                        error = null;
+                                        return ds;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return null;
+            }
+        }
         public static bool isStdTYAcademicDetailsUpdated(string svvmailID, string branch, string division, string rollno, string backlogs, string sem1M, string sem1TM, string sem2M, string sem2TM, string sem3M, string sem3TM, string sem4M, string sem4TM, string sem1per, string sem2per, string sem3per, string sem4per, string totalAvg, out string error)
         {
             try

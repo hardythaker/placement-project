@@ -147,7 +147,7 @@ namespace PlacementCell
                 }
             }
             else {
-                this_error = "Some Error Occured";
+                this_error = "Some Error Occured or May Be you had not Submited the Privious Forms and Directly Submiting This Form /n Please Fill the Forms in Line Wise as Developed";
             }
         }
     }
