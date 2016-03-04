@@ -7,5 +7,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
+    <div>
     <h4 class="mdl-typography--body-2-force-preferred-font-color-contrast">Welcome Student</h4>
+        </div>
 </asp:Content>

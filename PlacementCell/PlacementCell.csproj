@@ -160,6 +160,16 @@
     <Content Include="images\placements.gif" />
     <Resource Include="images\small_logo.png" />
     <Content Include="images\Thumbnails.jpg" />
+    <Content Include="img\880-sk-somaiyacollege-vidyavihar-mumbai.jpg" />
+    <Content Include="img\a22.png" />
+    <Content Include="img\b21.png" />
+    <Content Include="img\floor.jpg" />
+    <Content Include="img\loading2.gif" />
+    <Content Include="img\lobby.jpg" />
+    <Content Include="js\jquery-1.9.1.min.js" />
+    <Content Include="js\jssor.slider.debug.js" />
+    <Content Include="js\jssor.slider.min.js" />
+    <Content Include="js\jssor.slider.mini.js" />
     <Content Include="logout.aspx" />
     <Content Include="newimages\placement-main-photo.jpg" />
     <Content Include="newimages\placements-banner.jpg" />
