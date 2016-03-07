@@ -38,6 +38,24 @@ namespace PlacementCell
             }
         }
 
+        public static DataTable getAllStudentData()
+        {
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+            {
+                using (MySqlCommand command = new MySqlCommand("sp_fetchStudentDetails", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    MySqlDataAdapter adapter = new MySqlDataAdapter();
+                    DataSet dSet = new DataSet();
+                    connection.Open();
+                    adapter.SelectCommand = command;
+                    adapter.Fill(dSet);
+                    connection.Close();
+                    DataTable dt = dSet.Tables[0];
+                    return dt;
+                }
+            }
+        }
 
 
         public static bool isMemberExits(string un, string encPass, out string error)

@@ -38,7 +38,7 @@
             var dateToday = new Date();
             var yrRange = (dateToday.getFullYear() - 50) + ":" + (dateToday.getFullYear());
             $("#<%=tb_dob.ClientID%>").datepicker({
-                dateFormat: "dd-mm-yy",
+                dateFormat: "dd/mm/yy",
                 changeMonth: true,
                 changeYear: true,
                 yearRange: yrRange.toString(),

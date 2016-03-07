@@ -142,18 +142,10 @@
                             <%--</ul>--%>
                         </div>
                         <div class="mdl-mini-footer__right-section">
-                            <a href="http://instagram.com/hardythaker" target="_blank">
-                                <button class="mdl-mini-footer__social-btn social-btn__instagram social-btn"></button>
-                            </a>
-                            <a href="https://plus.google.com/u/0/109397890308622152669" target="_blank">
-                                <button class="mdl-mini-footer__social-btn social-btn__gplus social-btn"></button>
-                            </a>
-                            <a href="http://facebook.com/hardythaker" target="_blank">
-                                <button class="mdl-mini-footer__social-btn social-btn__blogger social-btn"></button>
-                            </a>
-                            <a href="http://twiter.com/hardythaker" target="_blank">
-                                <button class="mdl-mini-footer__social-btn social-btn__twitter social-btn"></button>
-                            </a>
+                            <a href="http://instagram.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__instagram social-btn"></button></a>
+                            <a href="https://plus.google.com/u/0/109397890308622152669" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__gplus social-btn"></button></a>
+                            <a href="http://facebook.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__blogger social-btn"></button></a>
+                            <a href="http://twiter.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__twitter social-btn"></button></a>
                             <%--<br>--%>
                             <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Designed and Developed by Hardik Thaker & Rithu Dhanki.</p>
                         </div>

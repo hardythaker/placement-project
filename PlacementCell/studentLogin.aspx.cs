@@ -29,7 +29,7 @@ namespace PlacementCell
                     if (verified == "1")
                     {
                         Session["student_username"] = username.Text;
-                        Response.Redirect("studentHome.aspx");
+                        Response.Redirect("home.aspx");
                     }
                     else
                     {

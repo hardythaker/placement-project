@@ -30,8 +30,8 @@
     <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
     <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
-
-    
+    <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.colVis.min.js"></script>
     <script type="text/javascript">
        $(document).ready(function () {
         //$("#loadData").click(function () {
@@ -44,9 +44,11 @@
                         $("#tableDiv").show();
 
                         $("#studentDataTable").DataTable({
+                            select: true,
                             dom: 'Bfrtip',
+                            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                             buttons: [
-                                'copy', 'csv', 'excel', 'pdf', 'print'
+                                'pageLength','columnsToggle','copy', 'csv', 'excel', 'pdf', 'print'
                             ],
                              data: data,
                             'paging': true,
@@ -57,9 +59,16 @@
                                 {
                                     targets: [ 1, 2, 3, 4, 5 ],
                                     className: 'mdl-data-table__cell--non-numeric'
+                                },
+                                {
+                                    "searchable": false,
+                                    "orderable": false,
+                                    "targets": 0
                                 }
                             ],
+                            "order": [[1, 'asc']],
                             'columns': [
+                               {data: null},
                                { 'data': 'student_id' },
                                { 'data': 'fname' },
                                { 'data': 'lname' },
@@ -88,8 +97,12 @@
                                     });
                                 });
                             }
-
                         });
+                        t.on('order.dt search.dt', function () {
+                            t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                                cell.innerHTML = i + 1;
+                            });
+                        }).draw();
                         $("#loader").hide();
                     }
                 });
@@ -134,13 +147,14 @@
                     <table id="studentDataTable" class="mdl-data-table mdl-shadow--4dp">
                         <thead>
                             <tr>
-                                <th>Student ID</th>
+                                <th></th>
+                                <th class="mdl-data-table__cell--non-numeric">Student ID</th>
                                 <th class="mdl-data-table__cell--non-numeric">First Name</th>
                                 <th class="mdl-data-table__cell--non-numeric">Last Name</th>
                                 <th class="mdl-data-table__cell--non-numeric">Branch</th>
                                 <th class="mdl-data-table__cell--non-numeric">Gender</th>
                                 <th class="mdl-data-table__cell--non-numeric">Svv Mail</th>
-                                <th>Is Verified</th>
+                                <th class="mdl-data-table__cell--non-numeric">Is Verified</th>
                             </tr>
                         </thead>
                         <tfoot>

@@ -38,7 +38,8 @@
             var jssor_1_SlideoTransitions = [
               [{b:0,d:1000,y:-440,e:{y:27}}],
               [{b:0,d:1000,y:185},{b:1000,d:500,o:-1},{b:1500,d:500,o:1}],
-              [{b:-1,d:1,o:-1},{b:0,d:1000,o:1,e:{o:5}}]
+              [{ b: -1, d: 1, o: -1 }, { b: 0, d: 1000, o: 1, e: { o: 5 } }],
+              [{ b: 0, d: 1000, y: -440, e: { y: 27 } }]
             ];
             
             var jssor_1_options = {
@@ -168,6 +169,10 @@
             <div data-p="150.00" style="display: none;">
                 <img data-u="image" src="img/lobby.jpg" />
                 <div data-u="caption" data-t="2" style="position: absolute; top: 250px; left: 500px; width: 350px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;">responsive, scale smoothly</div>
+            </div>
+             <div data-p="150.00" style="display: none;">
+                <img data-u="image" src="img/floor.jpg" />
+                <div data-u="caption" data-t="1" style="position: absolute; top: -50px; left: 125px; width: 350px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;">time lined layer animation</div>
             </div>
         </div>
         <!-- Bullet Navigator -->

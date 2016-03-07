@@ -30,13 +30,13 @@ namespace PlacementCell
                 while (dtr.Read())
                 {
                     StudentLoginDetails sld = new StudentLoginDetails();
-                    sld.student_id = dtr["student_id"].ToString();
-                    sld.fname = dtr["fname"].ToString();
-                    sld.lname = dtr["lname"].ToString();
-                    sld.branch = dtr["branch"].ToString();
-                    sld.gender = dtr["gender"].ToString();
-                    sld.username = dtr["username"].ToString();
-                    sld.verified = dtr["verified"].ToString();
+                    sld.student_id = dtr[0].ToString();
+                    sld.fname = dtr[1].ToString();
+                    sld.lname = dtr[2].ToString();
+                    sld.branch = dtr[3].ToString();
+                    sld.gender = dtr[4].ToString();
+                    sld.username = dtr[5].ToString();
+                    sld.verified = dtr[6].ToString();
                     sld_List.Add(sld);
                 }
                 JavaScriptSerializer jss = new JavaScriptSerializer();

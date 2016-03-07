@@ -126,6 +126,7 @@
     <Content Include="dataUpdatedSuccessfully.aspx" />
     <Content Include="editNotice.aspx" />
     <Content Include="forgotpass.aspx" />
+    <Content Include="getStudentDataService.asmx" />
     <Content Include="home.aspx" />
     <Content Include="changePass.aspx" />
     <Content Include="images\calendar-icon.png" />
@@ -194,6 +195,7 @@
     <Content Include="scripts\jquery-2.2.0.min.js" />
     <Content Include="showFullEventHtml.aspx" />
     <Content Include="showMembers.aspx" />
+    <Content Include="StudentData.aspx" />
     <Content Include="studentHome.aspx" />
     <Content Include="studentLogin.aspx" />
     <Content Include="StudentLoginDataService.asmx" />
@@ -287,6 +289,7 @@
     <Compile Include="App_Code\DataAccessLayer.cs" />
     <Compile Include="App_Code\HashGenerator.cs" />
     <Compile Include="App_Code\SendMailManager.cs" />
+    <Compile Include="App_Code\StudentDetails.cs" />
     <Compile Include="App_Code\StudentLoginDetails.cs" />
     <Compile Include="about.aspx.cs">
       <DependentUpon>about.aspx</DependentUpon>
@@ -322,6 +325,10 @@
     </Compile>
     <Compile Include="forgotpass.aspx.designer.cs">
       <DependentUpon>forgotpass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="getStudentDataService.asmx.cs">
+      <DependentUpon>getStudentDataService.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
@@ -381,6 +388,13 @@
     </Compile>
     <Compile Include="student.Master.designer.cs">
       <DependentUpon>student.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StudentData.aspx.cs">
+      <DependentUpon>StudentData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentData.aspx.designer.cs">
+      <DependentUpon>StudentData.aspx</DependentUpon>
     </Compile>
     <Compile Include="studentHome.aspx.cs">
       <DependentUpon>studentHome.aspx</DependentUpon>
