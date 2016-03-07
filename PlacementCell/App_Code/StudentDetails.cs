@@ -27,6 +27,6 @@ namespace PlacementCell
         public string ssc_board_name { get; set; }
         public string ssc_courseType { get; set; }
         public string ssc_percentage { get; set; }
-        public string break_years { get; set; }
+        public int break_years { get; set; }
     }
 }

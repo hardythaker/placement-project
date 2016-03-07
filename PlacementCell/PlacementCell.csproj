@@ -193,6 +193,9 @@
     <Content Include="PlacementCell.publish.xml" />
     <Content Include="resetPass.aspx" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
+    <Content Include="scripts\yadcf\example.html" />
+    <Content Include="scripts\yadcf\jquery.dataTables.yadcf.css" />
+    <Content Include="scripts\yadcf\jquery.dataTables.yadcf.js" />
     <Content Include="showFullEventHtml.aspx" />
     <Content Include="showMembers.aspx" />
     <Content Include="StudentData.aspx" />
@@ -222,6 +225,7 @@
     <None Include="Properties\PublishProfiles\myasp ftp.pubxml" />
     <None Include="Properties\PublishProfiles\placement cell.pubxml" />
     <Content Include="student.Master" />
+    <Content Include="scripts\yadcf\yadcf.jquery.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
