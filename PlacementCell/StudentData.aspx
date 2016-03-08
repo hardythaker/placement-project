@@ -130,9 +130,15 @@
                         "order": [[1, 'asc']],
                         'columns': [
                                { data: null },
-                               { 'data': 'fname' },
-                               { 'data': 'mname' },
-                               { 'data': 'lname' },
+                               {
+                                   'data': null,
+                                   render: function (data, type, row)
+                                   {
+                                       return data['fname'] + ' ' + data['mname'] + ' ' + data['lname'];
+                                   }
+                               },
+                               //{ 'data': 'mname' },
+                               //{ 'data': 'lname' },
                                { 'data': 'email' },
                                { 'data': 'gender' },
                                { 'data': 'maritial' },
@@ -167,12 +173,13 @@
                     [
                         {
                             column_number: 1,
-                            filter_default_label: "Select "+header[1],
+                            filter_type: "auto_complete",
+                            filter_default_label: "Select " + header[1],
                         },
-                        {
-                            column_number: 2,
-                            filter_default_label: "Select " + header[2],
-                        },
+                        //{
+                        //    column_number: 2,
+                        //    filter_default_label: "Select " + header[2],
+                        //},
                         {
                             column_number: 3,
                             filter_default_label: "Select " + header[3],
@@ -181,14 +188,14 @@
                             column_number: 4,
                             filter_default_label: "Select " + header[4],
                         },
-                        {
-                            column_number: 5,
-                            filter_default_label: "Select " + header[5],
-                        },
-                        {
-                            column_number: 6,
-                            filter_default_label: "Select " + header[6],
-                        },
+                        //{
+                        //    column_number: 5,
+                        //    filter_default_label: "Select " + header[5],
+                        //},
+                        //{
+                        //    column_number: 6,
+                        //    filter_default_label: "Select " + header[6],
+                        //},
                         {
                             column_number: 7,
                             filter_default_label: "Select " + header[7],
@@ -203,11 +210,14 @@
                         },
                         {
                             column_number: 10,
-                            filter_default_label: "Select " + header[10],
+                            filter_type: "range_number_slider"
+                            //filter_default_label: "Select " + header[10],
                         },
                         {
                             column_number: 11,
-                            filter_default_label: "Select " + header[11],
+                            //column_number: 19,
+                            filter_type: "range_number_slider"
+                            //filter_default_label: "Select " + header[11],
                         },
                         {
                             column_number: 12,
@@ -215,8 +225,6 @@
                         },
                         {
                             column_number: 13,
-                            //column_number: 19,
-                            //filter_type: "range_number"
                             filter_default_label: "Select " + header[13],
                         },
                         {
@@ -233,14 +241,6 @@
                         },
                         {
                             column_number: 17,
-                            filter_default_label: "Select " + header[17],
-                        },
-                        {
-                            column_number: 18,
-                            filter_default_label: "Select " + header[18],
-                        },
-                        {
-                            column_number: 19,
                             filter_type: "range_number_slider",
                             ignore_char: "%",
                             //column_data_type: "rendered_html",
@@ -248,13 +248,13 @@
                             //filter_default_label: [0,100],
                         },
                         {
-                            column_number: 20,
+                            column_number: 18,
                             filter_type: "range_number_slider",
                             ignore_char: '%',
                             //filter_default_label: "Select " + header[20],
                         },
                         {
-                            column_number: 21,
+                            column_number: 19,
                             filter_type: "range_number_slider",
                             ignore_char: '%',
                             filter_default_label: "Select " + header[21],
@@ -274,7 +274,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main_content" runat="server">
     <form runat="server">
-        <div class="mdl-card mdl-shadow--6dp" style="width: 100%">
+        <div class="mdl-card mdl-shadow--6dp" style="width: 100%;">
             <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
                 <h2 class="mdl-card__title-text">Student Data</h2>
             </div>
@@ -286,9 +286,9 @@
                         <thead>
                             <tr>
                                 <th>Sr No.</th>
-                                <th>fName</th>
-                                <th>mName</th>
-                                <th>lName</th>
+                                <th>Name</th>
+                                <%--<th>mName</th>
+                                <th>lName</th>--%>
                                 <th>Email</th>
                                 <th>Gender</th>
                                 <th>Maritial</th>
@@ -313,8 +313,8 @@
                             <tr>
                                 <th>Sr No.</th>
                                 <th></th>
-                                <th></th>
-                                <th></th>
+                                <%--<th></th>
+                                <th></th>--%>
                                 <th></th>
                                 <th></th>
                                 <th></th>
