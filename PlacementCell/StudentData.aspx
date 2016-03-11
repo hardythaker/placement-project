@@ -6,25 +6,29 @@
             height: 100%;
         }
     </style>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-    <link rel="stylesheet" type="html/sandboxed" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.colVis.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
-    <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
-    <script src="scripts/yadcf/jquery.dataTables.yadcf.js"></script>
-    <link href="scripts/yadcf/jquery.dataTables.yadcf.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" /> <%--jquery ui css--%>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css" /> <%--datatable button css--%>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" /> <%--datatable css--%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"> <%--icons on the buttons css--%>
+   
+    
+     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> <%--js jquery 1.12.0--%>
+    
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <%--js jquery UI 1.11.4--%>
+
+    <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script> <%--js Datatable 1.10.11--%>
+    <script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script> <%--js Datatable Buttons 1.1.2--%>
+    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.colVis.min.js"></script> <%--js Datatable Column visibility 1.1.2--%>
+    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script> <%--js Datatable flash for the old browsers--%>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script> <%--js Datatable jszip for extracting xls file in old browsers 2.5.0--%>
+    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script> <%--js Datatable pdf maker 0.1.18--%>
+    <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script> <%--js Datatable pdf fonts 0.1.18--%>
+    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script> <%--js Datatable hml 5 for modern browsers 1.1.2--%>
+    <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script> <%--js Datatable print btn 1.1.2--%>
+    <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script> <%--js Datatable Selection Functionality 1.1.2--%>
+    <script src="https://cdn.rawgit.com/vedmack/yadcf/77b1c8cae2b18c3451ea6811a6f03453ad24d83d/jquery.dataTables.yadcf.js"></script> <%--js yadcf--%>
+    <link href="https://cdn.rawgit.com/vedmack/yadcf/7b37b3142059efc8e2d81c5f6d93d38d81a022bd/jquery.dataTables.yadcf.css" rel="stylesheet" /> <%--yadcf css--%>
     <%--<script src=""></script>
     <script src=""></script>
     <link rel="" type="" href="" />--%>
@@ -32,6 +36,19 @@
         $(document).ready(function () {
             'use strict';
             $("#loader").show();
+            jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+                "anti-the-pre": function (a) {
+                    return a.replace(/^(Ms\.|Mrs\.|Mr\.) /i, "");
+                },
+
+                "anti-the-asc": function (a, b) {
+                    return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+                },
+
+                "anti-the-desc": function (a, b) {
+                    return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+                }
+            });
             $.ajax({
                 url: '/getStudentDataService.asmx/getStudentData',
                 method: 'post',
@@ -90,7 +107,7 @@
                                 text: '<i class="fa fa-print"></i>&nbsp;Print',
                                 titleAttr: 'Print',
                                 exportOptions: {
-                                    columns: [':not(:first-child)', ':visible']
+                                    columns: [!0, ':visible']
                                 }
 
                             },
@@ -118,7 +135,7 @@
                                 }
                             }
                         },
-                        "scrollX": true,
+                        //"scrollX": true,
                         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                         "columnDefs": [
                             {
@@ -134,11 +151,9 @@
                                    'data': null,
                                    render: function (data, type, row)
                                    {
-                                       return data['fname'] + ' ' + data['mname'] + ' ' + data['lname'];
+                                       return '<b>'+ data['fname'] + ' ' + data['mname'] + ' ' + data['lname'] +'</b>';
                                    }
                                },
-                               //{ 'data': 'mname' },
-                               //{ 'data': 'lname' },
                                { 'data': 'email' },
                                { 'data': 'gender' },
                                { 'data': 'maritial' },
@@ -173,13 +188,9 @@
                     [
                         {
                             column_number: 1,
-                            filter_type: "auto_complete",
-                            filter_default_label: "Select " + header[1],
+                            column_data_type: "rendered_html",
+                            filter_type: "auto_complete"
                         },
-                        //{
-                        //    column_number: 2,
-                        //    filter_default_label: "Select " + header[2],
-                        //},
                         {
                             column_number: 3,
                             filter_default_label: "Select " + header[3],
@@ -210,13 +221,15 @@
                         },
                         {
                             column_number: 10,
-                            filter_type: "range_number_slider"
+                            filter_type: "range_number_slider",
+                            filter_plugin_options: { step: 1 }
                             //filter_default_label: "Select " + header[10],
                         },
                         {
                             column_number: 11,
                             //column_number: 19,
-                            filter_type: "range_number_slider"
+                            filter_type: "range_number_slider",
+                            filter_plugin_options: { step: 1 }
                             //filter_default_label: "Select " + header[11],
                         },
                         {
@@ -242,7 +255,8 @@
                         {
                             column_number: 17,
                             filter_type: "range_number_slider",
-                            ignore_char: "%",
+                            ignore_char: '%',
+                            filter_plugin_options: { step: 0.01 }
                             //column_data_type: "rendered_html",
                             //html_data_type: "text"
                             //filter_default_label: [0,100],
@@ -251,13 +265,14 @@
                             column_number: 18,
                             filter_type: "range_number_slider",
                             ignore_char: '%',
+                            filter_plugin_options: { step: 0.01 }
                             //filter_default_label: "Select " + header[20],
                         },
                         {
                             column_number: 19,
                             filter_type: "range_number_slider",
                             ignore_char: '%',
-                            filter_default_label: "Select " + header[21],
+                            filter_plugin_options: { step: 0.01 }
                         },
                     ],
                     'footer',

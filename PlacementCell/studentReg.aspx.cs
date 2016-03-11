@@ -24,7 +24,7 @@ namespace PlacementCell
 
         protected void btnStudentReg_Click(object sender, EventArgs e)
         {
-            if (isValidEmail == true)
+            if (isValidEmail == true && signup_emailid.Text != null)
             {
                 //collecting data from form
                 string fname = signup_fname.Text;
@@ -102,7 +102,7 @@ namespace PlacementCell
         {
             //UpdateProgress1.Visible = false;
             stdusername_tb_regex_validator.Validate();
-            if (stdusername_tb_regex_validator.IsValid)
+            if (stdusername_tb_regex_validator.IsValid && signup_emailid.Text != null)
             {
                 string error;
                 string id;// no use of this ID here;it is for forgot pass token link;

@@ -105,6 +105,8 @@
                             <asp:ListItem Value="8">BBI</asp:ListItem>
                             <asp:ListItem Value="9">BFM</asp:ListItem>--%>
                         </asp:DropDownList>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ForeColor="Red" runat="server" InitialValue="0" ErrorMessage="*" ControlToValidate="listClass" Display="Dynamic" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
+
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label for="option1" class="mdl-typography--body-2-force-preferred-font-color-contrast">Gender :</label>
                             <label class="mdl-radio  mdl-js-radio mdl-js-ripple-effect" for="option-1">
