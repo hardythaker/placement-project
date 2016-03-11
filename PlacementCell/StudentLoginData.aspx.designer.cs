@@ -10,6 +10,6 @@
 namespace PlacementCell {
     
     
-    public partial class showMembers {
+    public partial class StudentLoginData {
     }
 }

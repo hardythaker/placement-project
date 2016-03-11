@@ -126,7 +126,7 @@
     <Content Include="dataUpdatedSuccessfully.aspx" />
     <Content Include="editNotice.aspx" />
     <Content Include="forgotpass.aspx" />
-    <Content Include="getStudentDataService.asmx" />
+    <Content Include="StudentDataService.asmx" />
     <Content Include="home.aspx" />
     <Content Include="changePass.aspx" />
     <Content Include="images\calendar-icon.png" />
@@ -197,7 +197,7 @@
     <Content Include="scripts\yadcf\jquery.dataTables.yadcf.css" />
     <Content Include="scripts\yadcf\jquery.dataTables.yadcf.js" />
     <Content Include="showFullEventHtml.aspx" />
-    <Content Include="showMembers.aspx" />
+    <Content Include="StudentLoginData.aspx" />
     <Content Include="StudentData.aspx" />
     <Content Include="studentHome.aspx" />
     <Content Include="studentLogin.aspx" />
@@ -330,8 +330,8 @@
     <Compile Include="forgotpass.aspx.designer.cs">
       <DependentUpon>forgotpass.aspx</DependentUpon>
     </Compile>
-    <Compile Include="getStudentDataService.asmx.cs">
-      <DependentUpon>getStudentDataService.asmx</DependentUpon>
+    <Compile Include="StudentDataService.asmx.cs">
+      <DependentUpon>StudentDataService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="home.aspx.cs">
@@ -372,12 +372,12 @@
     <Compile Include="showFullEventHtml.aspx.designer.cs">
       <DependentUpon>showFullEventHtml.aspx</DependentUpon>
     </Compile>
-    <Compile Include="showMembers.aspx.cs">
-      <DependentUpon>showMembers.aspx</DependentUpon>
+    <Compile Include="StudentLoginData.aspx.cs">
+      <DependentUpon>StudentLoginData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="showMembers.aspx.designer.cs">
-      <DependentUpon>showMembers.aspx</DependentUpon>
+    <Compile Include="StudentLoginData.aspx.designer.cs">
+      <DependentUpon>StudentLoginData.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

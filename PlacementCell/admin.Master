@@ -107,12 +107,11 @@
             <span class="mdl-layout-title">Welcome Admin</span>
             <nav class="mdl-navigation">
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="home.aspx">Home</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="addNewPage.aspx">Add new Page</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="StudentData.aspx">Student Data</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="showMembers.aspx">Members</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="notices.aspx">Notices</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="achievments.aspx">Achievments</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="#">Change Password</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="addNewPage.aspx">Add new Page</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="StudentData.aspx">Student Data</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="StudentLoginData.aspx">Student Login Data</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="contact.aspx">Contact</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="about.aspx">About</a>
             </nav>
@@ -128,7 +127,8 @@
                         <div class="mdl-mini-footer__left-section">
                             <div class="mdl-logo mdl-typography--body-2-force-preferred-font-color-contrast" style="display: inline-flex">
                                 <div style="padding-top: 5px"><i class="material-icons">copyright</i></div>
-                                &nbsp; By Hardik Thaker</div>
+                                &nbsp; By Hardik Thaker
+                            </div>
                             <br>
                             <%--<ul style="left:0px" class="mdl-mini-footer__link-list"--%>
                             <div style="display: inline-flex">
@@ -142,10 +142,18 @@
                             <%--</ul>--%>
                         </div>
                         <div class="mdl-mini-footer__right-section">
-                            <a href="http://instagram.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__instagram social-btn"></button></a>
-                            <a href="https://plus.google.com/u/0/109397890308622152669" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__gplus social-btn"></button></a>
-                            <a href="http://facebook.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__blogger social-btn"></button></a>
-                            <a href="http://twiter.com/hardythaker" target="_blank"><button class="mdl-mini-footer__social-btn social-btn__twitter social-btn"></button></a>
+                            <a href="http://instagram.com/hardythaker" target="_blank">
+                                <button class="mdl-mini-footer__social-btn social-btn__instagram social-btn"></button>
+                            </a>
+                            <a href="https://plus.google.com/u/0/109397890308622152669" target="_blank">
+                                <button class="mdl-mini-footer__social-btn social-btn__gplus social-btn"></button>
+                            </a>
+                            <a href="http://facebook.com/hardythaker" target="_blank">
+                                <button class="mdl-mini-footer__social-btn social-btn__blogger social-btn"></button>
+                            </a>
+                            <a href="http://twiter.com/hardythaker" target="_blank">
+                                <button class="mdl-mini-footer__social-btn social-btn__twitter social-btn"></button>
+                            </a>
                             <%--<br>--%>
                             <p class="mdl-typography--body-2-force-preferred-font-color-contrast">Designed and Developed by Hardik Thaker & Rithu Dhanki.</p>
                         </div>

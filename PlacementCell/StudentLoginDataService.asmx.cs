@@ -30,7 +30,6 @@ namespace PlacementCell
                 while (dtr.Read())
                 {
                     StudentLoginDetails sld = new StudentLoginDetails();
-                    sld.student_id = dtr[0].ToString();
                     sld.fname = dtr[1].ToString();
                     sld.lname = dtr[2].ToString();
                     sld.branch = dtr[3].ToString();
