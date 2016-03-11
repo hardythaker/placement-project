@@ -126,6 +126,8 @@
     <Content Include="dataUpdatedSuccessfully.aspx" />
     <Content Include="editNotice.aspx" />
     <Content Include="forgotpass.aspx" />
+    <Content Include="scripts\jquery-dateFormat.min.js" />
+    <Content Include="scripts\jquery.dateFormat.js" />
     <Content Include="StudentDataService.asmx" />
     <Content Include="home.aspx" />
     <Content Include="changePass.aspx" />

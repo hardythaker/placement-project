@@ -26,34 +26,19 @@
     <%--<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>--%> <%--js Datatable pdf fonts 0.1.18--%>
     <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.html5.min.js"></script> <%--js Datatable hml 5 for modern browsers 1.1.2--%>
     <%--<script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>--%> <%--js Datatable print btn 1.1.2--%>
+    <script src="scripts/jquery-dateFormat.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script> <%--js Datatable Selection Functionality 1.1.2--%>
     <script src="https://cdn.rawgit.com/vedmack/yadcf/77b1c8cae2b18c3451ea6811a6f03453ad24d83d/jquery.dataTables.yadcf.js"></script> <%--js yadcf--%>
     <link href="https://cdn.rawgit.com/vedmack/yadcf/7b37b3142059efc8e2d81c5f6d93d38d81a022bd/jquery.dataTables.yadcf.css" rel="stylesheet" /> <%--yadcf css--%>
 <%--    <script src="https://cdn.datatables.net/fixedheader/3.1.1/js/dataTables.fixedHeader.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.1/css/fixedHeader.dataTables.min.css" />--%>
     <%--<script src=""></script>
-    <script src=""></script>
+    <script src=""></script><script src="scripts/jquery-dateFormat.min.js"></script>
     <link rel="" type="" href="" />--%>
     <script type="text/javascript">
         $(document).ready(function () {
             'use strict';
             $("#loader").show();
-            var fullDate = new Date();
-            var twoDigitMonth = fullDate.getMonth()+"";
-            if(twoDigitMonth.length==1)	twoDigitMonth="0" +twoDigitMonth;
-            var twoDigitDate = fullDate.getDate()+"";
-            if(twoDigitDate.length==1)	twoDigitDate="0" +twoDigitDate;
-            var currentDate = twoDigitDate + "-" + twoDigitMonth + "-" + fullDate.getFullYear();
-            function formatTimeOfDay(millisSinceEpoch) {
-                var secondsSinceEpoch = (millisSinceEpoch / 1000) | 0;
-                var secondsInDay = ((secondsSinceEpoch % 86400) + 86400) % 86400;
-                var seconds = secondsInDay % 60;
-                var minutes = ((secondsInDay / 60) | 0) % 60;
-                var hours = (secondsInDay / 3600) | 0;
-                return hours + (minutes < 10 ? "-0" : "-")
-                    + minutes + (seconds < 10 ? "-0" : "-")
-                    + seconds;
-            };
             $.ajax({
                 url: '/StudentDataService.asmx/getStudentData',
                 method: 'post',
@@ -93,7 +78,7 @@
                             //},
                             {
                                 extend: 'excel',
-                                title: 'TPC SKS Student Data' + currentDate+' '+ formatTimeOfDay($.now()),
+                                title: 'TPC SKS Student Data' +' ' +$.format.date(new Date($.now()), "ddd-MMM-yyyy hh-mm a"),
                                 text: '<i class="fa fa-file-excel-o"></i>&nbsp;XLS',
                                 titleAttr: 'XLS',
                                 exportOptions: {
