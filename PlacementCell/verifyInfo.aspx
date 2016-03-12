@@ -55,7 +55,7 @@
                 <div>
                     <label style="font-size: 20px">
                         If You Want to Change the Email ID Click
-                        <asp:LinkButton ID="LinkButton1" runat="server">Here</asp:LinkButton>.</label>
+                        <asp:LinkButton ID="btn_changeSvvMailID" OnClick="btn_changeSvvMailID_Click" runat="server">Here</asp:LinkButton>.</label>
                 </div>
                 <div>
                 </div>

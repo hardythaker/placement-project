@@ -10,7 +10,7 @@
 namespace PlacementCell {
     
     
-    public partial class verifyInfo {
+    public partial class ChangeSvvEmailId {
         
         /// <summary>
         /// ScriptManager1 control.
@@ -22,49 +22,40 @@ namespace PlacementCell {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// great control.
+        /// form_content control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label great;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl form_content;
         
         /// <summary>
-        /// but control.
+        /// tb_newSvvMailId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label but;
+        protected global::System.Web.UI.WebControls.TextBox tb_newSvvMailId;
         
         /// <summary>
-        /// btn_changeSvvMailID control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btn_changeSvvMailID;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// resend control.
+        /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label resend;
-        
-        /// <summary>
-        /// hideResendMailBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hideResendMailBtn;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
         /// UpdatePanel1 control.
@@ -76,22 +67,31 @@ namespace PlacementCell {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// LinkButton2 control.
+        /// lbl_isValid_isInvalid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        protected global::System.Web.UI.WebControls.Label lbl_isValid_isInvalid;
         
         /// <summary>
-        /// Label1 control.
+        /// btn_ChangeSvvMailId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.LinkButton btn_ChangeSvvMailId;
+        
+        /// <summary>
+        /// lbl_changeSvvEmailId_Status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_changeSvvEmailId_Status;
         
         /// <summary>
         /// UpdateProgress1 control.

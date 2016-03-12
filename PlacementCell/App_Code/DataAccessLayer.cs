@@ -305,6 +305,39 @@ namespace PlacementCell
                 return true;
             }
         }
+        public static bool isStudentEmailIdChangedSuccessfully(string currentSvvMailID, string newSvvMailID, out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_changeSvvMailId", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("@currentSvvID", MySqlDbType.VarChar).Value = currentSvvMailID;
+                        command.Parameters.Add("@newSvvID", MySqlDbType.VarChar).Value = newSvvMailID;
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else
+                        {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return true;
+            }
+        }
 
         public static bool isStdPersonalDetailsUpdated(string svv, string honorifics, string fname, string mname, string lname, string email, string gender, string maritial, string mobileno, string dob, out string error)
         {

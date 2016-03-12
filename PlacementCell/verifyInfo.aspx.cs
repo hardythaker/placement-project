@@ -14,13 +14,10 @@ namespace PlacementCell
         {
             if (!IsPostBack)
             {
-                //if (Request.QueryString["svvmailid"] == null)
-                //{
-                //    Response.Redirect("home.aspx");
-                //}
-                //else {
-                    string attempt = "1";//HashGenerator.URLDecrypt(Request.QueryString["attempt"]);
-                    string email = "a";//HashGenerator.URLDecrypt(Request.QueryString["svvmailid"]);
+                if (Request.QueryString["svvmailid"] != null)
+                {
+                    string attempt = HashGenerator.URLDecrypt(Request.QueryString["attempt"]);
+                    string email = HashGenerator.URLDecrypt(Request.QueryString["svvmailid"]);
                     if (attempt == "1")
                     {
                         great.Text = "Thank you <u>" + email + "</u>";
@@ -38,7 +35,10 @@ namespace PlacementCell
                     else {
                         Response.Write("Invalid Attempt");
                     }
-               // }
+                }
+                else {
+                    Response.Redirect("home.aspx");
+                }
             }
         }
 
@@ -53,7 +53,8 @@ namespace PlacementCell
                     if (verified != "1")
                     {
                         string msgType = "verification";//dont change this. it is for slecting the type of email msg body.
-                        if (SendMailManager.sendMail(dec_svvmail_id,msgType, out error))
+                        SendMailManager resendMail = new SendMailManager();
+                        if (resendMail.sendMail(dec_svvmail_id, msgType, out error))
                         {
                             if (error == null)
                             {
@@ -79,6 +80,12 @@ namespace PlacementCell
                 Label1.Text = "Your Email ID is Already Verified...";
             }
 
+        }
+
+        protected void btn_changeSvvMailID_Click(object sender, EventArgs e)
+        {
+            string enc_currentSvvMailId = Request.QueryString["svvmailid"];
+            Response.Redirect("ChangeSvvEmailId.aspx?SvvMailId=" + enc_currentSvvMailId);
         }
     }
 }

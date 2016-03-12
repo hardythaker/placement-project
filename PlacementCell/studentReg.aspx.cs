@@ -46,8 +46,9 @@ namespace PlacementCell
                     else {
                         isValidEmail = false;
                         string mailerror;
-                        string msgType = "verification";//dont change this. it is for slecting the type of email msg body.
-                        if (SendMailManager.sendMail(signup_emailid.Text.Trim(),msgType, out mailerror))
+                        SendMailManager regmail = new SendMailManager();
+                        string msgType = "verification";//dont change this. it is for slecting the type of email msg body
+                        if (regmail.sendMail(signup_emailid.Text.Trim(), msgType, out mailerror))
                         {
                             if (mailerror == null)
                             {

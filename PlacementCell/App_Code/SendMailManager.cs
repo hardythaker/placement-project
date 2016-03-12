@@ -9,7 +9,7 @@ namespace PlacementCell
 {
     internal class SendMailManager
     {
-        public static bool sendMail(string emailid,string msgType,out string mailerror) {
+        public bool sendMail(string emailid,string msgType,out string mailerror) {
             string error;
             string id;
             string sp_name = "sp_isStdEmailIdExist";

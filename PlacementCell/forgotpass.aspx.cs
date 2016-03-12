@@ -23,7 +23,8 @@ namespace PlacementCell
             string email = tb_forgotEmailID.Text;
             string mailError;
             string msgType = "forgotPass";//dont change this. it is for slecting the type of email msg body.
-            if (SendMailManager.sendMail(email, msgType, out mailError))
+            SendMailManager forgotPassMail = new SendMailManager();
+            if (forgotPassMail.sendMail(email, msgType, out mailError))
             {
                 if (mailError == null)
                 {
