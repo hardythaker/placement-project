@@ -305,7 +305,7 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static bool isStudentEmailIdChangedSuccessfully(string currentSvvMailID, string newSvvMailID, out string error)
+        public static bool isStudentEmailIdChangedSuccessfully(string currentSvvMailID, string newSvvMailID,string newPasswordHash, out string error)
         {
             try
             {
@@ -314,8 +314,9 @@ namespace PlacementCell
                     using (MySqlCommand command = new MySqlCommand("sp_changeSvvMailId", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("@currentSvvID", MySqlDbType.VarChar).Value = currentSvvMailID;
-                        command.Parameters.Add("@newSvvID", MySqlDbType.VarChar).Value = newSvvMailID;
+                        command.Parameters.Add("@currentSvvMailId", MySqlDbType.VarChar).Value = currentSvvMailID;
+                        command.Parameters.Add("@newSvvMailID", MySqlDbType.VarChar).Value = newSvvMailID;
+                        command.Parameters.Add("@newPasswordHash", MySqlDbType.VarChar).Value = newPasswordHash;
                         connection.Open();
                         int affectedRows = command.ExecuteNonQuery();
                         connection.Close();

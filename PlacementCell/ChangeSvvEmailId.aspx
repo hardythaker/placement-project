@@ -31,29 +31,68 @@
                 <h2 class="mdl-card__title-text">Registration Successfull</h2>
             </div>
             <br />
-            <div runat="server" id="form_content">
+            <asp:Label ID="lbl_forAuthentectionFirstTime" runat="server" Text=""></asp:Label>
+            <div id="form_content" runat="server">
                 <div>
-                    <label for="tb_newSvvMailId">Enter Your SvvMail ID:</label>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <asp:TextBox class="mdl-textfield__input" ID="tb_newSvvMailId" runat="server" TextMode="Email" placeholder="Enter Your Svv Mail ID..." />
-                        <label class="mdl-textfield__label" for="sample"><b></b></label>
+                    <div>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Always">
+                            <ContentTemplate>
+                                <div>
+                                    <label for="tb_newSvvMailId">SvvMail ID:</label>
+                                    <div class="mdl-textfield mdl-js-textfield">
+                                        <asp:TextBox class="mdl-textfield__input" ID="tb_newSvvMailId" OnTextChanged="tb_newSvvMailId_TextChanged" AutoPostBack="true" runat="server" TextMode="Email" placeholder="Enter Your Svv Mail ID..." />
+                                        <label class="mdl-textfield__label" for="sample"><b></b></label>
+                                    </div>
+                                    <div>
+                                        <asp:Label ID="lbl_isValid_isInvalid" runat="server" Text=""></asp:Label>
+                                    </div>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="tb_newSvvMailId" ForeColor="Red" Font-Size="Large" Display="Dynamic"></asp:RequiredFieldValidator>
+                                </div>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="tb_newSvvMailId" />
+                            </Triggers>
+                        </asp:UpdatePanel>
+                        <asp:UpdateProgress ID="UpdateProgress2" runat="server" AssociatedUpdatePanelID="UpdatePanel2">
+                            <ProgressTemplate>
+                                <span class="mdl-spinner mdl-js-spinner is-active" id="loader"></span>
+                            </ProgressTemplate>
+                        </asp:UpdateProgress>
                     </div>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="tb_newSvvMailId" ForeColor="Red" Font-Size="Large" Display="Dynamic"></asp:RequiredFieldValidator>
+                    <div>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Inavlid Svv Mail ID" ValidationExpression="^[A-Za-z0-9](\.?[A-Za-z0-9_-]){0,}@somaiya\.edu" ControlToValidate="tb_newSvvMailId" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </div>
                 </div>
                 <div>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Inavlid Svv Mail ID" ValidationExpression="^[A-Za-z0-9](\.?[A-Za-z0-9_-]){0,}@somaiya\.edu" ControlToValidate="tb_newSvvMailId" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
+                    <div>
+                        <label for="tb_newPassword">Password:</label>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <asp:TextBox class="mdl-textfield__input" ID="tb_newPassword" runat="server" TextMode="Email" placeholder="Enter New Password or Same..." />
+                            <label class="mdl-textfield__label" for="sample"><b></b></label>
+                        </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="tb_newPassword" ForeColor="Red" Font-Size="Large" Display="Dynamic"></asp:RequiredFieldValidator>
+                    </div>
+                    <div>
+                        <label for="tb_RenewPassword">Confirm Password:</label>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <asp:TextBox class="mdl-textfield__input" ID="tb_RenewPassword" runat="server" TextMode="Email" placeholder="Re-Enter New Password or Same..." />
+                            <label class="mdl-textfield__label" for="sample"><b></b></label>
+                        </div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="tb_RenewPassword" ForeColor="Red" Font-Size="Large" Display="Dynamic"></asp:RequiredFieldValidator>
+                    </div>
+                    <div>
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Password Not Matched" ControlToCompare="tb_newPassword" ControlToValidate="tb_RenewPassword" Display="Dynamic"></asp:CompareValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage='&lt;br/&gt;Password Must be 6-12 Characters Long &lt;br/&gt; With at Least One Numeric, &lt;br/&gt; One Alphabet and One Special Character.' ValidationExpression="(?=^.{6,12}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+}{&quot;:;'?/>.<,])(?!.*\s).*$" ControlToValidate="tb_newPassword" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
+                    </div>
                 </div>
-
                 <br />
                 <div>
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
-                            <div>
-                                <asp:Label ID="lbl_isValid_isInvalid" runat="server" Text=""></asp:Label>
-                            </div>
                             <div>
                                 <asp:LinkButton ID="btn_ChangeSvvMailId" CssClass="mdl-button mdl-button--raised mdl-color--accent mdl-color-text--white mdl-shadow--8dp" OnClick="btn_ChangeSvvMailId_Click" runat="server"><span class="material-icons mdl-color-text--white">edit</span>Change Mail</asp:LinkButton>
                             </div>
+                            <br />
                             <div>
                                 <asp:Label ID="lbl_changeSvvEmailId_Status" runat="server" Text=""></asp:Label>
                             </div>
@@ -69,7 +108,6 @@
                     </asp:UpdateProgress>
                 </div>
                 <br />
-
             </div>
         </div>
     </form>

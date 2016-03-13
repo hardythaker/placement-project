@@ -84,8 +84,25 @@ namespace PlacementCell
 
         protected void btn_changeSvvMailID_Click(object sender, EventArgs e)
         {
-            string enc_currentSvvMailId = Request.QueryString["svvmailid"];
-            Response.Redirect("ChangeSvvEmailId.aspx?SvvMailId=" + enc_currentSvvMailId);
+            string dec_currentSvvMailId = HashGenerator.URLDecrypt(Request.QueryString["svvmailid"]);
+            string sp_name = "sp_isStdEmailIdExist";
+            string error,id;
+            if (DataAccessLayer.isEmailIDExist_getItsID(dec_currentSvvMailId, sp_name, out error, out id))
+            {
+                if (error == null & id != null)
+                {
+                    string enc_currentSvvMailId = HashGenerator.URLEncrypt(dec_currentSvvMailId);
+                    string enc_IdOfTheUser = HashGenerator.URLEncrypt(id);// this is because if on changeEmail page if some one write any email id in query string he must also provide the id(which is primarry key in the database). so he dont know the id of that person in the database and he cant change the email id and pass.  
+                    Response.Redirect("ChangeSvvEmailId.aspx?svvmailid=" + enc_currentSvvMailId + "&token=" + enc_IdOfTheUser);// token is nothing but the id stored in the database it is just to obscure the atacker
+                }
+                else {
+                    Response.Write(error);
+                }
+            }
+            else
+            {
+                Response.Redirect("home.aspx");//if someone mannuly enter the worng svv mail id in the url 
+            }
         }
     }
 }
