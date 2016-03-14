@@ -15,7 +15,7 @@ namespace PlacementCell
                 DataSet ds = DataAccessLayer.fetchClassDivision();
                 DataTable dt = ds.Tables[0];
                 listClass.DataSource = dt;
-                listClass.DataTextField = "branch";
+                listClass.DataTextField = "branch_name";
                 listClass.DataValueField = "branch_id";
                 listClass.DataBind();
                 listClass.Items.Insert(0, new ListItem("--Stream--", "0"));

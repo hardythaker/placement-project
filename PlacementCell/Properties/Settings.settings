@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PlacementCell.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DbType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">mysql</Value>
+    </Setting>
+    <Setting Name="DbConnection" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server=MYSQL5014.myASP.NET;Database=db_9f3130_tis;Uid=9f3130_tis;Pwd=123456789;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
