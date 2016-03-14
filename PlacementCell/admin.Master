@@ -113,9 +113,9 @@
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="StudentData.aspx">Student Data</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="StudentLoginData.aspx">Student Login Data</a>
                  <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="ManageBranch.aspx">Branch Manager</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="ManageDivision.aspx">Divisions Manager</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="ManageHscBoard.aspx">Hsc Board Manager</a>
-                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="ManageSscBoard.aspx">Ssc Board Manager</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="ManageDivisions.aspx">Divisions Manager</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="ManageHscBoards.aspx">Hsc Board Manager</a>
+                <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="ManageSscBoards.aspx">Ssc Board Manager</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="contact.aspx">Contact</a>
                 <a class="mdl-navigation__link mdl-color-text--grey-100" style="font-size: 15px" href="about.aspx">About</a>
             </nav>

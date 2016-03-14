@@ -142,6 +142,7 @@
     <Content Include="achievments.aspx" />
     <Content Include="addNewPage.aspx" />
     <Content Include="admin.aspx" />
+    <Content Include="AdminEditorTools\js\divisionManager.js" />
     <Content Include="ManageBranch.aspx" />
     <Content Include="AdminEditorTools\css\editor.dataTables.min.css" />
     <Content Include="AdminEditorTools\images\ajax-loader-small.gif" />
@@ -161,6 +162,7 @@
     <Content Include="editNotice.aspx" />
     <Content Include="forgotpass.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="ManageDivisions.aspx" />
     <Content Include="scripts\jquery-dateFormat.min.js" />
     <Content Include="scripts\jquery.dateFormat.js" />
     <Content Include="StudentDataService.asmx" />
@@ -316,6 +318,7 @@
     <Compile Include="admin.Master.designer.cs">
       <DependentUpon>admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\DivisionController.cs" />
     <Compile Include="ManageBranch.aspx.cs">
       <DependentUpon>ManageBranch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,7 +394,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ManageDivisions.aspx.cs">
+      <DependentUpon>ManageDivisions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageDivisions.aspx.designer.cs">
+      <DependentUpon>ManageDivisions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\BranchModel.cs" />
+    <Compile Include="Models\DivisionModel.cs" />
     <Compile Include="Models\StudentLoginDataModel.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

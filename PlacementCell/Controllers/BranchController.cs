@@ -24,7 +24,9 @@ namespace PlacementCell.Controllers
             {
                 var response = new Editor(db, "branch", "branch_id")
                     .Model<BranchModel>()
-                    .Field(new Field("branch_name"))
+                    .Field(new Field("branch_name")
+                        .Validator(Validation.NotEmpty())
+                    )
                     .Process(request)
                     .Data();
                 return Json(response);
