@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace PlacementCell
 {
-    public partial class ManageDivisions : System.Web.UI.Page
+    public partial class ManageSscBoards : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["admin_username"] == null)
-            {
-                Response.Redirect("home.aspx");
-            }
+
         }
     }
 }

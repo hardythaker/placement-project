@@ -143,6 +143,8 @@
     <Content Include="addNewPage.aspx" />
     <Content Include="admin.aspx" />
     <Content Include="AdminEditorTools\js\divisionManager.js" />
+    <Content Include="AdminEditorTools\js\hscBoardManager.js" />
+    <Content Include="AdminEditorTools\js\sscBoardManager.js" />
     <Content Include="ManageBranch.aspx" />
     <Content Include="AdminEditorTools\css\editor.dataTables.min.css" />
     <Content Include="AdminEditorTools\images\ajax-loader-small.gif" />
@@ -163,6 +165,8 @@
     <Content Include="forgotpass.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ManageDivisions.aspx" />
+    <Content Include="ManageHscBoards.aspx" />
+    <Content Include="ManageSscBoards.aspx" />
     <Content Include="scripts\jquery-dateFormat.min.js" />
     <Content Include="scripts\jquery.dateFormat.js" />
     <Content Include="StudentDataService.asmx" />
@@ -319,6 +323,8 @@
       <DependentUpon>admin.Master</DependentUpon>
     </Compile>
     <Compile Include="Controllers\DivisionController.cs" />
+    <Compile Include="Controllers\HscBoardsController.cs" />
+    <Compile Include="Controllers\SscBoardsController.cs" />
     <Compile Include="ManageBranch.aspx.cs">
       <DependentUpon>ManageBranch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -401,8 +407,24 @@
     <Compile Include="ManageDivisions.aspx.designer.cs">
       <DependentUpon>ManageDivisions.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageHscBoards.aspx.cs">
+      <DependentUpon>ManageHscBoards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageHscBoards.aspx.designer.cs">
+      <DependentUpon>ManageHscBoards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageSscBoards.aspx.cs">
+      <DependentUpon>ManageSscBoards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageSscBoards.aspx.designer.cs">
+      <DependentUpon>ManageSscBoards.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\BranchModel.cs" />
     <Compile Include="Models\DivisionModel.cs" />
+    <Compile Include="Models\HscBoardsModel.cs" />
+    <Compile Include="Models\SscBoardsModel.cs" />
     <Compile Include="Models\StudentLoginDataModel.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
