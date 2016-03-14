@@ -142,9 +142,11 @@
     <Content Include="achievments.aspx" />
     <Content Include="addNewPage.aspx" />
     <Content Include="admin.aspx" />
+    <Content Include="AdminEditorTools\js\companyManager.js" />
     <Content Include="AdminEditorTools\js\divisionManager.js" />
     <Content Include="AdminEditorTools\js\hscBoardManager.js" />
     <Content Include="AdminEditorTools\js\sscBoardManager.js" />
+    <Content Include="CreateInterviewEvent.aspx" />
     <Content Include="ManageBranch.aspx" />
     <Content Include="AdminEditorTools\css\editor.dataTables.min.css" />
     <Content Include="AdminEditorTools\images\ajax-loader-small.gif" />
@@ -164,6 +166,7 @@
     <Content Include="editNotice.aspx" />
     <Content Include="forgotpass.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="ManageCompany.aspx" />
     <Content Include="ManageDivisions.aspx" />
     <Content Include="ManageHscBoards.aspx" />
     <Content Include="ManageSscBoards.aspx" />
@@ -322,9 +325,17 @@
     <Compile Include="admin.Master.designer.cs">
       <DependentUpon>admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\DivisionController.cs" />
     <Compile Include="Controllers\HscBoardsController.cs" />
     <Compile Include="Controllers\SscBoardsController.cs" />
+    <Compile Include="CreateInterviewEvent.aspx.cs">
+      <DependentUpon>CreateInterviewEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateInterviewEvent.aspx.designer.cs">
+      <DependentUpon>CreateInterviewEvent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageBranch.aspx.cs">
       <DependentUpon>ManageBranch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -400,6 +411,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ManageCompany.aspx.cs">
+      <DependentUpon>ManageCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageCompany.aspx.designer.cs">
+      <DependentUpon>ManageCompany.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ManageDivisions.aspx.cs">
       <DependentUpon>ManageDivisions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -422,6 +440,7 @@
       <DependentUpon>ManageSscBoards.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\BranchModel.cs" />
+    <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\DivisionModel.cs" />
     <Compile Include="Models\HscBoardsModel.cs" />
     <Compile Include="Models\SscBoardsModel.cs" />

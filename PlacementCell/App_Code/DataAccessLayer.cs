@@ -1046,7 +1046,7 @@ namespace PlacementCell
                 }
             }
         }
-        public static DataSet fetchBoard(string sp_name)
+        public static DataSet fetchDataForAnyDropdownList(string sp_name)
         {
             using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
             {

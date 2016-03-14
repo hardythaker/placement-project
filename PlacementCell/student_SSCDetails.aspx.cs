@@ -51,7 +51,7 @@ namespace PlacementCell
         {
             DataSet ds = new DataSet();
             string sp_name = "sp_fetchSscBoards";
-            ds = DataAccessLayer.fetchBoard(sp_name);
+            ds = DataAccessLayer.fetchDataForAnyDropdownList(sp_name);
             boardList.DataSource = ds.Tables[0];
             boardList.DataTextField = "board_name";
             boardList.DataValueField = "board_id";
