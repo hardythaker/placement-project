@@ -142,6 +142,7 @@
     <Content Include="achievments.aspx" />
     <Content Include="addNewPage.aspx" />
     <Content Include="admin.aspx" />
+    <Content Include="ManageBranch.aspx" />
     <Content Include="AdminEditorTools\css\editor.dataTables.min.css" />
     <Content Include="AdminEditorTools\images\ajax-loader-small.gif" />
     <Content Include="AdminEditorTools\images\ajax-loader.gif" />
@@ -149,6 +150,7 @@
     <Content Include="AdminEditorTools\images\close.png" />
     <Content Include="AdminEditorTools\images\shadow_left.png" />
     <Content Include="AdminEditorTools\images\shadow_right.png" />
+    <Content Include="AdminEditorTools\js\branchManager.js" />
     <Content Include="AdminEditorTools\js\dataTables.editor.min.js" />
     <Content Include="adminHome.aspx" />
     <Content Include="adminReg.aspx" />
@@ -314,6 +316,13 @@
     <Compile Include="admin.Master.designer.cs">
       <DependentUpon>admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="ManageBranch.aspx.cs">
+      <DependentUpon>ManageBranch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageBranch.aspx.designer.cs">
+      <DependentUpon>ManageBranch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="adminHome.aspx.cs">
       <DependentUpon>adminHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -356,6 +365,7 @@
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\BranchController.cs" />
     <Compile Include="Controllers\StudentLoginDataController.cs" />
     <Compile Include="dataUpdatedSuccessfully.aspx.cs">
       <DependentUpon>dataUpdatedSuccessfully.aspx</DependentUpon>
@@ -381,6 +391,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BranchModel.cs" />
     <Compile Include="Models\StudentLoginDataModel.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
