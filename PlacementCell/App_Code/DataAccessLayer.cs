@@ -1074,19 +1074,66 @@ namespace PlacementCell
             {
                 using (MySqlCommand command = new MySqlCommand("sp_fetchInterviews", connection))
                 {
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.Add("svvID", MySqlDbType.VarChar).Value = svv_mail_id;
-                    MySqlDataAdapter board = new MySqlDataAdapter();
-                    DataSet dt = new DataSet();
-                    connection.Open();
-                    board.SelectCommand = command;
-                    board.Fill(dt);
-                    connection.Close();
-                    return dt;
+                    using (MySqlCommand command_check = new MySqlCommand("sp_fetchStudentIntrestedData", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command_check.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add("svvID", MySqlDbType.VarChar).Value = svv_mail_id;
+                        command_check.Parameters.Add("svvID", MySqlDbType.VarChar).Value = svv_mail_id;
+
+                        MySqlDataAdapter interview = new MySqlDataAdapter();
+                        MySqlDataAdapter intrested = new MySqlDataAdapter();
+                        DataSet ds = new DataSet();
+                        DataTable dt_interview = new DataTable();
+                        DataTable dt_intrested = new DataTable();
+                        connection.Open();
+                        MySqlTransaction tranCon = connection.BeginTransaction();
+                        interview.SelectCommand = command;
+                        intrested.SelectCommand = command_check;
+                        interview.Fill(dt_interview);
+                        intrested.Fill(dt_intrested);
+                        tranCon.Commit();
+                        connection.Close();
+                        ds.Tables.Add(dt_interview);
+                        ds.Tables.Add(dt_intrested);
+                        return ds;
+                    }
                 }
             }
         }
-
+        public static bool addStudentToIntrested(string svvID, int event_id,out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+                    using (MySqlCommand command = new MySqlCommand("sp_addIntrestedStudent", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add("svvID", MySqlDbType.VarChar).Value = svvID;
+                        command.Parameters.Add("intID", MySqlDbType.Int32).Value = event_id;
+                        connection.Open();
+                        int affectedRows = command.ExecuteNonQuery();
+                        connection.Close();
+                        if (affectedRows == 1)
+                        {
+                            error = null;
+                            return true;
+                        }
+                        else {
+                            error = null;
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return true;
+            }
+        }
 
 
         public static DataSet fetchClassDivision()
