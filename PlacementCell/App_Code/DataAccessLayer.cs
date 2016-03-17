@@ -95,7 +95,7 @@ namespace PlacementCell
             }
         }
 
-        
+
 
         public static bool isMemRegSuccessful(string un, string encPwd)
         {
@@ -305,7 +305,7 @@ namespace PlacementCell
                 return true;
             }
         }
-        public static bool isStudentEmailIdChangedSuccessfully(string currentSvvMailID, string newSvvMailID,string newPasswordHash, out string error)
+        public static bool isStudentEmailIdChangedSuccessfully(string currentSvvMailID, string newSvvMailID, string newPasswordHash, out string error)
         {
             try
             {
@@ -408,6 +408,13 @@ namespace PlacementCell
                 return null;
             }
         }
+        
+        /// <summary>
+        /// For Student Profile Page
+        /// </summary>
+        /// <param name="svvMailID"></param>
+        /// <param name="error"></param>
+        /// <returns></returns>
         public static DataSet fetchStdFullDetailIfExist(string svvMailID, out string error)
         {
             try
@@ -443,10 +450,10 @@ namespace PlacementCell
                                         MySqlDataAdapter adapterOther = new MySqlDataAdapter();
 
                                         DataSet ds = new DataSet();
-                                        DataTable perosnal= new DataTable();
-                                        DataTable ty= new DataTable();
-                                        DataTable hsc= new DataTable();
-                                        DataTable ssc= new DataTable();
+                                        DataTable perosnal = new DataTable();
+                                        DataTable ty = new DataTable();
+                                        DataTable hsc = new DataTable();
+                                        DataTable ssc = new DataTable();
                                         DataTable other = new DataTable();
 
                                         connection.Open();
@@ -945,7 +952,7 @@ namespace PlacementCell
 
 
 
-        public static string getSvvmailOfstdID(string id, out string error)
+        public static string getSvvmailOfstdID(string student_id, out string error)
         {
             try
             {
@@ -954,7 +961,7 @@ namespace PlacementCell
                     using (MySqlCommand command = new MySqlCommand("sp_getSvvMailIDofStdID", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
+                        command.Parameters.Add("@id", MySqlDbType.VarChar).Value = student_id;
                         MySqlDataAdapter adapter = new MySqlDataAdapter();
                         DataTable dt = new DataTable();
                         connection.Open();
@@ -1014,6 +1021,73 @@ namespace PlacementCell
         }
 
 
+        public static bool isInterviewEventCreated(string company_id, string date, string Description, int TyPer, int HscPer, int SscPer,int Backlogs, List<Int32> branch_ids, out string error)
+        {
+            try
+            {
+                using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+                {
+
+                    int affectedRows = 0;
+                    connection.Open();
+                    MySqlTransaction tranCon = connection.BeginTransaction();
+                    foreach(int id in branch_ids)
+                    { 
+                        using (MySqlCommand command = new MySqlCommand("sp_createInterviewEvent", connection))
+                        {
+                            command.CommandType = CommandType.StoredProcedure;
+                            command.Parameters.Add("@cID", MySqlDbType.VarChar).Value = company_id;
+                            command.Parameters.Add("@edate", MySqlDbType.Date).Value = date;
+                            command.Parameters.Add("@description", MySqlDbType.VarChar).Value = Description;
+                            command.Parameters.Add("@typer", MySqlDbType.Int32).Value = TyPer;
+                            command.Parameters.Add("@hscper", MySqlDbType.Int32).Value = HscPer;
+                            command.Parameters.Add("@sscper", MySqlDbType.Int32).Value = SscPer;
+                            command.Parameters.Add("@bklogs", MySqlDbType.Int32).Value = Backlogs;
+                            command.Parameters.Add("@b_id", MySqlDbType.Int32).Value = id;
+                            affectedRows += command.ExecuteNonQuery();
+                        }
+                    }
+
+                    tranCon.Commit();
+                    connection.Close();
+                    if (affectedRows > 1)
+                    {
+                        error = null;
+                        return true;
+                    }
+                    else
+                    {
+                        error = null;
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return true;
+            }
+        }
+        public static DataSet fetchInterviewsEvents(string svv_mail_id)
+        {
+            using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())
+            {
+                using (MySqlCommand command = new MySqlCommand("sp_fetchInterviews", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add("svvID", MySqlDbType.VarChar).Value = svv_mail_id;
+                    MySqlDataAdapter board = new MySqlDataAdapter();
+                    DataSet dt = new DataSet();
+                    connection.Open();
+                    board.SelectCommand = command;
+                    board.Fill(dt);
+                    connection.Close();
+                    return dt;
+                }
+            }
+        }
+
+
 
         public static DataSet fetchClassDivision()
         {
@@ -1046,6 +1120,46 @@ namespace PlacementCell
                 }
             }
         }
+        public static DataSet fetchCompanyClassDivision()
+        {
+            using (MySqlConnection con = new ConnectionManager().GetDatabaseConnection())
+            {
+                using (MySqlCommand cmdComp = new MySqlCommand("sp_fetchCompanies", con))
+                {
+                    using (MySqlCommand cmdClass = new MySqlCommand("sp_fetchBranches", con))
+                    {
+                        //using (MySqlCommand cmdDiv = new MySqlCommand("sp_fetchDivisions", con)) //uncomment all these if you wanted the interviews event division wise and developed the content as pe the need
+                        //{
+                        cmdComp.CommandType = CommandType.StoredProcedure;
+                        cmdClass.CommandType = CommandType.StoredProcedure;
+                        //cmdDiv.CommandType = CommandType.StoredProcedure;
+                        MySqlDataAdapter company = new MySqlDataAdapter();
+                        MySqlDataAdapter classes = new MySqlDataAdapter();
+                        //MySqlDataAdapter division = new MySqlDataAdapter();
+                        DataSet ds = new DataSet();
+                        DataTable d1 = new DataTable();
+                        DataTable d2 = new DataTable();
+                        //DataTable d3 = new DataTable();
+                        con.Open();
+                        MySqlTransaction tranCon = con.BeginTransaction();
+                        company.SelectCommand = cmdComp;
+                        classes.SelectCommand = cmdClass;
+                        //division.SelectCommand = cmdDiv;
+                        company.Fill(d1);
+                        classes.Fill(d2);
+                        //division.Fill(d3);
+                        tranCon.Commit();
+                        con.Close();
+                        ds.Tables.Add(d1);
+                        ds.Tables.Add(d2);
+                        //ds.Tables.Add(d3);
+                        return ds;
+                        // }
+                    }
+                }
+            }
+        }
+
         public static DataSet fetchDataForAnyDropdownList(string sp_name)
         {
             using (MySqlConnection connection = new ConnectionManager().GetDatabaseConnection())

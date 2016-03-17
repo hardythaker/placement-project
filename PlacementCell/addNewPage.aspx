@@ -23,7 +23,7 @@
         <center>
             <div class="mdl-card mdl-shadow--6dp" style="width:75vw">
             <br /><asp:Label ID="Label2" runat="server" Text=""></asp:Label>
-                <p style="color:red" class="mdl-typography--body-2-force-preferred-font-color-contrast">Note : Carefully make changes to ths section.</p>
+                <p style="color:red" class="mdl-typography--body-2-force-preferred-font-color-contrast">Note : Carefully make changes to this section.</p>
                 
                 <div style="display:inline; padding-left:5vw; padding-right:5vw;">
                     <label for="fileTitle" class="mdl-typography--body-2-force-preferred-font-color-contrast" style="font-size:15px">Title :  </label>

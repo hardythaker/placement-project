@@ -147,6 +147,7 @@
     <Content Include="AdminEditorTools\js\hscBoardManager.js" />
     <Content Include="AdminEditorTools\js\sscBoardManager.js" />
     <Content Include="CreateInterviewEvent.aspx" />
+    <Content Include="InterviewDetails.aspx" />
     <Content Include="ManageBranch.aspx" />
     <Content Include="AdminEditorTools\css\editor.dataTables.min.css" />
     <Content Include="AdminEditorTools\images\ajax-loader-small.gif" />
@@ -257,7 +258,9 @@
     <Content Include="student_PersonalDetails.aspx" />
     <Content Include="style\bower.json" />
     <Content Include="style\LICENSE" />
+    <Content Include="style\material.js" />
     <Content Include="style\material.min.css.map" />
+    <Content Include="style\material.min.js" />
     <Content Include="style\material.min.js.map" />
     <Content Include="style\package.json" />
     <Content Include="Site.Master" />
@@ -288,9 +291,7 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="style\material.css" />
-    <Content Include="style\material.js" />
     <Content Include="style\material.min.css" />
-    <Content Include="style\material.min.js" />
     <Content Include="style\StyleSheet.css" />
     <Content Include="verifyEmail.aspx" />
     <Content Include="verifyInfo.aspx" />
@@ -335,6 +336,13 @@
     </Compile>
     <Compile Include="CreateInterviewEvent.aspx.designer.cs">
       <DependentUpon>CreateInterviewEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InterviewDetails.aspx.cs">
+      <DependentUpon>InterviewDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterviewDetails.aspx.designer.cs">
+      <DependentUpon>InterviewDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManageBranch.aspx.cs">
       <DependentUpon>ManageBranch.aspx</DependentUpon>

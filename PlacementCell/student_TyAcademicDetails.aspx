@@ -100,6 +100,7 @@
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="*" ControlToValidate="tb_RollNo" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator10"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_RollNo" ValidationExpression="\d+" Display="Dynamic"></asp:RegularExpressionValidator><br>
             <div style="display: block; padding-left: 5px; padding-right: 5px">
                 <div class="mdl-textfield mdl-js-textfield  mdl-textfield--floating-label">
                     <asp:TextBox MaxLength="2" ID="tb_backlogs" runat="server" class="mdl-textfield__input"></asp:TextBox>
@@ -107,7 +108,7 @@
                 </div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="*" ControlToValidate="tb_backlogs" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
             </div>
-            
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator9"  ForeColor="Red"  runat="server" ErrorMessage="Only Numbers Are Allowed" ControlToValidate="tb_backlogs" ValidationExpression="\d+" Display="Dynamic"></asp:RegularExpressionValidator><br>
             <div id="accordion">
                 <div class="mdl-color--primary" style="height: 40px; text-align: left">
                     <div style='display: inline-flex; vertical-align: central; padding-left: 20px; padding-top: 8px;'>
