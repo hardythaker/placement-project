@@ -1,13 +1,21 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
+using PlacementCell.Properties;
+using PlacementCell.Models;
+using System.Web;
+using System.Web.Http;
 using System.Configuration;
 
 namespace PlacementCell
 {
         internal class ConnectionManager
         {
-            private string connectionString = "Server=MYSQL5014.myASP.NET;Database=db_9f3130_tis;Uid=9f3130_tis;Pwd=123456789;";
-            private MySqlConnection dbcon { get; set; }
+
+        //object settings = Settings.Default;
+        private string connectionString = "Server=MYSQL5016.Smarterasp.net;Database=db_9fa4a3_hardyt;Uid=9fa4a3_hardyt;Pwd=pass@123;";
+        //private string connectionString = Settings.Default.DbConnection;
+
+        private MySqlConnection dbcon { get; set; }
             public MySqlConnection GetDatabaseConnection()
             {
                 if (dbcon == null)

@@ -270,11 +270,9 @@
     <Content Include="newpages\durva.mp3l" />
     <Content Include="newpages\index.htmll" />
     <None Include="PlacementReport.docx" />
-    <None Include="Properties\PublishProfiles\Default Settings %283%29.pubxml" />
-    <None Include="Properties\PublishProfiles\myasp ftp.pubxml" />
-    <None Include="Properties\PublishProfiles\placement cell.pubxml" />
     <Content Include="student.Master" />
     <Content Include="scripts\yadcf\yadcf.jquery.json" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -458,6 +456,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="StudentDataService.asmx.cs">
       <DependentUpon>StudentDataService.asmx</DependentUpon>
       <SubType>Component</SubType>
