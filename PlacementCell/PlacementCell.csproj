@@ -265,7 +265,6 @@
     <Content Include="style\package.json" />
     <Content Include="Site.Master" />
     <Content Include="admin.Master" />
-    <Content Include="ClassDiagram1.cd" />
     <Content Include="images\favicon\manifest.json" />
     <Content Include="newpages\durva.mp3l" />
     <Content Include="newpages\index.htmll" />
