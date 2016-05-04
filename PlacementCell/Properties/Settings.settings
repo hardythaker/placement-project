@@ -6,7 +6,7 @@
       <Value Profile="(Default)">mysql</Value>
     </Setting>
     <Setting Name="DbConnection" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">Server=MYSQL5016.Smarterasp.net;Database=db_9fa4a3_hardyt;Uid=9fa4a3_hardyt;Pwd=pass@123;</Value>
+      <Value Profile="(Default)">Server=MYSQL5016.Smarterasp.net;Database=db_9fa4a3_hardyt;Uid=9fa4a3_hardyt;Pwd=pass@123</Value>
     </Setting>
   </Settings>
 </SettingsFile>

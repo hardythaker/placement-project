@@ -15,7 +15,7 @@ namespace PlacementCell.Controllers
         [Route("api/SscBoardManager")]
         [HttpGet]
         [HttpPost]
-        public IHttpActionResult BranchData()
+        public IHttpActionResult SscBoardData()
         {
             var request = HttpContext.Current.Request;
             var settings = Properties.Settings.Default;

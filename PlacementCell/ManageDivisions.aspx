@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="AdminEditorTools/css/editor.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="AdminEditorTools/js/dataTables.editor.min.js"></script>
+    <script src="AdminEditorTools/js/dataTables.editor.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
     <script type="text/javascript" src="//cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="AdminEditorTools/js/divisionManager.js"></script>

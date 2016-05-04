@@ -7,15 +7,19 @@
         }
     </style>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.1.2/css/select.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="AdminEditorTools/css/editor.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://cdn.rawgit.com/vedmack/yadcf/7b37b3142059efc8e2d81c5f6d93d38d81a022bd/jquery.dataTables.yadcf.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.1.2/css/select.dataTables.min.css" />
+   
+
 
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" src="AdminEditorTools/js/dataTables.editor.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.colVis.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script>
@@ -28,8 +32,7 @@
     <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.print.min.js"></script>
     <%--<script src="//cdn.datatables.net/fixedheader/3.1.1/js/dataTables.fixedHeader.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/fixedheader/3.1.1/css/fixedHeader.dataTables.min.css" />--%>
-    <link rel="stylesheet" type="text/css" href="AdminEditorTools/css/editor.dataTables.min.css">
-    <script type="text/javascript" charset="utf-8" src="AdminEditorTools/js/dataTables.editor.min.js"></script>
+    
     <script type="text/javascript">
         (function ($) {
             $(document).ready(function () {
@@ -53,9 +56,9 @@
                             type: "select",
                             options: [
                                 { label: "0 (Not Verified)", value: "0" },
-                                { label: "1 (Verified)", value: "1" },
+                                { label: "1 (Verified)", value: "1" }
                             ]
-                        },
+                        }
                     ]
                 });
 

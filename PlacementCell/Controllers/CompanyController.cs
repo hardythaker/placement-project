@@ -15,7 +15,7 @@ namespace PlacementCell.Controllers
         [Route("api/CompanyManager")]
         [HttpGet]
         [HttpPost]
-        public IHttpActionResult BranchData()
+        public IHttpActionResult CompanyData()
         {
             var request = HttpContext.Current.Request;
             var settings = Properties.Settings.Default;

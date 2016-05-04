@@ -15,7 +15,7 @@ namespace PlacementCell.Controllers
         [Route("api/HscBoardManager")]
         [HttpGet]
         [HttpPost]
-        public IHttpActionResult BranchData()
+        public IHttpActionResult HscBoardData()
         {
             var request = HttpContext.Current.Request;
             var settings = Properties.Settings.Default;
