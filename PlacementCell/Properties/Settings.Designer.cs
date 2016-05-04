@@ -35,7 +35,7 @@ namespace PlacementCell.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Server=MYSQL5016.Smarterasp.net;Database=db_9fa4a3_hardyt;Uid=9fa4a3_hardyt;Pwd=p" +
-            "ass@123")]
+            "ass@123;")]
         public string DbConnection {
             get {
                 return ((string)(this["DbConnection"]));
