@@ -137,7 +137,7 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ForeColor="Red" runat="server" ErrorMessage="*" ControlToValidate="signup_password" Font-Bold="True" Font-Size="Large"></asp:RequiredFieldValidator>
                 </div>
                 <div style="display: inline;">
-                <label for="re_signup_password" class="mdl-typography--body-2-force-preferred-font-color-contrast">Conform Password :</label>
+                <label for="re_signup_password" class="mdl-typography--body-2-force-preferred-font-color-contrast">Confirm Password :</label>
                     <div class="mdl-textfield mdl-js-textfield">
                         <asp:TextBox class="mdl-textfield__input" type="text" ID="re_signup_password" runat="server" TextMode="Password" placeholder="Re-Enter Your Password..." />
                         <label class="mdl-textfield__label" for="sample"><b></b></label>

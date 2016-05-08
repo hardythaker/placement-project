@@ -9,6 +9,7 @@
     
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" /> <%--jquery ui css--%>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.dataTables.min.css" /> <%--datatable button css--%>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.2.1/css/fixedColumns.dataTables.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" /> <%--datatable css--%>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"> <%--icons on the buttons css--%>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.1.2/css/select.dataTables.min.css" />
@@ -18,6 +19,7 @@
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <%--js jquery UI 1.11.4--%>
 
     <script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script> <%--js Datatable 1.10.11--%>
+    <script src="https://cdn.datatables.net/fixedcolumns/3.2.1/js/dataTables.fixedColumns.min.js"></script> <%--fixed columns script--%>
     <script src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.min.js"></script> <%--js Datatable Buttons 1.1.2--%>
     <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.colVis.min.js"></script> <%--js Datatable Column visibility 1.1.2--%>
     <script src="//cdn.datatables.net/buttons/1.1.2/js/buttons.flash.min.js"></script> <%--js Datatable flash for the old browsers--%>
@@ -51,6 +53,9 @@
                             style: 'multi',
                             blurable: true,
                         },
+                        //fixedColumns: {
+                        //    leftColumns: 2
+                        //},
                         dom: 'Bfrtip',
                         buttons: [
                             'pageLength',
