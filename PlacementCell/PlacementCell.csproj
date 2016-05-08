@@ -147,6 +147,7 @@
     <Content Include="AdminEditorTools\js\hscBoardManager.js" />
     <Content Include="AdminEditorTools\js\sscBoardManager.js" />
     <Content Include="CreateInterviewEvent.aspx" />
+    <Content Include="img\2015-16.jpg" />
     <Content Include="InterviewDetails.aspx" />
     <Content Include="ManageBranch.aspx" />
     <Content Include="AdminEditorTools\images\ajax-loader-small.gif" />

@@ -159,20 +159,20 @@
         </div>
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 900px; height: 300px; overflow: hidden;">
             <div data-p="150.00" style="display: none;">
-                <img data-u="image" src="img/880-sk-somaiyacollege-vidyavihar-mumbai.jpg" />
-                <div data-u="caption" data-t="0" style="position: absolute; top: 520px; left: 20px; width: 350px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;">Impart knowledge through value based education.</div>
+                <img data-u="image" src="img/2015-16.jpg" />
+                <div data-u="caption" data-t="0" style="position: absolute; top: 520px; left: 20px; width: 350px; height: 40px; background-color: rgba(235,81,0,0.5); font-size: 15px; color: #ffffff; line-height: 20px; text-align: center;"><i>Impart knowledge through value based education.</i></div>
             </div>
             <div data-p="150.00" style="display: none;">
                 <img data-u="image" src="img/floor.jpg" />
-                <div data-u="caption" data-t="1" style="position: absolute; top: -50px; left: 125px; width: 350px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;">Promote and facilitate quality research amongst faculty and students.</div>
+                <div data-u="caption" data-t="1" style="position: absolute; top: -50px; left: 125px; width: 350px; height: 40px; background-color: rgba(235,81,0,0.5); font-size: 15px; color: #ffffff; line-height: 20px; text-align: center;"><i>Promote and facilitate quality research amongst faculty and students.</i></div>
             </div>
             <div data-p="150.00" style="display: none;">
                 <img data-u="image" src="img/lobby.jpg" />
-                <div data-u="caption" data-t="2" style="position: absolute; top: 250px; left: 500px; width: 350px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;">Provide a learning continuum and make pedagogy more student centric.</div>
+                <div data-u="caption" data-t="2" style="position: absolute; top: 250px; left: 500px; width: 350px; height: 40px; background-color: rgba(235,81,0,0.5); font-size: 15px; color: #ffffff; line-height: 20px; text-align: center;"><i>Provide a learning continuum and make pedagogy more student centric.</i></div>
             </div>
              <div data-p="150.00" style="display: none;">
-                <img data-u="image" src="img/floor.jpg" />
-                <div data-u="caption" data-t="1" style="position: absolute; top: -50px; left: 125px; width: 350px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;"></div>
+                <img data-u="image" src="img/880-sk-somaiyacollege-vidyavihar-mumbai.jpg" />
+                <div data-u="caption" data-t="1" style="position: absolute; top: -50px; left: 125px; width: 350px; height: 40px; background-color: rgba(235,81,0,0.5); font-size: 15px; color: #ffffff; line-height: 20px; text-align: center;"><i>In Year 2015-16 250 Students got Placed</i></div>
             </div>
         </div>
         <!-- Bullet Navigator -->
