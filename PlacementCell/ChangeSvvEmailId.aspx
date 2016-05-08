@@ -40,7 +40,7 @@
                                 <div>
                                     <label for="tb_newSvvMailId">SvvMail ID:</label>
                                     <div class="mdl-textfield mdl-js-textfield">
-                                        <asp:TextBox class="mdl-textfield__input" ID="tb_newSvvMailId" OnTextChanged="tb_newSvvMailId_TextChanged" AutoPostBack="true" runat="server" TextMode="Email" placeholder="Enter Your Svv Mail ID..." />
+                                        <asp:TextBox class="mdl-textfield__input" ID="tb_newSvvMailId" OnTextChanged="tb_newSvvMailId_TextChanged"  AutoPostBack="true" runat="server" TextMode="Email" placeholder="Enter Your Svv Mail ID..." />
                                         <label class="mdl-textfield__label" for="sample"><b></b></label>
                                     </div>
                                     <div>
@@ -67,7 +67,7 @@
                     <div>
                         <label for="tb_newPassword">Password:</label>
                         <div class="mdl-textfield mdl-js-textfield">
-                            <asp:TextBox class="mdl-textfield__input" ID="tb_newPassword" runat="server" TextMode="Email" placeholder="Enter New Password or Same..." />
+                            <asp:TextBox class="mdl-textfield__input" ID="tb_newPassword"  runat="server" TextMode="Password" placeholder="Enter New Password or Same..." />
                             <label class="mdl-textfield__label" for="sample"><b></b></label>
                         </div>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="tb_newPassword" ForeColor="Red" Font-Size="Large" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -75,7 +75,7 @@
                     <div>
                         <label for="tb_RenewPassword">Confirm Password:</label>
                         <div class="mdl-textfield mdl-js-textfield">
-                            <asp:TextBox class="mdl-textfield__input" ID="tb_RenewPassword" runat="server" TextMode="Email" placeholder="Re-Enter New Password or Same..." />
+                            <asp:TextBox class="mdl-textfield__input" ID="tb_RenewPassword" runat="server" TextMode="Password" placeholder="Re-Enter New Password or Same..." />
                             <label class="mdl-textfield__label" for="sample"><b></b></label>
                         </div>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="tb_RenewPassword" ForeColor="Red" Font-Size="Large" Display="Dynamic"></asp:RequiredFieldValidator>
